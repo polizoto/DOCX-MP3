@@ -259,6 +259,8 @@ For example, if a DOCX file needs to be converted for a student who prefers the 
 2. In the terminal enter the `-n` flag (for the name of the TTS), press space, and then enter the name of the TTS voice.
 3. In the terminal enter the `-s` flag (for the speed of the TTS), press space, and then enter the speed of the TTS voice (`-10` through `10`).
 4. Press Enter.
+
+
 **Notes:**
 - Do NOT use these flags when there are DOCX files in your folder for students with different TTS preferences. Convert one DOCX at a time, instead.
 
