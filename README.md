@@ -221,7 +221,6 @@ And enter the following tag after the foreign language text:
 
 ## Simple Usage
 1. From a Git Bash window, enter the path to the script (/c/scripts/DOCX-MP3.sh)
-
 2. Press Enter and wait for the conversion to complete.
 
 **Notes:**
@@ -237,16 +236,16 @@ And enter the following tag after the foreign language text:
 
 ## Assigning Properties to the MP3
 DOCX-MP3.sh allows you to add the following properties to the MP3:
-     - author = the name of the author of a book (`-a` flag)
-     - publication (album) = the name of the book or course (e.g., Soc 101 bCourse) (`-p` flag)
-     - track = the number of the track (if there are MP3s for one book) (`-t` flag)
+- author = the name of the author of a book (`-a` flag)
+- publication (album) = the name of the book or course (e.g., Soc 101 bCourse) (`-p` flag)
+- track = the number of the track (if there are MP3s for one book) (`-t` flag)
 
 For example, if a folder contains a number of DOCX files that go with the “Tom Sawyer” text, you can follow these steps to assign the same author and same publication  to each one of them:
-      1. From a Git Bash window, enter the path to the script (/c/scripts/DOCX-MP3.sh)
-      2. In the terminal enter the `-a` flag (for the author’s name), press space, and then
-      3. enter the name of the author, using quotes if there are any spaces in the name of the author.
-      4. In the terminal enter the `-p` flag (for the name of the publication), press space, and then enter the name of the book or Course, using quotes if there are any spaces in the name of the publication.
-      5. Press Enter
+1. From a Git Bash window, enter the path to the script (/c/scripts/DOCX-MP3.sh)
+2. In the terminal enter the `-a` flag (for the author’s name), press space, and then
+3. Enter the name of the author, using quotes if there are any spaces in the name of the author.
+4. In the terminal enter the `-p` flag (for the name of the publication), press space, and then enter the name of the book or Course, using quotes if there are any spaces in the name of the publication.
+5. Press Enter
 **Notes:**
 - Do NOT use these flags when the DOCX files in your folder are for different booksbCourses
 
@@ -256,11 +255,10 @@ DOCX-MP3.sh allows you to add the adjust the following TTS settings to the MP3:
 - speed = the name of the TTS speed (`-s` flag)
 
 For example, if a DOCX file needs to be converted for a student who prefers the Mark voice at `4` speed, you can follow these steps to assign all the voice and speed to the DOCX files:
-
-   1.From a Git Bash window, enter the path to the script (/c/scripts/DOCX-MP3.sh)
-   2. In the terminal enter the `-n` flag (for the name of the TTS), press space, and then enter the name of the TTS voice.
-   3. In the terminal enter the `-s` flag (for the speed of the TTS), press space, and then enter the speed of the TTS voice (`-10` through `10`).
-   4. Press Enter.
+1. From a Git Bash window, enter the path to the script (/c/scripts/DOCX-MP3.sh)
+2. In the terminal enter the `-n` flag (for the name of the TTS), press space, and then enter the name of the TTS voice.
+3. In the terminal enter the `-s` flag (for the speed of the TTS), press space, and then enter the speed of the TTS voice (`-10` through `10`).
+4. Press Enter.
 **Notes:**
 - Do NOT use these flags when there are DOCX files in your folder for students with different TTS preferences. Convert one DOCX at a time, instead.
 
@@ -271,11 +269,10 @@ DOCX-MP3.sh allows you to add language switches to the MP3 so that a passage in 
 `###2`…`%%%` = second secondary language etc.
 
 For example, if a DOCX in your folder is in English but contains passages in Italian and in German, you can follow these steps to assign the appropriate language switches to the passages in the MP3:
-
-   1. From a Git Bash window, enter the path to the script (/c/scripts/DOCX-MP3.sh)
-   2. In the terminal enter the `-l` flag (for language), press space, and then enter the value of the 1st secondary language (`it` for Italian).
-   3. In the terminal enter the `-l` flag (for language), press space, and then enter the value of the 2nd secondary language (`de`  for German).
-   4. Press Enter.
+1. From a Git Bash window, enter the path to the script (/c/scripts/DOCX-MP3.sh)
+2. In the terminal enter the `-l` flag (for language), press space, and then enter the value of the 1st secondary language (`it` for Italian).
+3. In the terminal enter the `-l` flag (for language), press space, and then enter the value of the 2nd secondary language (`de`  for German).
+4. Press Enter.
 
 **Notes:**
 - `###1`....`%%%` tags cannot span paragraphs in the DOCX. You CANNOT use `@@@` tags (as is possible with the DOCX-HTML.sh script.
@@ -285,19 +282,19 @@ For example, if a DOCX in your folder is in English but contains passages in Ita
 DOCX-MP3.sh allows you to convert math equations in a DOCX to a more natural sounding “mathspeak”  in the MP3. To convert math equations in the DOCX to mathspeak in the MP3, the DOCX must have math equations as OMML (Office Math Markup Language) or MS Word equation format. 
 
 If a DOCX in your folder contains math equations, you can use the following steps to convert these to mathspeak.
-      1. From a Git Bash window, enter the path to the script (/c/scripts/DOCX-MP3.sh)
-      2. In the terminal enter the `-m` flag (for math)
-      3. Press Enter.
+1. From a Git Bash window, enter the path to the script (/c/scripts/DOCX-MP3.sh)
+2. In the terminal enter the `-m` flag (for math)
+3. Press Enter.
 
 **Notes:**
 Remember to use GrindEQ MathType to MS Word to convert MathType equations to OMML format before using DOCX-MP3.sh
 
 ## Reading Terminal Output 
 When you run DOCX-MP3.sh, you may see that there are messages warning you about the presence of items in your document that you may wish to remove:
-   - Footnotes
-   - Tables
-   - Secondary text areas
-   - Footnote text areas
+- Footnotes
+- Tables
+- Secondary text areas
+- Footnote text areas
 
 Unless otherwise noted, you should remove ALL of these items, if they are detected, when prompted..
 
