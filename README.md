@@ -4,7 +4,7 @@ Create MP3 Files From DOCX. (Currently for PC only)
 ## Requirements
 - [Git for Windows](https://git-scm.com/download/win) - We recommend these [general installation instructions for Git for Windows](https://phoenixnap.com/kb/how-to-install-git-windows)
 - [Pandoc](https://pandoc.org/installing.html)
-- [Balcon.exe](http://www.cross-plus-a.com/balcon.zip)
+- [Balcon](http://www.cross-plus-a.com/balcon.zip)
 - [Lame - 64 bit](https://www.rarewares.org/files/mp3/lame3.100.1-x64.zip) OR [Lame - 32 bit](https://www.rarewares.org/files/mp3/lame3.100.1-win32.zip)
 - [ID3](https://resource.dopus.com/uploads/default/original/3X/9/5/95a7771be4fdbbfee19729fecc456048bd14efe5.zip)
 - [FFMPEG](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z)
