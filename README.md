@@ -22,8 +22,36 @@ Create MP3 Files From DOCX
 - [Additional SAPI 5 Voices](https://support.microsoft.com/en-us/topic/download-voices-for-immersive-reader-read-mode-and-read-aloud-4c83a8d8-7486-42f7-8e46-2b0fdf753130) (For More Languages); See these instructions for [making these voices available systemwide]()
 - [eSpeak](http://espeak.sf.net/download.html) (for additional voices, including Latin and Ancient Greek)
 
-## Setup
-1. 
+## General Setup
+1. Download the DOCX-MP3.sh script to your [PC](https://github.com/polizoto/DOCX-HTML/blob/main/DOCX-HTML_mac.sh)
+2. Place the script in an easy-to-locate folder (`C:\scripts\` for PC)
+3. Create a "MP3 Cover" folder in your `C:\` drive (PC). Name your default cover image "Default_Cover.jpg"
+4. Download the executables for Balcon, Lame, id3, and FFMPEG and add the path to these executables to your Environmental Variables (requires admin rights):
+  - Windows Start > Edit System Variables > Environment Variables
+  - In the System variables group, select the Path variable and click Edit...
+  - In the Edit Environment variable window, click New
+  - Paste the path to the Lame executable (C:\Program Files (x86)\Balcon)
+  - Click New again
+  - Paste the path to the Lame executable (C:\Program Files (x86)\Lame)
+  - Click New again
+  - Paste the path to the id3 executable (C:\Program Files (x86)\id3)
+  - Click New again
+  - Paste the path to the FFMPEG executable (C:\Program Files (x86)\FFMPEG)
+  - Click OK three times
+5. Place Tasklist.exe in the `C:\scripts\` folder (PC only)
+
+### Optional Setup for processing math equations:
+1. Install Node.js
+2. Open the terminal and type `npm install -g mathjax-node-cli` and `npm install -g mathjax-node-sre`
+3. Edit the environmental variables on your machine to include the path to the mathjax-node-cli\bin and node_modules folders, respectively. These should be located here:
+  - C:\Users\YOUR-NAME\AppData\Roaming\npm\node_modules
+  - C:\Users\YOUR-NAME\AppData\Roaming\npm\node_modules\mathjax-node-cli\bin
+### Optional Setup for creating MP3 bookmarks
+1. Install Aeneas using the Windows installer file above (this will install multiple programs, include Python 3)
+2. Open the terminal and type `pip3 install mp3chaps`
+
+### Optional Setup for processing multiple languges:
+1.
 
 ## Features
 
