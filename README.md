@@ -46,9 +46,9 @@ Create MP3 Files From DOCX
 3. Open the terminal and type  `npm install -g mathjax-node-sre` and press Enter. Wait for the installation to complete
 4. Edit the environmental variables on your machine to include the path to the mathjax-node-cli\bin and node_modules folders, respectively. These should be located here:
 
-            - C:\Users\YOUR-NAME\AppData\Roaming\npm\node_modules
+            C:\Users\YOUR-NAME\AppData\Roaming\npm\node_modules
           
-            - C:\Users\YOUR-NAME\AppData\Roaming\npm\node_modules\mathjax-node-cli\bin
+            C:\Users\YOUR-NAME\AppData\Roaming\npm\node_modules\mathjax-node-cli\bin
 
 ### Optional Setup for creating MP3 bookmarks
 1. Install Aeneas using the Windows installer file above (this will install multiple programs, include Python 3)
@@ -147,7 +147,6 @@ Some voices (Latin, Lithuanian, Estonian, Farsi, and Afrikaans) must be installe
 3. Press Next and proceed with the installation
 
 4. Open a new terminal window and type `balcon -l` to confirm that the voices are now available. You should see the following:
-
       - eSpeak-mb-la1 (Latin)
       - eSpeak-mb-ee1 (Estonian)
       - eSpeak-mb-af1 (Afrikaans)
