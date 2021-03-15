@@ -1019,15 +1019,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "grc" ] ; then
 
 eval secondlanguage$count="Ancient-Greek"
@@ -1035,15 +1026,6 @@ eval secondlanguage$count="Ancient-Greek"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "el" ] ; then
 
@@ -1053,15 +1035,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "it" ] ; then
 
 eval secondlanguage$count="Italian"
@@ -1069,15 +1042,6 @@ eval secondlanguage$count="Italian"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "af" ] ; then
 
@@ -1087,15 +1051,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "ar-sa" ] ; then
 
 eval secondlanguage$count="Arabic\ -\ Saudi\ Arabia"
@@ -1103,15 +1058,6 @@ eval secondlanguage$count="Arabic\ -\ Saudi\ Arabia"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "ar-eg" ] ; then
 
@@ -1121,15 +1067,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "ms" ] ; then
 
 eval secondlanguage$count="Malaysian"
@@ -1137,15 +1074,6 @@ eval secondlanguage$count="Malaysian"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "bg" ] ; then
 
@@ -1155,15 +1083,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "ca" ] ; then
 
 eval secondlanguage$count="Catalan"
@@ -1171,15 +1090,6 @@ eval secondlanguage$count="Catalan"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "cs" ] ; then
 
@@ -1189,15 +1099,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "da" ] ; then
 
 eval secondlanguage$count="Danish"
@@ -1205,15 +1106,6 @@ eval secondlanguage$count="Danish"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "de" ] ; then
 
@@ -1223,16 +1115,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "de-at" ] ; then
 
 eval secondlanguage$count="German\ -\ Austria"
@@ -1240,16 +1122,6 @@ eval secondlanguage$count="German\ -\ Austria"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "de-ch" ] ; then
 
@@ -1259,15 +1131,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "en-au" ] ; then
 
 eval secondlanguage$count="English\ -\ Australia"
@@ -1275,15 +1138,6 @@ eval secondlanguage$count="English\ -\ Australia"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "en-ca" ] ; then
 
@@ -1293,15 +1147,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "en-gb" ] ; then
 
 eval secondlanguage$count="English\ -\ Great Britain"
@@ -1309,15 +1154,6 @@ eval secondlanguage$count="English\ -\ Great Britain"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "en-in" ] ; then
 
@@ -1327,15 +1163,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "en-ie" ] ; then
 
 eval secondlanguage$count="English\ -\ Ireland"
@@ -1343,15 +1170,6 @@ eval secondlanguage$count="English\ -\ Ireland"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "en-us" ] ; then
 
@@ -1361,15 +1179,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "es" ] ; then
 
 eval secondlanguage$count="Spanish\ -\ Spain"
@@ -1377,15 +1186,6 @@ eval secondlanguage$count="Spanish\ -\ Spain"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "es-mx" ] ; then
 
@@ -1395,15 +1195,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "et" ] ; then
 
 eval secondlanguage$count="Estonian"
@@ -1411,15 +1202,6 @@ eval secondlanguage$count="Estonian"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "fa" ] ; then
 
@@ -1429,15 +1211,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "fi" ] ; then
 
 eval secondlanguage$count="Finnish"
@@ -1445,15 +1218,6 @@ eval secondlanguage$count="Finnish"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "fr" ] ; then
 
@@ -1463,16 +1227,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "fr-ca" ] ; then
 
 eval secondlanguage$count="French\ -\ Canada"
@@ -1480,16 +1234,6 @@ eval secondlanguage$count="French\ -\ Canada"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "fr-ch" ] ; then
 
@@ -1499,15 +1243,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "he" ] ; then
 
 eval secondlanguage$count="Hebrew"
@@ -1515,15 +1250,6 @@ eval secondlanguage$count="Hebrew"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "hi" ] ; then
 
@@ -1533,15 +1259,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "hr" ] ; then
 
 eval secondlanguage$count="Croatian"
@@ -1549,15 +1266,6 @@ eval secondlanguage$count="Croatian"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "hu" ] ; then
 
@@ -1567,15 +1275,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "id" ] ; then
 
 eval secondlanguage$count="Indonesian"
@@ -1583,15 +1282,6 @@ eval secondlanguage$count="Indonesian"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "ja" ] ; then
 
@@ -1601,15 +1291,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "ko" ] ; then
 
 eval secondlanguage$count="Korean"
@@ -1617,15 +1298,6 @@ eval secondlanguage$count="Korean"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "lt" ] ; then
 
@@ -1635,15 +1307,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "nl" ] ; then
 
 eval secondlanguage$count="Dutch\ -\ Netherlands"
@@ -1651,15 +1314,6 @@ eval secondlanguage$count="Dutch\ -\ Netherlands"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "nl-be" ] ; then
 
@@ -1669,15 +1323,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "no" ] ; then
 
 eval secondlanguage$count="Norwegian"
@@ -1685,15 +1330,6 @@ eval secondlanguage$count="Norwegian"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "pl" ] ; then
 
@@ -1703,15 +1339,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "pt" ] ; then
 
 eval secondlanguage$count="Portuguese\ -\ Portugal"
@@ -1719,15 +1346,6 @@ eval secondlanguage$count="Portuguese\ -\ Portugal"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "pt-br" ] ; then
 
@@ -1737,15 +1355,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "ro" ] ; then
 
 eval secondlanguage$count="Romanian"
@@ -1753,15 +1362,6 @@ eval secondlanguage$count="Romanian"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "ru" ] ; then
 
@@ -1771,16 +1371,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "sk" ] ; then
 
 eval secondlanguage$count="Slovak"
@@ -1788,16 +1378,6 @@ eval secondlanguage$count="Slovak"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "sl" ] ; then
 
@@ -1807,16 +1387,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "sv" ] ; then
 
 eval secondlanguage$count="Swedish"
@@ -1824,16 +1394,6 @@ eval secondlanguage$count="Swedish"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "ta" ] ; then
 
@@ -1843,16 +1403,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "th" ] ; then
 
 eval secondlanguage$count="Thai"
@@ -1860,16 +1410,6 @@ eval secondlanguage$count="Thai"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "tr" ] ; then
 
@@ -1879,16 +1419,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "vi" ] ; then
 
 eval secondlanguage$count="Vietnamese"
@@ -1896,16 +1426,6 @@ eval secondlanguage$count="Vietnamese"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "zh-cn" ] ; then
 
@@ -1915,15 +1435,6 @@ shift
 
 fi
 
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
-
 if [ "$val" == "zh-hk" ] ; then
 
 eval secondlanguage$count="Chinese\ -\ Hong\ Kong"
@@ -1931,15 +1442,6 @@ eval secondlanguage$count="Chinese\ -\ Hong\ Kong"
 shift
 
 fi
-
-count=$[ $count +1 ]
-
-done
-
-shift $((OPTIND -1))
-
-count=1
-for val in "${language[@]}"; do
 
 if [ "$val" == "zh-tw" ] ; then
 
@@ -1949,9 +1451,18 @@ shift
 
 fi
 
+if [ "$val" == "grc" ] ; then
+
+eval secondlanguage$count="Ancient\ Greek"
+
+shift
+
+fi
+
 count=$[ $count +1 ]
 
 done
+
   # Make David the default voice variable when the -n option is not used
 
         if [[ "$name" == "" ]]; then 
@@ -3098,11 +2609,6 @@ for x in ./*.docx; do
 		secondary=""
 		footnote_text=""
 		table=""
-		secondlanguage1=""
-		secondlanguage2=""
-		secondlanguage3=""
-		secondlanguage4=""
-		secondlanguage5=""
 		textbook=""
 		novel=""
 		split=""
