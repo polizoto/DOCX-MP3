@@ -225,7 +225,7 @@ And enter the following tag after the foreign language text:
 
 2. Press Enter and wait for the conversion to complete.
 
-Notes:
+**Notes:**
 
 - The MP3 file will be created in a folder with the same name as the DOCX file. 
 - A copy of the DOCX file will be created in a folder entitled Converted-DOCX-MP3 
@@ -246,7 +246,7 @@ For example, if a folder contains a number of DOCX files that go with the “Tom
       1. From a Git Bash window, enter the path to the script (/c/scripts/DOCX-MP3.sh)
       2. In the terminal enter the `-a` flag (for the author’s name), press space, and then
       3. enter the name of the author, using quotes if there are any spaces in the name of the author.
-      4. In the terminal enter the `-p` flag (for the name of the publication), press space, and then enter the name of the book / bCourse, using quotes if there are any spaces in the name of the publication.
+      4. In the terminal enter the `-p` flag (for the name of the publication), press space, and then enter the name of the book or Course, using quotes if there are any spaces in the name of the publication.
       5. Press Enter
 **Notes:**
 - Do NOT use these flags when the DOCX files in your folder are for different booksbCourses
@@ -268,8 +268,8 @@ For example, if a DOCX file needs to be converted for a student who prefers the 
 ## Adding Language Switches to the MP3
 DOCX-MP3.sh allows you to add language switches to the MP3 so that a passage in a different (secondary) language than the base language will be pronounced by the correct TTS voice. To add multiple language switches to the MP3, the DOCX must have the following tags:
 
-`###1…%%%` = first secondary language
-`###2…%%%` = second secondary language etc.
+`###1`…`%%%` = first secondary language
+`###2`…`%%%` = second secondary language etc.
 
 For example, if a DOCX in your folder is in English but contains passages in Italian and in German, you can follow these steps to assign the appropriate language switches to the passages in the MP3:
 
@@ -310,3 +310,6 @@ For example, if a file that you are converting contains footnotes and footnote t
 **Notes:**
 If you keep the footnotes, there will be a pause before and after the footnote as well as a pitch change in the MP3.
 If you keep the secondary text or footnote areas, there will be a pause before and after these areas as well as a pitch change announcing “Secondary Text” or “Footnote Text”.
+
+## Sample Files
+
