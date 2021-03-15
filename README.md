@@ -325,6 +325,6 @@ If there are multiple languages in your DOCX file, you will need to use the `-l`
 
 ### Example 3: Mathematics Content
 
-[Math_Test.docx]() | [Math_Test.mp3]()
+[Math_Test.docx](https://www.dropbox.com/s/mmd1htycv8e1zyd/Math_test.docx?dl=0) | [Math_Test.mp3](https://www.dropbox.com/s/3cs0g800wqt2b8u/Math_Test.mp3?dl=0)
 
 ## Further Resources
