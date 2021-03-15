@@ -45,7 +45,9 @@ Create MP3 Files From DOCX
 2. Open the terminal and type `npm install -g mathjax-node-cli` and press Enter. Wait for installation to complete
 3. Open the terminal and type  `npm install -g mathjax-node-sre` and press Enter. Wait for the installation to complete
 4. Edit the environmental variables on your machine to include the path to the mathjax-node-cli\bin and node_modules folders, respectively. These should be located here:
+
             - C:\Users\YOUR-NAME\AppData\Roaming\npm\node_modules
+          
             - C:\Users\YOUR-NAME\AppData\Roaming\npm\node_modules\mathjax-node-cli\bin
 
 ### Optional Setup for creating MP3 bookmarks
