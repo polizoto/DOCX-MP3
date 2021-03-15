@@ -53,6 +53,7 @@ Create MP3 Files From DOCX
 ### Optional Setup for creating MP3 bookmarks
 1. Install Aeneas using the Windows installer file above (this will install multiple programs, include Python 3)
 2. Open the terminal and type `pip3 install mp3chaps`. Wait for the installation to complete.
+3. Place the `Sentence-Boundary-original.pl` file and the `HONORIFICS` file in your `C:\scripts\` folder
 
 ### Optional Setup for downloading other Microsoft SAPI 5 voices (for other languages):
 1.Select the Start button, then select Settings > Time & Language > Region & Language and Select Speech.
@@ -111,20 +112,37 @@ Create MP3 Files From DOCX
             - Zhiwei    [Chinese - Taiwan]
 
 5. Locate the modified registry file for the voice(s) that you have installed here:
-
-[Registry Files for Voices Not Available Systemwide]()
-
-**Note:** The registry file will have the same name as the voice followed by an ‘m’.
-
+            [Registry Files for Voices Not Available Systemwide]()
 6. Drag the registry file to your C:\  drive and double click on it.
 7. Click Yes when prompted to modify the registry
 8. Open a new GitBash window and type `balcon -l` to confirm that the voices are now available.
 
+**Note:** The registry file will have the same name as the voice followed by an ‘m’.
 
+### Optional Setup for Adding Voices from Espeak
 
-And some voices (Latin, Lithuanian, Estonian, Farsi, and Afrikaans) must be installed by installing E-Speak. (see below)
+Some voices (Latin, Lithuanian, Estonian, Farsi, and Afrikaans) must be installed by installing E-Speak and typing the name of these voices
 
+1. Download and run the Espeak executable:
 
+[eSpeak]()
+
+2. When prompted by the installer, enter the value(s) for the voice you wish to install. For example:
+                  `mb-la1` (for Latin)
+                  `mb-ee1` (for Estonian)
+                  `mb-af1` (for Afrikaans)
+                  `mb-ir1` (for Farsi)
+                  `mb-lt1` (for Lithuanian)
+                  `grc`    (for Ancient Greek)
+
+3. Press Next and proceed with the installation
+4. Open a new GitBash window and type `balcon -l` to confirm that the voices are now available. You should see the following:
+
+      - eSpeak-mb-la1 (Latin)
+      - eSpeak-mb-ee1 (Estonian)
+      - eSpeak-mb-af1 (Afrikaans)
+      - eSpeak-mb-ir1 (Farsi)
+      - eSpeak-mb-lt1 (Lithuanian)
 
 ## Features
 
