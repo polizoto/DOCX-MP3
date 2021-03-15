@@ -120,7 +120,7 @@ Create MP3 Files From DOCX
 5. Locate the modified registry file for the voice(s) that you have installed here:
             [Registry Files for Voices Not Available Systemwide]()
 
-6. Drag the registry file to your C:\  drive and double click on it.
+6. Drag the registry file to your `C:\`  drive and double click on it.
 
 7. Click Yes when prompted to modify the registry
 
@@ -134,7 +134,7 @@ Some voices (Latin, Lithuanian, Estonian, Farsi, and Afrikaans) must be installe
 
 1. Download and run the Espeak executable:
 
-     [eSpeak]()
+     [eSpeak](http://espeak.sourceforge.net/download.html)
 
 2. When prompted by the installer, enter the value(s) for the voice you wish to install. For example:
                   `mb-la1` (for Latin)
@@ -295,17 +295,16 @@ Remember to use GrindEQ MathType to MS Word to convert MathType equations to OMM
 
 ## Reading Terminal Output 
 When you run DOCX-MP3.sh, you may see that there are messages warning you about the presence of items in your document that you may wish to remove:
-      - Footnotes
-      - Tables
-      - Secondary text areas
-      - Footnote text areas
+   - Footnotes
+   - Tables
+   - Secondary text areas
+   - Footnote text areas
 
 Unless otherwise noted, you should remove ALL of these items, if they are detected, when prompted..
 
 For example, if a file that you are converting contains footnotes and footnote text areas, please follow these steps:
      1. After the question “Do you wish to keep the footnotes?”, type N.
      2. After the question  “Do you wish to keep footnote text areas?”, type N.
-
 
 **Notes:**
 If you keep the footnotes, there will be a pause before and after the footnote as well as a pitch change in the MP3.
