@@ -118,7 +118,7 @@ Create MP3 Files From DOCX
 
 
 5. Locate the modified registry file for the voice(s) that you have installed here:
-            [Registry Files for Voices Not Available Systemwide]()
+            [Registry Files for Voices Not Available Systemwide](https://www.dropbox.com/s/9op04duwuco6cll/Registry%20Files%20for%20Voices%20Not%20Available%20Systemwide.zip?dl=0)
 
 6. Drag the registry file to your `C:\`  drive and double click on it.
 
@@ -147,11 +147,12 @@ Some voices (Latin, Lithuanian, Estonian, Farsi, and Afrikaans) must be installe
 3. Press Next and proceed with the installation
 
 4. Open a new terminal window and type `balcon -l` to confirm that the voices are now available. You should see the following:
-      - eSpeak-mb-la1 (Latin)
-      - eSpeak-mb-ee1 (Estonian)
-      - eSpeak-mb-af1 (Afrikaans)
-      - eSpeak-mb-ir1 (Farsi)
-      - eSpeak-mb-lt1 (Lithuanian)
+- eSpeak-mb-la1 (Latin)
+- eSpeak-mb-ee1 (Estonian)
+- eSpeak-mb-af1 (Afrikaans)
+- eSpeak-mb-ir1 (Farsi)
+- eSpeak-mb-lt1 (Lithuanian)
+- eSpeak-grc (Ancient Greek)
 
 ## Features
 
@@ -277,7 +278,7 @@ For example, if a DOCX in your folder is in English but contains passages in Ita
 4. Press Enter.
 
 **Notes:**
-- `###1`....`%%%` tags cannot span paragraphs in the DOCX. You CANNOT use `@@@` tags (as is possible with the DOCX-HTML.sh script.
+- `###1`....`%%%` tags cannot span paragraphs in the DOCX. You CANNOT use `@@@` tags (as is possible with the DOCX-HTML.sh script).
 - Please see the instructions about installing TTS voices.
 
 ## Converting Math Equations to MathSpeak
@@ -289,7 +290,7 @@ If a DOCX in your folder contains math equations, you can use the following step
 3. Press Enter.
 
 **Notes:**
-Remember to use GrindEQ MathType to MS Word to convert MathType equations to OMML format before using DOCX-MP3.sh
+Remember to use [GrindEQ MathType to Equation](https://www.grindeq.com/index.php?p=mathtype2equation&lang=en) to convert MathType equations to OMML format before using DOCX-MP3.sh
 
 ## Reading Terminal Output 
 When you run DOCX-MP3.sh, you may see that there are messages warning you about the presence of items in your document that you may wish to remove:
@@ -301,12 +302,29 @@ When you run DOCX-MP3.sh, you may see that there are messages warning you about 
 Unless otherwise noted, you should remove ALL of these items, if they are detected, when prompted..
 
 For example, if a file that you are converting contains footnotes and footnote text areas, please follow these steps:
-     1. After the question “Do you wish to keep the footnotes?”, type N.
-     2. After the question  “Do you wish to keep footnote text areas?”, type N.
+1. After the question “Do you wish to keep the footnotes?”, type N.
+2. After the question  “Do you wish to keep footnote text areas?”, type N.
 
 **Notes:**
 If you keep the footnotes, there will be a pause before and after the footnote as well as a pitch change in the MP3.
 If you keep the secondary text or footnote areas, there will be a pause before and after these areas as well as a pitch change announcing “Secondary Text” or “Footnote Text”.
 
 ## Sample Files
+See the following documents for examples of DOCX files with "MS Word tags" and their MP3 versions.
 
+### Example 1: Novel
+
+[Novel.docx]() | [Novel.mp3]()
+
+### Example 2: Foreign Languages
+
+[Foreign_Languages.docx]() | [Foreign_Languages.mp3]()
+
+**Notes:**
+If there are multiple languages in your DOCX file, you will need to use the `-l` flagand you must enter the [ISO language code](https://www.loc.gov/standards/iso639-2/php/code_list.php) for each secondary language(s). Use the -l option before each ISO language code if there are multiple secondary languages. For example, `'/c/scripts/DOCX-HTML.sh' -l it -l fr`. In this example, there are two secondary languages, Italian (it) and French (fr). These are marked with `###1` and `###2`, respectively, in the MS Word document. See the [MS WORD Tags document](https://www.dropbox.com/s/lhogh996v2itfzq/MS%20Word%20Tags-DOCX-HTML.docx?dl=0) for more information about usage.
+
+### Example 3: Mathematics Content
+
+[Math_Test.docx]() | [Math_Test.mp3]()
+
+## Further Resources
