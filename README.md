@@ -8,7 +8,7 @@ Create MP3 Files From DOCX. (Currently for PC only)
 - [Lame - 64 bit](https://www.rarewares.org/files/mp3/lame3.100.1-x64.zip) OR [Lame - 32 bit](https://www.rarewares.org/files/mp3/lame3.100.1-win32.zip)
 - [ID3](https://resource.dopus.com/uploads/default/original/3X/9/5/95a7771be4fdbbfee19729fecc456048bd14efe5.zip)
 - [FFMPEG](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z)
-- [MP3 Cover]()
+- [MP3 Cover](https://github.com/polizoto/DOCX-MP3/tree/main/MP3%20Cover)
 - [Tasklist.exe](https://www.computerhope.com/download/winxp.htm)
 
 ## Optional
