@@ -66,8 +66,11 @@ Create MP3 Files From DOCX
 ### Optional Setup for making Microsoft SAPI 5 voices available systemide
 
 1. Start > Create a System Restore Point and Press Create
+
 2. Type a name for your Restore Point (e.g., Pre - Microsoft SAPI 5 Voices) and Press Create
+
 3. Make sure you have the Microsoft voices installed using the steps in the previous section. You can check by going to Settings > Time and Language > Speech and selecting Choose a voice (drop down menu).
+
 4. Identify the voice that you have installed (for the language you need) but that is not available system wide. See the list below:
 
             - Naayf     [Arabic-Saudi Arabia]
@@ -111,10 +114,14 @@ Create MP3 Files From DOCX
             - Tracy     [Chinese - Hong Kong]
             - Zhiwei    [Chinese - Taiwan]
 
+
 5. Locate the modified registry file for the voice(s) that you have installed here:
             [Registry Files for Voices Not Available Systemwide]()
+
 6. Drag the registry file to your C:\  drive and double click on it.
+
 7. Click Yes when prompted to modify the registry
+
 8. Open a new GitBash window and type `balcon -l` to confirm that the voices are now available.
 
 **Note:** The registry file will have the same name as the voice followed by an ‘m’.
@@ -125,7 +132,7 @@ Some voices (Latin, Lithuanian, Estonian, Farsi, and Afrikaans) must be installe
 
 1. Download and run the Espeak executable:
 
-[eSpeak]()
+            [eSpeak]()
 
 2. When prompted by the installer, enter the value(s) for the voice you wish to install. For example:
                   `mb-la1` (for Latin)
@@ -136,6 +143,7 @@ Some voices (Latin, Lithuanian, Estonian, Farsi, and Afrikaans) must be installe
                   `grc`    (for Ancient Greek)
 
 3. Press Next and proceed with the installation
+
 4. Open a new GitBash window and type `balcon -l` to confirm that the voices are now available. You should see the following:
 
       - eSpeak-mb-la1 (Latin)
