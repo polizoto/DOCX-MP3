@@ -9,7 +9,7 @@ Create MP3 Files From DOCX. (Currently for PC only)
 - [ID3](https://resource.dopus.com/uploads/default/original/3X/9/5/95a7771be4fdbbfee19729fecc456048bd14efe5.zip)
 - [FFMPEG](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z)
 - [MP3 Cover](https://github.com/polizoto/DOCX-MP3/tree/main/MP3%20Cover)
-- [Tasklist.exe](https://www.computerhope.com/download/winxp.htm)
+- [Tasklist](https://www.computerhope.com/download/winxp.htm)
 
 ## Optional
 - [Nodejs](https://nodejs.org/en/)
