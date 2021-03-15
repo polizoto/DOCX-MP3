@@ -1,7 +1,7 @@
 # DOCX-MP3
 Create MP3 Files From DOCX. (Currently for PC only)
 
-![DOCX-MP3 Usage Screenshot]()
+![DOCX-MP3 Usage Screenshot](https://github.com/polizoto/DOCX-MP3/blob/main/Screenshots/DOCX-MP3%20Script%20Usage.png)
 
 ## Requirements
 - [Git for Windows](https://git-scm.com/download/win) - We recommend these [general installation instructions for Git for Windows](https://phoenixnap.com/kb/how-to-install-git-windows)
