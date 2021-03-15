@@ -27,6 +27,18 @@ Create MP3 Files From DOCX
 
 ## Features
 
+- Microsoft Core Voices: David, Mark, Zira (English - US), Elsa (Italian), Hortense (French), Naayf, Hoda (Arabic), Ivan (Bulgarian), Herena (Catalan), Huihui, Tracy, Zhiwei (Chinese), Jakub (Czech), Helle (Danish), Frank, Bart (Dutch), James (English - Australia), Linda (English - Canada), Hazel (English - Great Britain)
+- Supports multiple speeds (-10 through 10)
+- Language switching (when using `-l` option). Up to nine secondary languages possible in one document. In addition to the voices listed above (see Voices), possible secondary languages include Estonian, Lithuanian, Farsi, Afrikaans, Latin, and Ancient Greek.
+- Natural pauses at page numbers, paragraphs, sentences
+- Splits audio file automatically in parts when file is ~30 minutes (requires page numbers to marked as Heading #6)
+- Adds id3 (metadata) properties to audio file (Artist, Album, Song, Year, Track, Comments)
+- Adds Cover Image
+- Creates MP3 Bookmarks when DOCX has headings
+- Creates a caption files (when using `-c keep` option)
+- Supports processing of OMML equations into more natural sounding 'math speech' (uses MathJax SRE)
+- Detects secondary text, footnotes, foonote regions, mathematical content areas and allows users the option to delete them before processing
+- Lower pitch for parentheses
 - batch processing
 
 ## Overview
