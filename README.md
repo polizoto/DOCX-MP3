@@ -27,7 +27,7 @@ Create MP3 Files From DOCX
 
 ## Features
 
-- Microsoft Core Voices: David, Mark, Zira (English - US), Elsa (Italian), Hortense (French), Naayf, Hoda (Arabic), Ivan (Bulgarian), Herena (Catalan), Huihui, Tracy, Zhiwei (Chinese), Jakub (Czech), Helle (Danish), Frank, Bart (Dutch), James (English - Australia), Linda (English - Canada), Hazel (English - Great Britain)
+- Microsoft Core Voices: David, Mark, Zira (English - US), Naayf, Hoda (Arabic), Ivan (Bulgarian), Herena (Catalan), Huihui, Tracy, Zhiwei (Chinese), Jakub (Czech), Helle (Danish), Frank, Bart (Dutch), James (English - Australia), Linda (English - Canada), Hazel (English - Great Britain), Ravi (English - India), Sean (English - Ireland), Heidi (Finnish), Hortense, Claude, Guillaume (French), Hedda, Michael, Karsten (German), Stefanos (Greek), AncientGr (Ancient Greek), Asaf (Hebrew), Heman (Hindi), Matej (Croatian), Szabolcs (Hungarian), Andika (Indonesian), Elsa (Italian), Haruka (Japanese), Heami (Korean), Rizwan (Malaysian), Jon (Norwegian), Paulina (Polish), Helia, Maria (Portuguese), Andrei (Romanian), Irina (Russian), Filip (Slovak), Lado (Slovenian), Helena, Sabina (Spanish), Bengt (Swedish), Valluvar (Tamil), Pattara (Thai), Tolga (Turkish), An (Vietnamese).
 - Supports multiple speeds (-10 through 10)
 - Language switching (when using `-l` option). Up to nine secondary languages possible in one document. In addition to the voices listed above (see Voices), possible secondary languages include Estonian, Lithuanian, Farsi, Afrikaans, Latin, and Ancient Greek.
 - Natural pauses at page numbers, paragraphs, sentences
