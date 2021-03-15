@@ -321,7 +321,7 @@ See the following documents for examples of DOCX files with "MS Word tags" and t
 [Foreign_Languages.docx]() | [Foreign_Languages.mp3]()
 
 **Notes:**
-If there are multiple languages in your DOCX file, you will need to use the `-l` flagand you must enter the [ISO language code](https://www.loc.gov/standards/iso639-2/php/code_list.php) for each secondary language(s). Use the -l option before each ISO language code if there are multiple secondary languages. For example, `'/c/scripts/DOCX-HTML.sh' -l it -l fr`. In this example, there are two secondary languages, Italian (it) and French (fr). These are marked with `###1` and `###2`, respectively, in the MS Word document. See the [MS WORD Tags document](https://www.dropbox.com/s/lhogh996v2itfzq/MS%20Word%20Tags-DOCX-HTML.docx?dl=0) for more information about usage.
+If there are multiple languages in your DOCX file, you will need to use the `-l` flagand you must enter the [ISO language code](https://www.loc.gov/standards/iso639-2/php/code_list.php) for each secondary language(s). Use the -l option before each ISO language code if there are multiple secondary languages. For example, `'/c/scripts/DOCX-MP3.sh' -l it -l fr`. In this example, there are two secondary languages, Italian (it) and French (fr). These are marked with `###1` and `###2`, respectively, in the MS Word document. See the [MS WORD Tags document](https://www.dropbox.com/s/lhogh996v2itfzq/MS%20Word%20Tags-DOCX-HTML.docx?dl=0) for more information about usage.
 
 ### Example 3: Mathematics Content
 
