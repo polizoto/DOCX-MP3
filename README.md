@@ -27,17 +27,17 @@ Create MP3 Files From DOCX
 2. Place the script in an easy-to-locate folder (`C:\scripts\` for PC)
 3. Create a "MP3 Cover" folder in your `C:\` drive (PC). Name your default cover image "Default_Cover.jpg"
 4. Download the executables for Balcon, Lame, id3, and FFMPEG and add the path to these executables to your Environmental Variables (requires admin rights):
-  - Windows Start > Edit System Variables > Environment Variables
-  - In the System variables group, select the Path variable and click Edit...
-  - In the Edit Environment variable window, click New
-  - Paste the path to the Lame executable (C:\Program Files (x86)\Balcon)
-  - Click New again
-  - Paste the path to the Lame executable (C:\Program Files (x86)\Lame)
-  - Click New again
-  - Paste the path to the id3 executable (C:\Program Files (x86)\id3)
-  - Click New again
-  - Paste the path to the FFMPEG executable (C:\Program Files (x86)\FFMPEG)
-  - Click OK three times
+      - Windows Start > Edit System Variables > Environment Variables
+      - In the System variables group, select the Path variable and click Edit...
+      - In the Edit Environment variable window, click New
+      - Paste the path to the Lame executable (C:\Program Files (x86)\Balcon)
+      - Click New again
+      - Paste the path to the Lame executable (C:\Program Files (x86)\Lame)
+      - Click New again
+      - Paste the path to the id3 executable (C:\Program Files (x86)\id3)
+      - Click New again
+      - Paste the path to the FFMPEG executable (C:\Program Files (x86)\FFMPEG)
+      - Click OK three times
 5. Place Tasklist.exe in the `C:\scripts\` folder (PC only)
 
 ### Optional Setup for processing math equations:
