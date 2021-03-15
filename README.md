@@ -42,16 +42,87 @@ Create MP3 Files From DOCX
 
 ### Optional Setup for processing math equations:
 1. Install Node.js
-2. Open the terminal and type `npm install -g mathjax-node-cli` and `npm install -g mathjax-node-sre`
-3. Edit the environmental variables on your machine to include the path to the mathjax-node-cli\bin and node_modules folders, respectively. These should be located here:
-  - C:\Users\YOUR-NAME\AppData\Roaming\npm\node_modules
-  - C:\Users\YOUR-NAME\AppData\Roaming\npm\node_modules\mathjax-node-cli\bin
+2. Open the terminal and type `npm install -g mathjax-node-cli` and press Enter. Wait for installation to complete
+3. Open the terminal and type  `npm install -g mathjax-node-sre` and press Enter. Wait for the installation to complete
+4. Edit the environmental variables on your machine to include the path to the mathjax-node-cli\bin and node_modules folders, respectively. These should be located here:
+            - C:\Users\YOUR-NAME\AppData\Roaming\npm\node_modules
+            - C:\Users\YOUR-NAME\AppData\Roaming\npm\node_modules\mathjax-node-cli\bin
+
 ### Optional Setup for creating MP3 bookmarks
 1. Install Aeneas using the Windows installer file above (this will install multiple programs, include Python 3)
-2. Open the terminal and type `pip3 install mp3chaps`
+2. Open the terminal and type `pip3 install mp3chaps`. Wait for the installation to complete.
 
-### Optional Setup for processing multiple languges:
-1.
+### Optional Setup for downloading other Microsoft SAPI 5 voices (for other languages):
+1.Select the Start button, then select Settings > Time & Language > Region & Language and Select Speech.
+2. Click Add a Voice and select the language you need. Wait for installation to complete
+3. To confirm that the voice was installed, open a new Git Bash terminal and type
+`balcon -l` and press Enter. The new voice should now be listed in the terminal screen.
+
+**Note:** All of the languages available from Microsoft are supported by the script (as of 1/5/2021). While some voices are available system wide after installation, such as German - Microsoft Hedda Desktop or French  - Microsoft Hortense Desktop, voices from some languages cannot be used by the script unless you edit your registry (see below). Some examples of voices for which you will need to edit the registry: Hebrew - Microsoft Asaf; Hungarian - Microsoft Szabolcs etc.
+
+### Optional Setup for making Microsoft SAPI 5 voices available systemide
+
+1. Start > Create a System Restore Point and Press Create
+2. Type a name for your Restore Point (e.g., Pre - Microsoft SAPI 5 Voices) and Press Create
+3. Make sure you have the Microsoft voices installed using the steps in the previous section. You can check by going to Settings > Time and Language > Speech and selecting Choose a voice (drop down menu).
+4. Identify the voice that you have installed (for the language you need) but that is not available system wide. See the list below:
+
+            - Naayf     [Arabic-Saudi Arabia]
+            - Hoda      [Arabic-Egypt]
+            - Ivan      [Bulgarian]
+            - Herena    [Catalan]
+            - Jakub     [Czech]
+            - Helle     [Danish]
+            - Michael   [German- Austria]
+            - Karsten   [German - Switzerland]
+            - Stefanos  [Greek]
+            - James     [English - Australia]
+            - Linda     [English - Canada]
+            - Hazel     [English - Great Britain]
+            - Ravi      [English - India]
+            - Sean      [English - Ireland]
+            - Heidi     [Finnish]
+            - Claude    [French - Canada]
+            - Guillaume [French - Switzerland]
+            - Asaf      [Hebrew]
+            - Hemant    [Hindi]
+            - Matej     [Croatian]
+            - Szabolcs  [Hungarian]
+            - Andika    [Indonesian]
+            - Heami     [Korean]
+            - Rizwan    [Malaysian]
+            - Frank     [Dutch - Netherlands]
+            - Bart      [Dutch - Belgium]
+            - Jon       [Norwegian]
+            - Paulina   [Polish]
+            - Helia     [Portuguese - Portugal]
+            - Andrei    [Romanian]
+            - Filip     [Slovak]
+            - Lado      [Slovenian]
+            - Bengt     [Swedish]
+            - Valluvar  [Tamil]
+            - Pattara   [Thai]
+            - Tolga     [Turkish]
+            - An        [Vietnamese]
+            - Huihui    [Chinese - China]
+            - Tracy     [Chinese - Hong Kong]
+            - Zhiwei    [Chinese - Taiwan]
+
+5. Locate the modified registry file for the voice(s) that you have installed here:
+
+[Registry Files for Voices Not Available Systemwide]()
+
+**Note:** The registry file will have the same name as the voice followed by an ‘m’.
+
+6. Drag the registry file to your C:\  drive and double click on it.
+7. Click Yes when prompted to modify the registry
+8. Open a new GitBash window and type `balcon -l` to confirm that the voices are now available.
+
+
+
+And some voices (Latin, Lithuanian, Estonian, Farsi, and Afrikaans) must be installed by installing E-Speak. (see below)
+
+
 
 ## Features
 
