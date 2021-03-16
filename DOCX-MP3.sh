@@ -3,7 +3,7 @@
 # Joseph Polizzotto
 # UC Berkeley
 # 510-642-0329
-# Version 0.1.5
+# Version 0.1.6
 # Instructions: 
 # 1. Create a folder where you will convert DOCX files to MP3s (C:\MP3 Projects)
 # 2. Place DOCX files in the folder
@@ -205,7 +205,7 @@ return 0
 }
 
 function version (){
-    printf "\nVersion 0.1.4.4\n"
+    printf "\nVersion 0.1.6\n"
 
 return 0
 }
@@ -2663,7 +2663,7 @@ fi
 
 perl -0777 -pi -e 's/\n(===.*)(\n)/<\/heading1>\n/g' ./"$baseName"/"$baseName".txt
 
-perl -0777 -pi -e 's/\n(---.*)(\n)/<\/heading2>\n/g' ./"$baseName"/"$baseName".txt
+perl -0777 -pi -e 's/\n(----.*)(\n)/<\/heading2>\n/g' ./"$baseName"/"$baseName".txt
 
 sed -i 's/\(.*\)\(<\/heading1>\)/<heading1>\1\2/g' ./"$baseName"/"$baseName".txt
 
@@ -2783,6 +2783,50 @@ sed -i 's/Description End./<\/description>/g' ./"$baseName"/"$baseName".txt
 sed -i 's/Caption Begin:/<table>/g' ./"$baseName"/"$baseName".txt
 
 sed -i 's/Caption End./<\/table>/g' ./"$baseName"/"$baseName".txt
+
+# Ask to remove Footnote Regions (but retain the numbers if the regions are retained)
+
+if grep -q '<footnote>' ./"$baseName"/"$baseName".txt ; then
+
+while true; do
+
+echo -e "\033[1;33mATTENTION:\033[0m It looks like there are footnote text areas in \033[1;35m"$baseName".docx\033[0m.\n"
+
+read -n1 -p "Do you wish to keep the footnote areas [Y/N]?" answer
+case $answer in
+Y | y) 
+       echo -e "\n"
+	   echo -e "Footnote text areas retained in \033[1;35m"$baseName".docx\033[0m.\n"
+	   footnote_text="yes"
+	   footnote_text_regions="Footnote Text Regions"
+	   perl -0777 -pi -e 's/(\n)(\^)(\d+)(\^)/\n$3. /g' ./"$baseName"/"$baseName".txt
+	   sed -i 's/<footnote>/<footnote>Footnote Region/g' ./"$baseName"/"$baseName".txt
+	   break
+	   ;;
+N | n) 
+		echo -e "\n"
+		perl -0777 -pi -e 's/\h*<footnote>[^<]*<\/footnote>//g' ./"$baseName"/"$baseName".txt
+		footnote_text="no"
+		footnote_text_regions="Footnote Text Regions - removed"
+		echo -e "Footnote text areas removed from \033[1;35m"$baseName".docx\033[0m.\n" 
+		break
+		;;
+	*)
+	   echo -e "\n"
+       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ y / n ].\033[0m\n"
+	   break
+       ;;
+	   
+     
+esac
+
+done
+
+fi
+
+	if [[ "$footnote_text" == "" ]]; then 
+         footnote_text="no"        
+    fi
 
 # Remove foonotes (^)
 
@@ -2910,47 +2954,6 @@ fi
 
 	if [[ "$secondary" == "" ]]; then 
          secondary="no"        
-    fi
-
-if grep -q '<footnote>' ./"$baseName"/"$baseName".txt ; then
-
-while true; do
-
-echo -e "\033[1;33mATTENTION:\033[0m It looks like there are footnote text areas in \033[1;35m"$baseName".docx\033[0m.\n"
-
-read -n1 -p "Do you wish to keep the footnote areas [Y/N]?" answer
-case $answer in
-Y | y) 
-       echo -e "\n"
-	   echo -e "Footnote text areas retained in \033[1;35m"$baseName".docx\033[0m.\n"
-	   footnote_text="yes"
-	   footnote_text_regions="Footnote Text Regions"
-	   sed -i 's/<footnote>/<footnote>Footnote Region/g' ./"$baseName"/"$baseName".txt
-	   break
-	   ;;
-N | n) 
-		echo -e "\n"
-		perl -0777 -pi -e 's/\h*<footnote>[^<]*<\/footnote>//g' ./"$baseName"/"$baseName".txt
-		footnote_text="no"
-		footnote_text_regions="Footnote Text Regions - removed"
-		echo -e "Footnote text areas removed from \033[1;35m"$baseName".docx\033[0m.\n" 
-		break
-		;;
-	*)
-	   echo -e "\n"
-       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ y / n ].\033[0m\n"
-	   break
-       ;;
-	   
-     
-esac
-
-done
-
-fi
-
-	if [[ "$footnote_text" == "" ]]; then 
-         footnote_text="no"        
     fi
 	
 if grep -q '<figcaption>' ./"$baseName"/"$baseName".txt ; then
