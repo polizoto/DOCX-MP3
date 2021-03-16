@@ -23,7 +23,7 @@ Create MP3 Files From DOCX
 - [eSpeak](http://espeak.sf.net/download.html) (for additional voices, including Latin and Ancient Greek)
 
 ## General Setup
-1. Download the DOCX-MP3.sh script to your [PC](https://github.com/polizoto/DOCX-HTML/blob/main/DOCX-HTML_mac.sh)
+1. Download the DOCX-MP3.sh script to your [PC](https://github.com/polizoto/DOCX-MP3/blob/main/DOCX-MP3.sh)
 2. Place the script in an easy-to-locate folder (`C:\scripts\` for PC)
 3. Create a "MP3 Cover" folder in your `C:\` drive (PC). Name your default cover image "Default_Cover.jpg"
 4. Download the executables for Balcon, Lame, id3, and FFMPEG and add the path to these executables to your Environmental Variables (requires admin rights):
