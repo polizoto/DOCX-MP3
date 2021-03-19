@@ -23,7 +23,7 @@ function usage (){
 	printf "  %-5s %-3s\n" "" "Parameters:"
 	printf "  %-10s %-6s\n" "" "Name of the Author / Researcher"
 	printf "  %-5s %-3s\n" "" "Default:"
-	printf "  %-10s %-6s\n" "" "UC Berkeley - Alt Media Department"
+	printf "  %-10s %-6s\n" "" "Alternative Media Unit"
 	printf "\n"
 	printf "  %-5s %-3s\n" "-c" "Create Caption file (.vtt) and MP3 bookmarks"
 	printf "  %-5s %-3s\n" "" "Parameters:"
@@ -39,12 +39,6 @@ function usage (){
 	printf "  %-10s %-6s\n" "" "Off"
 	printf "\n"
 	printf "  %-5s %-3s\n" "-h" "Print help"
-	printf "\n"
-	printf "  %-5s %-3s\n" "-i" "Insert a phonetic transcription"
-	printf "  %-5s %-3s\n" "" "Parameters:"
-	printf "  %-10s %-6s\n" "" "None"
-	printf "  %-5s %-3s\n" "" "Default:"
-	printf "  %-10s %-6s\n" "" "Off"
 	printf "\n"
 	printf "  %-5s %-3s\n" "-l" "Designate secondary languages"
 	printf "  %-5s %-3s\n" "" "Use -l flag before every secondary language"
@@ -74,6 +68,7 @@ function usage (){
 	printf "  %-10s %-6s %-3s\n" "" "fr" "[French - France]"
 	printf "  %-10s %-6s %-3s\n" "" "fr-ca" "[French - Canada]"
 	printf "  %-10s %-6s %-3s\n" "" "fr-ch" "[French - Switzerland]"
+	printf "  %-10s %-6s %-3s\n" "" "grc" "[Greek - Ancient]"
 	printf "  %-10s %-6s %-3s\n" "" "he" "[Hebrew]"
 	printf "  %-10s %-6s %-3s\n" "" "hi" "[Hindi]"
 	printf "  %-10s %-6s %-3s\n" "" "hr" "[Croatian]"
@@ -116,40 +111,42 @@ function usage (){
 	printf "  %-10s %-9s %-3s\n" "" "Hoda" "[Arabic-Egypt]"
 	printf "  %-10s %-9s %-3s\n" "" "Ivan" "[Bulgarian]"
 	printf "  %-10s %-9s %-3s\n" "" "Herena" "[Catalan]"
+	printf "  %-10s %-9s %-3s\n" "" "Huihui" "[Chinese - China]"
+	printf "  %-10s %-9s %-3s\n" "" "Tracy" "[Chinese - Hong Kong]"
+	printf "  %-10s %-9s %-3s\n" "" "Zhiwei" "[Chinese - Taiwan]"
 	printf "  %-10s %-9s %-3s\n" "" "Jakub" "[Czech]"
 	printf "  %-10s %-9s %-3s\n" "" "Helle" "[Danish]"
-	printf "  %-10s %-9s %-3s\n" "" "Hedda" "[German - Germany]"
-	printf "  %-10s %-9s %-3s\n" "" "Michael" "[German- Austria]"
-	printf "  %-10s %-9s %-3s\n" "" "Karsten" "[German - Switzerland]"
-	printf "  %-10s %-9s %-3s\n" "" "Stefanos" "[Greek]"
+	printf "  %-10s %-9s %-3s\n" "" "Frank" "[Dutch - Netherlands]"
+	printf "  %-10s %-9s %-3s\n" "" "Bart" "[Dutch - Belgium]"
 	printf "  %-10s %-9s %-3s\n" "" "James" "[English - Australia]"
 	printf "  %-10s %-9s %-3s\n" "" "Linda" "[English - Canada]"
 	printf "  %-10s %-9s %-3s\n" "" "Hazel" "[English - Great Britain]"
 	printf "  %-10s %-9s %-3s\n" "" "Ravi" "[English - India]"
 	printf "  %-10s %-9s %-3s\n" "" "Sean" "[English - Ireland]"
-	printf "  %-10s %-9s %-3s\n" "" "Allison" "[English - United States]"
-	printf "  %-10s %-9s %-3s\n" "" "Ava" "[English - United States]"
+	printf "  %-10s %-9s %-3s\n" "" "David" "[English - United States]"
 	printf "  %-10s %-9s %-3s\n" "" "Mark" "[English - United States]"
-	printf "  %-10s %-9s %-3s\n" "" "Samantha" "[English - United States]"
-	printf "  %-10s %-9s %-3s\n" "" "Susan" "[English - United States]"
-	printf "  %-10s %-9s %-3s\n" "" "Tom" "[English - United States]"
-	printf "  %-10s %-9s %-3s\n" "" "Helena" "[Spanish - Spain]"
-	printf "  %-10s %-9s %-3s\n" "" "Sabina" "[Spanish - Mexico]"
+	printf "  %-10s %-9s %-3s\n" "" "Joey" "[English - United States]"
+	printf "  %-10s %-9s %-3s\n" "" "Zira" "[English - United States]"
 	printf "  %-10s %-9s %-3s\n" "" "Heidi" "[Finnish]"
 	printf "  %-10s %-9s %-3s\n" "" "Hortense" "[French - France]"
+	printf "  %-10s %-9s %-3s\n" "" "Mathieu" "[French - France]"
 	printf "  %-10s %-9s %-3s\n" "" "Claude" "[French - Canada]"
 	printf "  %-10s %-9s %-3s\n" "" "Guillaume" "[French - Switzerland]"
+	printf "  %-10s %-9s %-3s\n" "" "Hedda" "[German - Germany]"
+	printf "  %-10s %-9s %-3s\n" "" "Michael" "[German- Austria]"
+	printf "  %-10s %-9s %-3s\n" "" "Karsten" "[German - Switzerland]"
+	printf "  %-10s %-9s %-3s\n" "" "Stefanos" "[Greek]"
+	printf "  %-10s %-9s %-3s\n" "" "AncientGr" "[Greek Ancient]"	
 	printf "  %-10s %-9s %-3s\n" "" "Asaf" "[Hebrew]"
 	printf "  %-10s %-9s %-3s\n" "" "Hemant" "[Hindi]"
 	printf "  %-10s %-9s %-3s\n" "" "Matej" "[Croatian]"
 	printf "  %-10s %-9s %-3s\n" "" "Szabolcs" "[Hungarian]"
 	printf "  %-10s %-9s %-3s\n" "" "Andika" "[Indonesian]"
 	printf "  %-10s %-9s %-3s\n" "" "Elsa" "[Italian]"
+	printf "  %-10s %-9s %-3s\n" "" "Giorgio" "[Italian]"
 	printf "  %-10s %-9s %-3s\n" "" "Haruka" "[Japanese]"
 	printf "  %-10s %-9s %-3s\n" "" "Heami" "[Korean]"
 	printf "  %-10s %-9s %-3s\n" "" "Rizwan" "[Malaysian]"
-	printf "  %-10s %-9s %-3s\n" "" "Frank" "[Dutch - Netherlands]"
-	printf "  %-10s %-9s %-3s\n" "" "Bart" "[Dutch - Belgium]"
 	printf "  %-10s %-9s %-3s\n" "" "Jon" "[Norwegian]"
 	printf "  %-10s %-9s %-3s\n" "" "Paulina" "[Polish]"
 	printf "  %-10s %-9s %-3s\n" "" "Helia" "[Portuguese - Portugal]"
@@ -158,16 +155,17 @@ function usage (){
 	printf "  %-10s %-9s %-3s\n" "" "Irina" "[Russian]"
 	printf "  %-10s %-9s %-3s\n" "" "Filip" "[Slovak]"
 	printf "  %-10s %-9s %-3s\n" "" "Lado" "[Slovenian]"
+	printf "  %-10s %-9s %-3s\n" "" "Helena" "[Spanish - Spain]"
+	printf "  %-10s %-9s %-3s\n" "" "Sabina" "[Spanish - Mexico]"
+	printf "  %-10s %-9s %-3s\n" "" "Miguel" "[Spanish - USA]"
+	printf "  %-10s %-9s %-3s\n" "" "Penelope" "[Spanish - USA]"
 	printf "  %-10s %-9s %-3s\n" "" "Bengt" "[Swedish]"
 	printf "  %-10s %-9s %-3s\n" "" "Valluvar" "[Tamil]"
 	printf "  %-10s %-9s %-3s\n" "" "Pattara" "[Thai]"
 	printf "  %-10s %-9s %-3s\n" "" "Tolga" "[Turkish]"
 	printf "  %-10s %-9s %-3s\n" "" "An" "[Vietnamese]"
-	printf "  %-10s %-9s %-3s\n" "" "Huihui" "[Chinese - China]"
-	printf "  %-10s %-9s %-3s\n" "" "Tracy" "[Chinese - Hong Kong]"
-	printf "  %-10s %-9s %-3s\n" "" "Zhiwei" "[Chinese - Taiwan]"
 	printf "  %-5s %-3s\n" "" "Default:"
-	printf "  %-10s %-6s\n" "" "Ava"
+	printf "  %-10s %-6s\n" "" "David"
 	printf "\n"
 	printf "  %-5s %-3s\n" "-p" "Publication (audio album)"
 	printf "  %-5s %-3s\n" "" "Parameters:"
@@ -185,9 +183,9 @@ function usage (){
 	printf "\n"
 	printf "  %-5s %-3s\n" "-s" "Speed"
 	printf "  %-5s %-3s\n" "" "Parameters:"
-	printf "  %-10s %-6s\n" "" "50-200"
+	printf "  %-10s %-6s\n" "" "-10 to 10"
 	printf "  %-5s %-3s\n" "" "Default:"
-	printf "  %-10s %-6s\n" "" "100"
+	printf "  %-10s %-6s\n" "" "0"
 	printf "\n"
 	printf "  %-5s %-3s\n" "-t" "Track"
 	printf "  %-5s %-3s\n" "" "Parameters:"
@@ -212,7 +210,7 @@ function version (){
 return 0
 }
 
-while getopts :n:s:a:p:l:mc:et:hr:w:iv flag
+while getopts :n:s:a:p:l:mc:et:hr:w:v flag
 
 do
     case "${flag}" in
@@ -226,18 +224,17 @@ do
 		fi
 		;;
 		e) error="${flag}";;
-		i) insert="${flag}";;
 		l) language+=("$OPTARG");;
         n) name=${OPTARG};
-		if [[ ! "$name" == Allison && ! "$name" == An && ! "$name" == Andika && ! "$name" == Andrei && ! "$name" == Asaf && ! "$name" == Ava && ! "$name" == Bart && ! "$name" == Bengt && ! "$name" == Claude && ! "$name" == Elsa && ! "$name" == Filip && ! "$name" == Frank && ! "$name" == Guillaume && ! "$name" == Haruka && ! "$name" == Hazel && ! "$name" == Heami && ! "$name" == Hedda && ! "$name" == Heidi && ! "$name" == Helena && ! "$name" == Helia && ! "$name" == Helle && ! "$name" == Hemant && ! "$name" == Herena && ! "$name" == Hoda && ! "$name" == Hortense && ! "$name" == Huihui && ! "$name" == Irina && ! "$name" == Ivan && ! "$name" == Jakub && ! "$name" == James && ! "$name" == Jon && ! "$name" == Karsten && ! "$name" == Lado && ! "$name" == Linda && ! "$name" == Maria && ! "$name" == Mark && ! "$name" == Matej && ! "$name" == Michael && ! "$name" == Naayf && ! "$name" == Pattara && ! "$name" == Paulina && ! "$name" == Ravi && ! "$name" == Rizwan && ! "$name" == Sabina && ! "$name" == Samantha && ! "$name" == Sean && ! "$name" == Stefanos && ! "$name" == Susan && ! "$name" == Szabolcs && ! "$name" == Tolga && ! "$name" == Tom && ! "$name" == Tracy && ! "$name" == Valluvar && ! "$name" == Zhiwei && ! "$name" == Joey ]]; then 
-        echo -e "\n\033[1;31mInvalid name entered for -n option (You must enter one of the following: Allison, An, Andika, Andrei, Asaf, Ava, Bart, Bengt, Claude, Elsa, Filip, Frank, Guillaume, Haruka, Hazel, Heami, Hedda, Heidi, Helena, Helia, Helle, Hemant, Herena, Hoda, Hortense, Huihui, Irina, Ivan, Jakub, James, Jon, Karsten, Lado, Linda, Maria, Mark, Matej, Michael, Naayf, Pattara, Paulina, Ravi, Rizwan, Sabina, Samantha, Sean, Stefanos, Susan, Szabolcs, Tolga, Tom, Tracy, Valluvar, or Zhiwei). Exiting...\033[0m"
+		if [[ ! "$name" == An && ! "$name" == Andika && ! "$name" == Andrei && ! "$name" == Asaf && ! "$name" == Bart && ! "$name" == Bengt && ! "$name" == Claude && ! "$name" == David && ! "$name" == Elsa && ! "$name" == Filip && ! "$name" == Frank && ! "$name" == Guillaume && ! "$name" == Haruka && ! "$name" == Hazel && ! "$name" == Heami && ! "$name" == Hedda && ! "$name" == Heidi && ! "$name" == Helena && ! "$name" == Helia && ! "$name" == Helle && ! "$name" == Hemant && ! "$name" == Herena && ! "$name" == Hoda && ! "$name" == Hortense && ! "$name" == Huihui && ! "$name" == Irina && ! "$name" == Ivan && ! "$name" == Jakub && ! "$name" == James && ! "$name" == Joey && ! "$name" == Jon && ! "$name" == Karsten && ! "$name" == Lado && ! "$name" == Linda && ! "$name" == Maria && ! "$name" == Mark && ! "$name" == Matej && ! "$name" == Michael && ! "$name" == Naayf && ! "$name" == Pattara && ! "$name" == Paulina && ! "$name" == Ravi && ! "$name" == Rizwan && ! "$name" == Sabina && ! "$name" == Sean && ! "$name" == Stefanos && ! "$name" == Susan && ! "$name" == Szabolcs && ! "$name" == Tolga && ! "$name" == Tracy && ! "$name" == Valluvar && ! "$name" == Zhiwei && ! "$name" == Zira && ! "$name" == AncientGr && ! "$name" == Mathieu && ! "$name" == Miguel && ! "$name" == Giorgio && ! "$name" == Penelope ]]; then 
+        echo -e "\n\033[1;31mInvalid name entered for -n option (You must enter one of the following: An, Andika, Andrei, Asaf, Bart, Bengt, Claude, David, Elsa, Filip, Frank, Giorgio, Guillaume, Haruka, Hazel, Heami, Hedda, Heidi, Helena, Helia, Helle, Hemant, Herena, Hoda, Hortense, Huihui, Irina, Ivan, Jakub, James, Joey, Jon, Karsten, Lado, Linda, Maria, Mark, Matej, Mathieu, Michael, Miguel, Naayf, Pattara, Paulina, Penelope, Ravi, Rizwan, Sabina, Sean, Stefanos, Susan, Szabolcs, Tolga, Tracy, Valluvar, Zhiwei, Zira, or AncientGr ). Exiting...\033[0m"
         exit 2
         fi
         ;;
 		p) publication=${OPTARG};;
         s) speed=${OPTARG};
-		if ! [[ "$speed" =~ ^[0-9]+$ && "$speed" -gt 49 && "$speed" -lt 201 ]] ; then 
-        echo -e "\n\033[1;31mInvalid value entered for -s option (You must enter a digit from 50-200). Exiting...\033[0m"
+		if ! [[ "$speed" =~ ^[\-0-9]+$ &&"$speed" -gt -11 && "$speed" -lt 11 ]] ; then 
+        echo -e "\n\033[1;31mInvalid value entered for -s option (You must enter a digit from -10 to 10). Exiting...\033[0m"
 		exit 2
         fi
         ;;
@@ -289,20 +286,34 @@ do
   fi
   
   done
+
+# Check if Git for Windows is installed
+
+if  ! command -v git >/dev/null  2>&1; then 
+echo -e "\n\033[1;31mError: Git for Windows was not found, which is required for processing the commands in this script. Install Git for Windows (https://git-scm.com/download/win). Exiting....\033[0m" >&2
+exit 1
+
+fi  
   
 # Check if Balabolka is installed
 
-if [ -n "$language" ]; then
-
 if [ ! -f  "C:\balcon\balcon.exe" ]; then
 
-echo -e "\n\033[1;31mError: balcon (MP3 program used for other languages) was not found. Download balcon.exe (http://www.cross-plus-a.com/bconsole.htm) and place it in the \033[1;35mC:\balcon\\033[0m directory. Exiting....\033[0m\n" >&2
+echo -e "\n\033[1;31mError: balcon (MP3 program used for speech synthesis) was not found. Download balcon.exe (http://www.cross-plus-a.com/bconsole.htm) and place it in the \033[1;35mC:\balcon\\033[0m directory. Exiting....\033[0m\n" >&2
 
 exit 1
 
 fi 
 
-fi
+# Check if Cover Image is Found
+
+if [ ! -f  "C:\MP3 Cover\Default_Cover.jpg" ]; then
+
+echo -e "\033[1;31mError: No cover image found. Place Default_Cover.jpg in \033[0m\033[1;44mC:\MP3 Cover\ \033[0m\033[1;31m directory. Exiting....\033[0m\x1B[49m\x1B[K" >&2
+
+exit 1
+
+fi 
 
 # Check if language voices are installed
 
@@ -467,6 +478,18 @@ if [[ "$language" == "la" ]]; then
 if ! "C:\balcon\balcon.exe" -l | grep -q -w 'mb-la1' 2> /dev/null ; then
 
 echo -e "\n\033[1;31mError: mbrola Latin voice not installed. Download mbrola voices on your PC (https://github.com/numediart/MBROLA-voices) and place them in the espeak data folder (C:\Program Files (x86)\eSpeak\espeak-data\mbrola). Exiting...\033[0m" >&2
+
+exit 1
+
+fi
+
+fi
+
+if [[ "$language" == "grc" ]]; then 
+
+if ! "C:\balcon\balcon.exe" -l | grep -q -w 'eSpeak-grc' 2> /dev/null ; then
+
+echo -e "\n\033[1;31mError: eSpea-grc voice not Installed. Download eSpeak and enter GRC in one of the voice fields during installation. Exiting...\033[0m" >&2
 
 exit 1
 
@@ -973,8 +996,8 @@ shift $((OPTIND -1))
 count=1
 for val in "${language[@]}"; do
 
-			if [[ ! $val == af && ! $val == ar-sa && ! $val == ar-eg && ! $val == bg && ! $val == ca && ! $val == cs && ! $val == da && ! $val == de && ! $val == de-at && ! $val == de-ch && ! $val == el && ! $val == en-au && ! $val == en-ca && ! $val == en-gb && ! $val == en-in && ! $val == en-ie && ! $val == en-us && ! $val == es && ! $val == es-mx && ! $val == et && ! $val == fa && ! $val == fi && ! $val == fr && ! $val == fr-ca && ! $val == fr-ch && ! $val == he && ! $val == hi && ! $val == hr && ! $val == hu && ! $val == id && ! $val == it && ! $val == ja && ! $val == ko && ! $val == la && ! $val == lt && ! $val == ms && ! $val == nl && ! $val == nl-be && ! $val == no && ! $val == pl && ! $val == pt && ! $val == pt-br && ! $val == ro && ! $val == ru && ! $val == sk && ! $val == sl && ! $val == sv && ! $val == ta && ! $val == th && ! $val == tr && ! $val == vi && ! $val == zh-cn && ! $val == zh-hk && ! $val == zh-tw ]]; then
-            echo -e "\033[1;31mInvalid ISO value entered with -l option:\033[0m "$val" \033[1;31m(Value must be one of the following: af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw ). Exiting...\033[0m"
+			if [[ ! $val == af && ! $val == ar-sa && ! $val == ar-eg && ! $val == bg && ! $val == ca && ! $val == cs && ! $val == da && ! $val == de && ! $val == de-at && ! $val == de-ch && ! $val == el && ! $val == en-au && ! $val == en-ca && ! $val == en-gb && ! $val == en-in && ! $val == en-ie && ! $val == en-us && ! $val == es && ! $val == es-mx && ! $val == et && ! $val == fa && ! $val == fi && ! $val == fr && ! $val == fr-ca && ! $val == fr-ch && ! $val == grc && ! $val == he && ! $val == hi && ! $val == hr && ! $val == hu && ! $val == id && ! $val == it && ! $val == ja && ! $val == ko && ! $val == la && ! $val == lt && ! $val == ms && ! $val == nl && ! $val == nl-be && ! $val == no && ! $val == pl && ! $val == pt && ! $val == pt-br && ! $val == ro && ! $val == ru && ! $val == sk && ! $val == sl && ! $val == sv && ! $val == ta && ! $val == th && ! $val == tr && ! $val == vi && ! $val == zh-cn && ! $val == zh-hk && ! $val == zh-tw ]]; then
+            echo -e "\033[1;31mInvalid ISO value entered with -l option:\033[0m "$val" \033[1;31m(Value must be one of the following: af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / grc / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw ). Exiting...\033[0m"
             exit 2
             else
             eval language$count=$val
@@ -1440,98 +1463,17 @@ count=$[ $count +1 ]
 
 done
 
-  # Make Ava the default voice variable when the -n option is not used
+  # Make David the default voice variable when the -n option is not used
 
         if [[ "$name" == "" ]]; then 
 		
-		if [ ! -f  "C:\Program Files (x86)\Linguatec\VoiceReaderStudio15\vrs15cmd.exe" ]; then
-		
 		name="Microsoft David Desktop"
-		
-		else
-		
-        name=Ava  
-		 
-		fi
 
         fi
 		
     if [[ "$speed" == "" ]]; then
 	
-	speed="100"
-	bspeed="-0"
-	
-	fi
-	
-	if [[ "$speed" -ge 50 && "$speed" -le 56 ]] ; then 
-	
-	bspeed="-6"
-	
-	fi	
-	
-	if [[ "$speed" -ge 57 && "$speed" -le 63 ]] ; then 
-	
-	bspeed="-5"
-	
-	fi	
-	
-	if [[ "$speed" -ge 64 && "$speed" -le 70 ]] ; then 
-	
-	bspeed="-4"
-
-	fi	
-	
-	if [[ "$speed" -ge 71 && "$speed" -le 78 ]] ; then 
-	
-	bspeed="-3"
-	
-	fi	
-	
-	if [[ "$speed" -ge 79 && "$speed" -le 85 ]] ; then 
-	
-	bspeed="-2"
-
-	fi	
-	
-	if [[ "$speed" -ge 86 && "$speed" -lt 92 ]] ; then 
-	
-	bspeed="-1"
-	
-	fi
-	
-	if [[ "$speed" -ge 93 && "$speed" -le 110 ]] ; then 
-	
-	bspeed="-0"
-	
-	fi	
-	
-	if [[ "$speed" -ge 111 && "$speed" -le 128 ]] ; then 
-	
-	bspeed="1"
-	
-	fi
-	
-	if [[ "$speed" -ge 129 && "$speed" -le 146 ]] ; then 
-	
-	bspeed="2"
-	
-	fi
-	
-	if [[ "$speed" -ge 147 && "$speed" -le 164 ]] ; then 
-	
-	bspeed="3"
-	
-	fi
-
-	if [[ "$speed" -ge 165 && "$speed" -le 182 ]] ; then 
-	
-	bspeed="4"
-	
-	fi
-	
-	if [[ "$speed" -ge 183 && "$speed" -le 200 ]] ; then 
-	
-	bspeed="5"
+	speed="0"
 	
 	fi
 	
@@ -2286,6 +2228,36 @@ done
 	fullname="Zhiwei (Chinese - Taiwan)"
 
 	fi
+	
+	if [[ "$name" == "Zira" ]]; then 
+
+	if ! "C:\balcon\balcon.exe" -l | grep -q -w 'Zira' 2> /dev/null ; then
+
+	echo -e "\n\033[1;31mError: Microsoft Zira not installed. Follow these steps to install additional voices on your PC (https://support.microsoft.com/en-us/office/how-to-download-text-to-speech-languages-for-windows-10-d5a6b612-b3ae-423f-afa5-4f6caf1ec5d3). Exiting...\033[0m" >&2
+
+	exit 1
+
+	fi
+
+	name="Microsoft Zira Desktop"
+	fullname="Zira (English - United States)"
+
+	fi
+	
+	if [[ "$name" == "AncientGr" ]]; then 
+
+	if ! "C:\balcon\balcon.exe" -l | grep -q -w 'eSpeak-grc' 2> /dev/null ; then
+
+	echo -e "\n\033[1;31mError: eSpeak-grc voice not installed. Download and install Espeak and enter GRC in one of the voice fields during installation. Exiting...\033[0m" >&2
+
+	exit 1
+
+	fi
+
+	name="eSpeak-grc"
+	fullname="Ancient Greek (eSpeak - Ancient Greek)"
+
+	fi
 		
 # Make Ivona 2 Joey  the voice variable when Joey is selected for the -n option
 
@@ -2304,6 +2276,74 @@ done
         
 		fi
 		
+# Make Ivona 2 Mathieu  the voice variable when Mathieu is selected for the -n option
+
+        if [[ "$name" == "Mathieu" ]]; then 
+		
+		if ! "C:\balcon\balcon.exe" -l | grep -q -w 'Mathieu' 2> /dev/null ; then
+
+		echo -e "\033[1;31mError: Mathieu not installed. Go to the HARPO website to install additional SAPI 5 voices on your PC (https://harposoftware.com/en/). Exiting...\033[0m" >&2
+
+		exit 1
+
+		fi
+		
+        name="IVONA 2 Mathieu"
+		fullname="Mathieu (French - France)"
+        
+		fi
+
+# Make Ivona 2 Giorgio  the voice variable when Giorgio is selected for the -n option
+
+        if [[ "$name" == "Giorgio" ]]; then 
+		
+		if ! "C:\balcon\balcon.exe" -l | grep -q -w 'Giorgio' 2> /dev/null ; then
+
+		echo -e "\033[1;31mError: Giorgio not installed. Go to the HARPO website to install additional SAPI 5 voices on your PC (https://harposoftware.com/en/). Exiting...\033[0m" >&2
+
+		exit 1
+
+		fi
+		
+        name="IVONA 2 Giorgio"
+		fullname="Giorgio (Italian)"
+        
+		fi
+
+# Make Ivona 2 Miguel  the voice variable when Miguel is selected for the -n option
+
+        if [[ "$name" == "Miguel" ]]; then 
+		
+		if ! "C:\balcon\balcon.exe" -l | grep -q -w 'Miguel' 2> /dev/null ; then
+
+		echo -e "\033[1;31mError: Miguel not installed. Go to the HARPO website to install additional SAPI 5 voices on your PC (https://harposoftware.com/en/). Exiting...\033[0m" >&2
+
+		exit 1
+
+		fi
+		
+        name="IVONA 2 Miguel"
+		fullname="Miguel (Spanish - USA)"
+        
+		fi
+
+# Make Ivona 2 Penélope  the voice variable when Penélope is selected for the -n option
+
+        if [[ "$name" == "Penelope" ]]; then 
+		
+		if ! "C:\balcon\balcon.exe" -l | grep -q -w 'lope' 2> /dev/null ; then
+
+		echo -e "\033[1;31mError: Penélope not installed. Go to the HARPO website to install additional SAPI 5 voices on your PC (https://harposoftware.com/en/). Exiting...\033[0m" >&2
+
+		exit 1
+
+		fi
+		
+        name="IVONA 2 Penélope"
+		fullname="Penélope (Spanish - USA)"
+        
+		fi				
+		
 # Turn on Language Switch if language dependencies are met
 
 	if [ -n "$language" ]; then
@@ -2313,13 +2353,13 @@ done
 # Make UCB Alternative Media Department the default author variable when the -a option is not used
 
         if [[ "$author" == "" ]]; then 
-         author="UC Berkeley Alternative Media Department"        
+         author="Alternative Media Unit"        
         fi
 		
 # Make 100 the default speed variable when the -s option is not used
 
         if [[ "$speed" == "" ]]; then 
-         speed=100        
+         speed=0        
         fi
 
 # Make 1 the default track variable when the -t option is not used
@@ -2332,53 +2372,9 @@ done
 
 if ! [ -x "$(command -v pandoc)" ]; then
 
-echo -e "\n\033[1;31mError: Pandoc (https://pandoc.org/installing.html)is not installed. Exiting...\033[0m" >&2
+echo -e "\n\033[1;31mError: Pandoc (https://pandoc.org/installing.html)is not installed. This program is used for converting the DOCX to a TXT file before speech synthesis. Exiting...\033[0m" >&2
 
 exit 1
-
-fi
-
-# Check if Voice Reader Studio is installed; if not, exit the script.
-
-if [[ "$name" == @(Ava|Tom|Allison|Samantha|Susan) ]]; then
-
-if [ ! -f  "C:\Program Files (x86)\Linguatec\VoiceReaderStudio15\vrs15cmd.exe" ]; then
-
-echo -e "\n\033[1;31mError: Voice Reader Studio 15 was not found. Install Install Voice Reader (https://www.linguatec.de/en/shop-tts/) and make sure it is in your \033[1;35mC:\Program Files (x86)\\033[0m directory. Exiting....\033[0m\n" >&2
-
-exit 1
-
-fi
-
-fi
-
-if [ "$name" == Ava ]; then
-
-fullname="Ava (English - American)"
-
-fi
-
-if [ "$name" == Tom ]; then
-
-fullname="Tom (English - American)"
-
-fi
-
-if [ "$name" == Allison ]; then
-
-fullname="Allison (English - American)"
-
-fi
-
-if [ "$name" == Samantha ]; then
-
-fullname="Samantha (English - American)"
-
-fi
-
-if [ "$name" == Susan ]; then
-
-fullname="Susan (English - American)"
 
 fi
 
@@ -2401,7 +2397,7 @@ if [ "$caption" == "on" ];
 
 then
 if  ! command -v python >/dev/null  2>&1; then 
-echo -e "\n\033[1;31mError: Python was not found, which is required for running Aeneas, the syncmap aligner for creating the caption file. Use the Aeneas installer (https://github.com/sillsdev/aeneas-installer/releases) to install Python. Will not create MP3 bookmarks or a caption file....\033[0m" >&2
+echo -e "\n\033[1;31mError: Python was not found, which is required for running Aeneas, the syncmap aligner used in MP3 bookmark creation. Use the Aeneas installer (https://github.com/sillsdev/aeneas-installer/releases) to install Python. Will not create MP3 bookmarks or a caption file....\033[0m" >&2
 caption="off"
 fi
 fi
@@ -2421,7 +2417,7 @@ if [ "$caption" == "on" ];
 
 then
 if [ ! -f  "/c/scripts/sentence-boundary-original.pl" ]; then 
-echo -e "\n\033[1;31mCould not locate \033[1;35msentence-boundary-original.pl.\033[0m\033[1;31m Place \033[1;35msentence-boundary-original.pl\033[0m\033[1;31m in \033[0m\033[1;44m~/scripts/\033[0m\033[1;31m and run the script again. Will not create MP3 bookmarks or a caption file....\033[0m" >&2
+echo -e "\n\033[1;31mCould not locate \033[1;35msentence-boundary-original.pl.\033[0m\033[1;31m Place \033[1;35msentence-boundary-original.pl\033[0m\033[1;31m in \033[0m\033[1;44mC:\scripts\ \033[0m\033[1;31mfolder and run the script again. Will not create MP3 bookmarks or a caption file....\033[0m\n" >&2
 caption="off"
 fi
 fi
@@ -2430,7 +2426,7 @@ if [ "$caption" == "on" ];
 
 then
 if [ ! -f  "/c/scripts/HONORIFICS" ]; then 
-echo -e "\n\033[1;31mCould not locate \033[1;35mHONORIFICS.\033[0m\033[1;31m Place \033[1;35mHONORIFICS\033[0m\033[1;31m in \033[0m\033[1;44m~/scripts/\033[0m\033[1;31m and run the script again. Will not create MP3 bookmarks or a caption file....\033[0m" >&2
+echo -e "\033[1;31mCould not locate \033[1;35mHONORIFICS\033[0m\033[1;31m file. Place \033[1;35mHONORIFICS\033[0m\033[1;31m in \033[0m\033[1;44mC:\scripts\ \033[0m\033[1;31mfolder. Will not create MP3 bookmarks or a caption file....\033[0m\n" >&2
 caption="off"
 fi
 fi
@@ -2717,7 +2713,7 @@ then
 	sed -i ':a;$!{N;/\n@@/!{s/\n/ /;ba}};P;D' ./"$baseName"/headings.txt
 	
 	#
-
+	
 fi
 
 perl -0777 -pi -e 's/(\n)(## )/$1/g' ./"$baseName"/"$baseName".txt
@@ -2831,7 +2827,6 @@ fi
 	if [[ "$footnote_text" == "" ]]; then 
          footnote_text="no"        
     fi
-
 
 # Remove foonotes (^)
 
@@ -3111,6 +3106,12 @@ perl -0777 -pi -e 's/(\n)(\$\$)/$1<equation>\n/g' ./"$baseName"/"$baseName".txt
 
 perl -0777 -pi -e 's/\$\$.*\n/\n<\/equation>\n/g' ./"$baseName"/"$baseName".txt
 
+#### New in 0.1.7
+
+sed -i 's/\\%/%/g' ./"$baseName"/"$baseName".txt
+
+####
+
 # join lines in between  $$
 
 awk '/^<equation>/{a=1;b="$$";next}/^<\/equation>/{a=0;print"$$";next}a{printf b$0;b="";next}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
@@ -3125,7 +3126,17 @@ perl -0777 -pi -e 's/(<equation>)/\n$1\n/g' ./"$baseName"/"$baseName".txt
 
 perl -0777 -pi -e 's/(<\/equation>)/\n$1\n/g' ./"$baseName"/"$baseName".txt
 
-awk '/^<equation>/{a=1;b="$$";next}/^<\/equation>/{a=0;print"$$";next}a{printf b$0;b="";next}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
+#### New in 0.1.7
+
+perl -pi -e 's/<equation>\n/<equation>/g' ./"$baseName"/"$baseName".txt
+
+perl -0777 -pi -e 's/\n<\/equation>/<\/equation>/g' ./"$baseName"/"$baseName".txt
+
+sed -i 's/<equation>/\$\$/g' ./"$baseName"/"$baseName".txt
+
+sed -i 's/<\/equation>/\$\$/g' ./"$baseName"/"$baseName".txt
+
+# awk '/^<equation>/{a=1;b="$$";next}/^<\/equation>/{a=0;print"$$";next}a{printf b$0;b="";next}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 
 perl -0777 -pi -e 's/(\n\n)(\$\$\$\$\n)(.*)/$1\$\$$3/g' ./"$baseName"/"$baseName".txt
 
@@ -3169,14 +3180,6 @@ perl -0777 -pi -e 's/(\n)(\$\$)/$1<equation>\n/g' ./"$baseName"/"$baseName".txt
 
 perl -0777 -pi -e 's/\$\$.*\n/\n<\/equation>\n/g' ./"$baseName"/"$baseName".txt
 
-#### New in 0.1.7
-
-sed -i 's/\\%/%/g' ./"$baseName"/"$baseName".txt
-
-####
-
-
-
 # join lines in between  $$
 
 awk '/^<equation>/{a=1;b="$$";next}/^<\/equation>/{a=0;print"$$";next}a{printf b$0;b="";next}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
@@ -3191,17 +3194,7 @@ perl -0777 -pi -e 's/(<equation>)/\n$1\n/g' ./"$baseName"/"$baseName".txt
 
 perl -0777 -pi -e 's/(<\/equation>)/\n$1\n/g' ./"$baseName"/"$baseName".txt
 
-#### New in 0.1.7
-
-perl -pi -e 's/<equation>\n/<equation>/g' ./"$baseName"/"$baseName".txt
-
-perl -0777 -pi -e 's/\n<\/equation>/<\/equation>/g' ./"$baseName"/"$baseName".txt
-
-sed -i 's/<equation>/\$\$/g' ./"$baseName"/"$baseName".txt
-
-sed -i 's/<\/equation>/\$\$/g' ./"$baseName"/"$baseName".txt
-
-# awk '/^<equation>/{a=1;b="$$";next}/^<\/equation>/{a=0;print"$$";next}a{printf b$0;b="";next}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
+awk '/^<equation>/{a=1;b="$$";next}/^<\/equation>/{a=0;print"$$";next}a{printf b$0;b="";next}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 
 perl -0777 -pi -e 's/(\n\n)(\$\$\$\$\n)(.*)/$1\$\$$3/g' ./"$baseName"/"$baseName".txt
 
@@ -3232,11 +3225,11 @@ sed -i '/\\text/ s/^/"/' ./"$baseName"/display-log.txt
 
 sed -i '/^"/ s/$/"/' ./"$baseName"/display-log.txt
 
-cp ./"$baseName"/display-log.txt ./pre_math_tts.txt
+# cp ./"$baseName"/display-log.txt ./pre_math_tts.txt
 
 ##
 
-# Insert place marker for display equations
+# Insert place marker for display equatios
 
 sed -i 's/\(\$\$\)\(.*\)\(\$\$\)/@@ \2/g' ./"$baseName"/"$baseName".txt
 
@@ -3254,8 +3247,6 @@ sed -i '/^\s*$/d' ./"$baseName"/display-log.txt
 sed -i 's/~/ /g' ./"$baseName"/display-log.txt
 
 #
-
-
 
 touch ./"$baseName"/display-log2.txt
 
@@ -3301,8 +3292,8 @@ awk '
     }
     1                      
     ' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
-
-#### New in 0.1.7
+	
+	#### New in 0.1.7
 	
 sed -i '/@@/s/\ quotation-mark//g' ./"$baseName"/"$baseName".txt	
 
@@ -3325,9 +3316,7 @@ sed -i '/@@/s/ right-parenthesis/ /g' ./"$baseName"/"$baseName".txt
 sed -i '/@@/s/ comma //g' ./"$baseName"/"$baseName".txt
 
 ####
-
-cp ./"$baseName"/"$baseName".txt ./math_tts.txt
-	
+       
 # Replace placeholder text
 
 sed -i -e 's/@@ //g' ./"$baseName"/"$baseName".txt
@@ -3601,80 +3590,93 @@ if [[ "$split" == "on" ]]; then
 perl -0777 -pi -e 's/<page>/<page>\n/g' ./"$baseName"/"$baseName"_formatted.txt
 
 ####
-
+	
 if [[ "$textbook" == "long" ]]; then
-
-	if [[ "$speed" -ge 50 && "$speed" -le 69 ]]; then 
+	
+	if [[ "$speed" -ge -10 && "$speed" -le -8 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%2==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
 	
 	fi
 	
-	if [[ "$speed" -ge 70 && "$speed" -le 89 ]]; then 
-	
-	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%4==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
-	
-	fi
-	
-	if [[ "$speed" -ge 90 && "$speed" -le 109 ]]; then 
-	
-	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%6==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
-	
-	fi
-	
-	if [[ "$speed" -ge 110 && "$speed" -le 129 ]]; then 
-	
-	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%7==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
-	
-	fi
-	
-	if [[ "$speed" -ge 130 && "$speed" -le 159 ]]; then 
-	
-	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%8==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
-	
-	fi
-	
-	if [[ "$speed" -ge 160 && "$speed" -le 200 ]]; then 
-	
-	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%9==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
-
-	fi
-
-	fi
-
-if [[ "$textbook" == "short" ]]; then
-
-	if [[ "$speed" -ge 50 && "$speed" -le 69 ]]; then 
+	if [[ "$speed" -ge -7 && "$speed" -le -5 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%3==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
 	
 	fi
 	
-	if [[ "$speed" -ge 70 && "$speed" -le 89 ]]; then 
+	if [[ "$speed" -ge -4 && "$speed" -le -2 ]]; then 
 	
-	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%5==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
+	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%4==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
 	
 	fi
 	
-	if [[ "$speed" -ge 90 && "$speed" -le 109 ]]; then 
+	if [[ "$speed" -ge -1 && "$speed" -le 1 ]]; then 
+	
+	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%6==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
+	
+	fi
+	
+	if [[ "$speed" -ge 2 && "$speed" -le 4 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%7==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
 	
 	fi
 	
-	if [[ "$speed" -ge 110 && "$speed" -le 129 ]]; then 
+	if [[ "$speed" -ge 5 && "$speed" -le 7 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%8==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
 	
 	fi
 	
-	if [[ "$speed" -ge 130 && "$speed" -le 159 ]]; then 
+	if [[ "$speed" -ge 8 && "$speed" -le 10 ]]; then 
+	
+	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%9==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
+	
+	fi
+
+	fi
+
+	if [[ "$textbook" == "short" ]]; then
+	
+		
+	if [[ "$speed" -ge -10 && "$speed" -le -8 ]]; then 
+	
+	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%3==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
+	
+	fi
+	
+	if [[ "$speed" -ge -7 && "$speed" -le -5 ]]; then 
+	
+	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%4==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
+	
+	fi
+	
+	if [[ "$speed" -ge -4 && "$speed" -le -2 ]]; then 
+	
+	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%5==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
+	
+	fi
+	
+	if [[ "$speed" -ge -1 && "$speed" -le 1 ]]; then 
+	
+	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%7==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
+	
+	fi
+	
+	if [[ "$speed" -ge 2 && "$speed" -le 4 ]]; then 
+	
+	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%8==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
+	
+	fi
+	
+	if [[ "$speed" -ge 5 && "$speed" -le 7 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%9==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
 	
 	fi
 	
-	if [[ "$speed" -ge 160 && "$speed" -le 200 ]]; then 
+	if [[ "$speed" -ge 8 && "$speed" -le 10 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%10==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
 	
@@ -3682,39 +3684,45 @@ if [[ "$textbook" == "short" ]]; then
 
 	fi
 
-if [[ "$novel" == "on" ]]; then
+	if [[ "$novel" == "on" ]]; then
 
-	if [[ "$speed" -ge 50 && "$speed" -le 69 ]]; then 
+	if [[ "$speed" -ge -10 && "$speed" -le -8 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%5==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
 	
 	fi
 	
-	if [[ "$speed" -ge 70 && "$speed" -le 89 ]]; then 
+	if [[ "$speed" -ge -7 && "$speed" -le -5 ]]; then 
+	
+	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%6==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
+	
+	fi
+	
+	if [[ "$speed" -ge -4 && "$speed" -le -2 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%7==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
 	
 	fi
 	
-	if [[ "$speed" -ge 90 && "$speed" -le 109 ]]; then 
+	if [[ "$speed" -ge -1 && "$speed" -le 1 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%11==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
 	
 	fi
 	
-	if [[ "$speed" -ge 110 && "$speed" -le 129 ]]; then 
+	if [[ "$speed" -ge 2 && "$speed" -le 4 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%13==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
 	
 	fi
 	
-	if [[ "$speed" -ge 130 && "$speed" -le 159 ]]; then 
+	if [[ "$speed" -ge 5 && "$speed" -le 7 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%15==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
 	
 	fi
 	
-	if [[ "$speed" -ge 160 && "$speed" -le 200 ]]; then 
+	if [[ "$speed" -ge 8 && "$speed" -le 10 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%17==0) $i="<split>"}1' ./"$baseName"/"$baseName"_formatted.txt > tmp && mv tmp ./"$baseName"/"$baseName"_formatted.txt
 	
@@ -3874,7 +3882,7 @@ echo -e "\033[1;33mATTENTION:\033[0m The 1st secondary language tag \033[1;45m\0
 
 while true; do
 
-read -n5 -p "Please enter the two letter value to assign to this secondary language in $(echo -e "\033[1;35m"$baseName".docx\033[0m") [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ]." answer
+read -n5 -p "Please enter the two letter value to assign to this secondary language in $(echo -e "\033[1;35m"$baseName".docx\033[0m") [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / grc / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ]." answer
 case "$answer" in
 IT | it) 
 	   language1=it	
@@ -4107,6 +4115,13 @@ FR-CH | fr-ch)
        secondlanguage1="French - Switzerland"
 	   break
 	   ;;
+GRC | grc) 
+	   language1=grc
+       echo -e "\n"
+       echo -e "Value of \033[1;45m\033[1;39m"grc"\033[0m\033[0m assigned to \033[1;45m\033[1;39m###1\033[0m\033[0m in \033[1;35m"$baseName".docx\033[0m.\n"
+       secondlanguage1="Ancient Greek"
+	   break
+	   ;;
 HE | he) 
 	   language1=he
        echo -e "\n"
@@ -4263,7 +4278,7 @@ ZH-TW | zh-tw)
 	   ;;
 	*)
 	   echo -e "\n"
-       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ].\033[0m\n"
+       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / grc / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ].\033[0m\n"
        ;;
 esac
 
@@ -4291,7 +4306,7 @@ echo -e "\033[1;33mATTENTION:\033[0m The 2nd secondary language tag \033[1;45m\0
 
 while true; do
 
-read -n5 -p "Please enter the two letter value to assign to this secondary language in $(echo -e "\033[1;35m"$baseName".docx\033[0m") [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ]." answer
+read -n5 -p "Please enter the two letter value to assign to this secondary language in $(echo -e "\033[1;35m"$baseName".docx\033[0m") [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / grc / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ]." answer
 case $answer in
 IT | it) 
 	   language2=it	
@@ -4524,6 +4539,13 @@ FR-CH | fr-ch)
        secondlanguage2="French - Switzerland"
 	   break
 	   ;;
+GRC | grc) 
+	   language2=grc
+       echo -e "\n"
+       echo -e "Value of \033[1;45m\033[1;39m"grc"\033[0m\033[0m assigned to \033[1;45m\033[1;39m###2\033[0m\033[0m in \033[1;35m"$baseName".docx\033[0m.\n"
+       secondlanguage2="Ancient Greek"
+	   break
+	   ;;
 HE | he) 
 	   language2=he
        echo -e "\n"
@@ -4680,7 +4702,7 @@ ZH-TW | zh-tw)
 	   ;;
 	*)
 	   echo -e "\n"
-       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ].\033[0m\n"
+       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / grc / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ].\033[0m\n"
        ;;
 esac
 
@@ -4708,7 +4730,7 @@ echo -e "\033[1;33mATTENTION:\033[0m The 3rd secondary language tag \033[1;45m\0
 
 while true; do
 
-read -n5 -p "Please enter the two letter value to assign to this secondary language in $(echo -e "\033[1;35m"$baseName".docx\033[0m") [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ]." answer
+read -n5 -p "Please enter the two letter value to assign to this secondary language in $(echo -e "\033[1;35m"$baseName".docx\033[0m") [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / grc / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ]." answer
 case $answer in
 IT | it) 
 	   language3=it	
@@ -4941,6 +4963,13 @@ FR-CH | fr-ch)
        secondlanguage3="French - Switzerland"
 	   break
 	   ;;
+GRC | grc) 
+	   language3=grc
+       echo -e "\n"
+       echo -e "Value of \033[1;45m\033[1;39m"grc"\033[0m\033[0m assigned to \033[1;45m\033[1;39m###3\033[0m\033[0m in \033[1;35m"$baseName".docx\033[0m.\n"
+       secondlanguage3="Ancient Greek"
+	   break
+	   ;;
 HE | he) 
 	   language3=he
        echo -e "\n"
@@ -5097,7 +5126,7 @@ ZH-TW | zh-tw)
 	   ;;
 	*)
 	   echo -e "\n"
-       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ].\033[0m\n"
+       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / grc / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ].\033[0m\n"
        ;;
 esac
 
@@ -5125,7 +5154,7 @@ echo -e "\033[1;33mATTENTION:\033[0m The 4th secondary language tag \033[1;45m\0
 
 while true; do
 
-read -n5 -p "Please enter the two letter value to assign to this secondary language in $(echo -e "\033[1;35m"$baseName".docx\033[0m") [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ]." answer
+read -n5 -p "Please enter the two letter value to assign to this secondary language in $(echo -e "\033[1;35m"$baseName".docx\033[0m") [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / grc / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ]." answer
 case $answer in
 IT | it) 
 	   language4=it	
@@ -5358,6 +5387,13 @@ FR-CH | fr-ch)
        secondlanguage4="French - Switzerland"
 	   break
 	   ;;
+GRC | grc) 
+	   language4=grc
+       echo -e "\n"
+       echo -e "Value of \033[1;45m\033[1;39m"grc"\033[0m\033[0m assigned to \033[1;45m\033[1;39m###4\033[0m\033[0m in \033[1;35m"$baseName".docx\033[0m.\n"
+       secondlanguage4="Ancient Greek"
+	   break
+	   ;;
 HE | he) 
 	   language4=he
        echo -e "\n"
@@ -5514,7 +5550,7 @@ ZH-TW | zh-tw)
 	   ;;
 	*)
 	   echo -e "\n"
-       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ].\033[0m\n"
+       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / grc / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ].\033[0m\n"
        ;;
 esac
 
@@ -5542,7 +5578,7 @@ echo -e "\033[1;33mATTENTION:\033[0m The 5th secondary language tag \033[1;45m\0
 
 while true; do
 
-read -n5 -p "Please enter the two letter value to assign to this secondary language in $(echo -e "\033[1;35m"$baseName".docx\033[0m") [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ]." answer
+read -n5 -p "Please enter the two letter value to assign to this secondary language in $(echo -e "\033[1;35m"$baseName".docx\033[0m") [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / grc / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ]." answer
 case $answer in
 IT | it) 
 	   language5=it	
@@ -5775,6 +5811,13 @@ FR-CH | fr-ch)
        secondlanguage5="French - Switzerland"
 	   break
 	   ;;
+GRC | grc) 
+	   language5=grc
+       echo -e "\n"
+       echo -e "Value of \033[1;45m\033[1;39m"grc"\033[0m\033[0m assigned to \033[1;45m\033[1;39m###5\033[0m\033[0m in \033[1;35m"$baseName".docx\033[0m.\n"
+       secondlanguage5="Ancient Greek"
+	   break
+	   ;;
 HE | he) 
 	   language5=he
        echo -e "\n"
@@ -5931,7 +5974,7 @@ ZH-TW | zh-tw)
 	   ;;
 	*)
 	   echo -e "\n"
-       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ].\033[0m\n"
+       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / grc / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ].\033[0m\n"
        ;;
 esac
 
@@ -5959,7 +6002,7 @@ echo -e "\033[1;33mATTENTION:\033[0m The 6th secondary language tag \033[1;45m\0
 
 while true; do
 
-read -n5 -p "Please enter the two letter value to assign to this secondary language in $(echo -e "\033[1;35m"$baseName".docx\033[0m") [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ]." answer
+read -n5 -p "Please enter the two letter value to assign to this secondary language in $(echo -e "\033[1;35m"$baseName".docx\033[0m") [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / grc / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ]." answer
 case $answer in
 IT | it) 
 	   language6=it	
@@ -6192,6 +6235,13 @@ FR-CH | fr-ch)
        secondlanguage6="French - Switzerland"
 	   break
 	   ;;
+GRC | grc) 
+	   language6=grc
+       echo -e "\n"
+       echo -e "Value of \033[1;45m\033[1;39m"grc"\033[0m\033[0m assigned to \033[1;45m\033[1;39m###6\033[0m\033[0m in \033[1;35m"$baseName".docx\033[0m.\n"
+       secondlanguage6="Ancient Greek"
+	   break
+	   ;;
 HE | he) 
 	   language6=he
        echo -e "\n"
@@ -6348,7 +6398,7 @@ ZH-TW | zh-tw)
 	   ;;
 	*)
 	   echo -e "\n"
-       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ].\033[0m\n"
+       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / grc / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ].\033[0m\n"
        ;;
 esac
 
@@ -6376,7 +6426,7 @@ echo -e "\033[1;33mATTENTION:\033[0m The 7th secondary language tag \033[1;45m\0
 
 while true; do
 
-read -n5 -p "Please enter the two letter value to assign to this secondary language in $(echo -e "\033[1;35m"$baseName".docx\033[0m") [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ]." answer
+read -n5 -p "Please enter the two letter value to assign to this secondary language in $(echo -e "\033[1;35m"$baseName".docx\033[0m") [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / grc / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ]." answer
 case $answer in
 IT | it) 
 	   language7=it	
@@ -6609,6 +6659,13 @@ FR-CH | fr-ch)
        secondlanguage7="French - Switzerland"
 	   break
 	   ;;
+GRC | grc) 
+	   language7=grc
+       echo -e "\n"
+       echo -e "Value of \033[1;45m\033[1;39m"grc"\033[0m\033[0m assigned to \033[1;45m\033[1;39m###7\033[0m\033[0m in \033[1;35m"$baseName".docx\033[0m.\n"
+       secondlanguage7="Ancient Greek"
+	   break
+	   ;;
 HE | he) 
 	   language7=he
        echo -e "\n"
@@ -6765,7 +6822,7 @@ ZH-TW | zh-tw)
 	   ;;
 	*)
 	   echo -e "\n"
-       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ].\033[0m\n"
+       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / grc / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ].\033[0m\n"
        ;;
 esac
 
@@ -6793,7 +6850,7 @@ echo -e "\033[1;33mATTENTION:\033[0m The 8th secondary language tag \033[1;45m\0
 
 while true; do
 
-read -n5 -p "Please enter the two letter value to assign to this secondary language in $(echo -e "\033[1;35m"$baseName".docx\033[0m") [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ]." answer
+read -n5 -p "Please enter the two letter value to assign to this secondary language in $(echo -e "\033[1;35m"$baseName".docx\033[0m") [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / grc / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ]." answer
 case $answer in
 IT | it) 
 	   language8=it	
@@ -7026,6 +7083,13 @@ FR-CH | fr-ch)
        secondlanguage8="French - Switzerland"
 	   break
 	   ;;
+GRC | grc) 
+	   language8=grc
+       echo -e "\n"
+       echo -e "Value of \033[1;45m\033[1;39m"grc"\033[0m\033[0m assigned to \033[1;45m\033[1;39m###8\033[0m\033[0m in \033[1;35m"$baseName".docx\033[0m.\n"
+       secondlanguage8="Ancient Greek"
+	   break
+	   ;;
 HE | he) 
 	   language8=he
        echo -e "\n"
@@ -7182,7 +7246,7 @@ ZH-TW | zh-tw)
 	   ;;
 	*)
 	   echo -e "\n"
-       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ].\033[0m\n"
+       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / grc / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ].\033[0m\n"
        ;;
 esac
 
@@ -7210,7 +7274,7 @@ echo -e "\033[1;33mATTENTION:\033[0m The 9th secondary language tag \033[1;45m\0
 
 while true; do
 
-read -n5 -p "Please enter the two letter value to assign to this secondary language in $(echo -e "\033[1;35m"$baseName".docx\033[0m") [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ]." answer
+read -n5 -p "Please enter the two letter value to assign to this secondary language in $(echo -e "\033[1;35m"$baseName".docx\033[0m") [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / grc / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ]." answer
 case $answer in
 IT | it) 
 	   language9=it	
@@ -7443,6 +7507,13 @@ FR-CH | fr-ch)
        secondlanguage9="French - Switzerland"
 	   break
 	   ;;
+GRC | grc) 
+	   language9=grc
+       echo -e "\n"
+       echo -e "Value of \033[1;45m\033[1;39m"grc"\033[0m\033[0m assigned to \033[1;45m\033[1;39m###9\033[0m\033[0m in \033[1;35m"$baseName".docx\033[0m.\n"
+       secondlanguage9="Ancient Greek"
+	   break
+	   ;;
 HE | he) 
 	   language9=he
        echo -e "\n"
@@ -7599,7 +7670,7 @@ ZH-TW | zh-tw)
 	   ;;
 	*)
 	   echo -e "\n"
-       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ].\033[0m\n"
+       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ af / ar-sa / ar-eg / bg / ca / cs / da / de / de-at / de-ch / el / en-au / en-ca / en-gb / en-in / en-ie / en-us / es / es-mx / et / fa / fi / fr / fr-ca / fr-ch / grc / he / hi / hr / hu / id / it / ja / ko / la / lt / ms / nl / nl-be / no / pl / pt / pt-br / ro / ru / sk / sl / sv / ta / th / tr / vi / zh-cn / zh-hk / zh-tw / rm (REMOVE) ].\033[0m\n"
        ;;
 esac
 
@@ -7620,6 +7691,142 @@ fi
 fi
 
 # Check if language voices are installed
+
+if [[ "$language1" == "grc" ]] || [[ "$language2" == "grc" ]] ||  [[ "$language3" == "grc" ]] ||  [[ "$language4" == "grc" ]] ||  [[ "$language5" == "grc" ]] ||  [[ "$language6" == "grc" ]] ||  [[ "$language7" == "grc" ]] ||  [[ "$language8" == "grc" ]] ||  [[ "$language9" == "grc" ]] ; then 
+
+if ! "C:\balcon\balcon.exe" -l 2> /dev/null | grep -q -w 'Ancient' 2> /dev/null ; then
+
+echo -e "\n\033[1;31mError: eSpeak NG - Greek Ancient voice not installed. Will not remove Ancient Greek text...\033[0m" >&2
+
+if [[ "$language1" == "grc" ]]; then
+
+sed -i '/###1/ {:a; $!N; s/###1.*%%%//; t; ba}' ./"$baseName"/"$baseName".txt
+
+secondlanguage1="Ancient Greek - removed"
+
+if [[ "$caption" == "on" ]]; then
+
+sed -i '/###1/ {:a; $!N; s/###1.*%%%//; t; ba}' ./"$baseName"/"$baseName"_formatted.txt
+
+fi
+
+fi
+
+if [[ "$language2" == "grc" ]]; then
+
+sed -i '/###2/ {:a; $!N; s/###2.*%%%//; t; ba}' ./"$baseName"/"$baseName".txt
+
+secondlanguage2="Ancient Greek - removed"
+
+if [[ "$caption" == "on" ]]; then
+
+sed -i '/###2/ {:a; $!N; s/###2.*%%%//; t; ba}' ./"$baseName"/"$baseName"_formatted.txt
+
+fi
+
+fi
+
+if [[ "$language3" == "grc" ]]; then
+
+sed -i '/###3/ {:a; $!N; s/###3.*%%%//; t; ba}' ./"$baseName"/"$baseName".txt
+
+secondlanguage3="Ancient Greek - removed"
+
+if [[ "$caption" == "on" ]]; then
+
+sed -i '/###3/ {:a; $!N; s/###3.*%%%//; t; ba}' ./"$baseName"/"$baseName"_formatted.txt
+
+fi
+
+fi
+
+if [[ "$language4" == "grc" ]]; then
+
+sed -i '/###4/ {:a; $!N; s/###4.*%%%//; t; ba}' ./"$baseName"/"$baseName".txt
+
+secondlanguage4="Ancient Greek - removed"
+
+if [[ "$caption" == "on" ]]; then
+
+sed -i '/###4/ {:a; $!N; s/###4.*%%%//; t; ba}' ./"$baseName"/"$baseName"_formatted.txt
+
+fi
+
+fi
+
+if [[ "$language5" == "grc" ]]; then
+
+sed -i '/###5/ {:a; $!N; s/###5.*%%%//; t; ba}' ./"$baseName"/"$baseName".txt
+
+secondlanguage5="Ancient Greek - removed"
+
+if [[ "$caption" == "on" ]]; then
+
+sed -i '/###5/ {:a; $!N; s/###5.*%%%//; t; ba}' ./"$baseName"/"$baseName"_formatted.txt
+
+fi
+
+fi
+
+if [[ "$language6" == "grc" ]]; then
+
+sed -i '/###6/ {:a; $!N; s/###6.*%%%//; t; ba}' ./"$baseName"/"$baseName".txt
+
+secondlanguage6="Ancient Greek - removed"
+
+if [[ "$caption" == "on" ]]; then
+
+sed -i '/###6/ {:a; $!N; s/###6.*%%%//; t; ba}' ./"$baseName"/"$baseName"_formatted.txt
+
+fi
+
+fi
+
+if [[ "$language7" == "grc" ]]; then
+
+sed -i '/###7/ {:a; $!N; s/###7.*%%%//; t; ba}' ./"$baseName"/"$baseName".txt
+
+secondlanguage7="Ancient Greek - removed"
+
+if [[ "$caption" == "on" ]]; then
+
+sed -i '/###7/ {:a; $!N; s/###7.*%%%//; t; ba}' ./"$baseName"/"$baseName"_formatted.txt
+
+fi
+
+fi
+
+if [[ "$language8" == "grc" ]]; then
+
+sed -i '/###8/ {:a; $!N; s/###8.*%%%//; t; ba}' ./"$baseName"/"$baseName".txt
+
+secondlanguage8="Ancient Greek - removed"
+
+if [[ "$caption" == "on" ]]; then
+
+sed -i '/###8/ {:a; $!N; s/###8.*%%%//; t; ba}' ./"$baseName"/"$baseName"_formatted.txt
+
+fi
+
+fi
+
+if [[ "$language9" == "grc" ]]; then
+
+sed -i '/###9/ {:a; $!N; s/###9.*%%%//; t; ba}' ./"$baseName"/"$baseName".txt
+
+secondlanguage9="Ancient Greek - removed"
+
+if [[ "$caption" == "on" ]]; then
+
+sed -i '/###9/ {:a; $!N; s/###9.*%%%//; t; ba}' ./"$baseName"/"$baseName"_formatted.txt
+
+fi
+
+fi
+
+fi
+
+fi
 
 if [[ "$language1" == "it" ]] || [[ "$language2" == "it" ]] ||  [[ "$language3" == "it" ]] ||  [[ "$language4" == "it" ]] ||  [[ "$language5" == "it" ]] ||  [[ "$language6" == "it" ]] ||  [[ "$language7" == "it" ]] ||  [[ "$language8" == "it" ]] ||  [[ "$language9" == "it" ]] ; then 
 
@@ -15030,223 +15237,6 @@ if [[ "$language" == "on" ]]; then
 
 sed -i 's/\\#\\#\\#/###/g' ./"$baseName"/"$baseName".txt
 
-if [[ "$name" == @(Ava|Tom|Allison|Samantha|Susan) ]]; then
-
-## Move ### onto its own line
-
-perl -pi -e 's/(###[1-9])/\n$1/g' ./"$baseName"/"$baseName".txt
-
-## Move %%% onto its own line
-
-perl -pi -e 's/(%%%)/$1\n/g' ./"$baseName"/"$baseName".txt
-
-# Extract secondary languages
-sed -n "s/\(###[1-9]\)\(.*\)\(%%%\)/<voice required='Name=Microsoft \1'>\2<\/voice>/p" ./"$baseName"/"$baseName".txt > ./speech-log.txt
-
-#
-
-# replace the language tags with the language values
-
-sed -i "s/###1/"$language1"/g" ./speech-log.txt
-
-sed -i "s/###2/"$language2"/g" ./speech-log.txt
-
-sed -i "s/###3/"$language3"/g" ./speech-log.txt
-
-sed -i "s/###4/"$language4"/g" ./speech-log.txt
-
-sed -i "s/###5/"$language5"/g" ./speech-log.txt
-
-sed -i "s/###6/"$language6"/g" ./speech-log.txt
-
-sed -i "s/###7/"$language7"/g" ./speech-log.txt
-
-sed -i "s/###8/"$language8"/g" ./speech-log.txt
-
-sed -i "s/###9/"$language9"/g" ./speech-log.txt
-
-# Replace the language values with the voice
-
-sed -i 's/Microsoft it/Microsoft Elsa Desktop/g' ./speech-log.txt
-
-sed -i "s/Microsoft es'/Microsoft Helena Desktop'/g" ./speech-log.txt
-
-sed -i "s/Microsoft fr'/Microsoft Hortense Desktop'/g" ./speech-log.txt
-
-sed -i "s/Microsoft de'/Microsoft Hedda Desktop'/g" ./speech-log.txt
-
-sed -i 's/Microsoft ja/Microsoft Haruka Desktop/g' ./speech-log.txt
-
-sed -i "s/Microsoft en-us/Microsoft Mark/g" ./speech-log.txt
-
-sed -i 's/Microsoft en-gb/Microsoft Hazel Desktop/g' ./speech-log.txt
-
-sed -i "s/Microsoft zh-cn/Microsoft Huihui Desktop/g" ./speech-log.txt
-
-sed -i 's/Microsoft ru/Microsoft Irina Desktop/g' ./speech-log.txt
-
-sed -i "s/Microsoft pt'/Microsoft Helia'/g" ./speech-log.txt
-
-sed -i 's/Microsoft pl/Microsoft Paulina Desktop/g' ./speech-log.txt
-
-sed -i 's/Microsoft es-mx/Microsoft Sabina Desktop/g' ./speech-log.txt
-
-sed -i 's/Microsoft zh-hk/Microsoft Tracy Desktop/g' ./speech-log.txt
-
-sed -i 's/Microsoft la/eSpeak-mb-la1/g' ./speech-log.txt
-
-sed -i 's/Microsoft fa/eSpeak-mb-ir1/g' ./speech-log.txt
-
-sed -i 's/Microsoft lt/eSpeak-mb-lt1/g' ./speech-log.txt
-
-sed -i 's/Microsoft et/eSpeak-mb-ee1/g' ./speech-log.txt
-
-sed -i 's/Microsoft af/eSpeak-mb-af1/g' ./speech-log.txt
-
-sed -i 's/Microsoft ar-sa/Microsoft Naayf/g' ./speech-log.txt
-
-sed -i 's/Microsoft ar-eg/Microsoft Hoda/g' ./speech-log.txt
-
-sed -i 's/Microsoft bg/Microsoft Ivan/g' ./speech-log.txt
-
-sed -i 's/Microsoft ca/Microsoft Herena/g' ./speech-log.txt
-
-sed -i 's/Microsoft cs/Microsoft Jakub/g' ./speech-log.txt
-
-sed -i 's/Microsoft da/Microsoft Helle/g' ./speech-log.txt
-
-sed -i 's/Microsoft de-at/Microsoft Michael/g' ./speech-log.txt
-
-sed -i 's/Microsoft de-ch/Microsoft Karsten/g' ./speech-log.txt
-
-sed -i 's/Microsoft el/Microsoft Stefanos/g' ./speech-log.txt
-
-sed -i 's/Microsoft en-au/Microsoft James/g' ./speech-log.txt
-
-sed -i 's/Microsoft en-ca/Microsoft Linda/g' ./speech-log.txt
-
-sed -i 's/Microsoft en-in/Microsoft Ravi/g' ./speech-log.txt
-
-sed -i 's/Microsoft en-ie/Microsoft Sean/g' ./speech-log.txt
-
-sed -i 's/Microsoft fi/Microsoft Heidi/g' ./speech-log.txt
-
-sed -i 's/Microsoft fr-ca/Microsoft Claude/g' ./speech-log.txt
-
-sed -i 's/Microsoft fr-ch/Microsoft Guillaume/g' ./speech-log.txt
-
-sed -i 's/Microsoft he/Microsoft Asaf/g' ./speech-log.txt
-
-sed -i 's/Microsoft hi/Microsoft Hemant/g' ./speech-log.txt
-
-sed -i 's/Microsoft hr/Microsoft Matej/g' ./speech-log.txt
-
-sed -i 's/Microsoft hu/Microsoft Szabolcs/g' ./speech-log.txt
-
-sed -i 's/Microsoft id/Microsoft Andika/g' ./speech-log.txt
-
-sed -i 's/Microsoft ko/Microsoft Heami/g' ./speech-log.txt
-
-sed -i 's/Microsoft ms/Microsoft Rizwan/g' ./speech-log.txt
-
-sed -i "s/Microsoft nl'/Microsoft Frank'/g" ./speech-log.txt
-
-sed -i "s/Microsoft nl-be/Microsoft Bart/g" ./speech-log.txt
-
-sed -i 's/Microsoft no/Microsoft Jon/g' ./speech-log.txt
-
-sed -i 's/Microsoft pt-br/Microsoft Maria Desktop/g' ./speech-log.txt
-
-sed -i 's/Microsoft ro/Microsoft Andrei/g' ./speech-log.txt
-
-sed -i 's/Microsoft sk/Microsoft Filip/g' ./speech-log.txt
-
-sed -i 's/Microsoft sl/Microsoft Lado/g' ./speech-log.txt
-
-sed -i 's/Microsoft sv/Microsoft Bengt/g' ./speech-log.txt
-
-sed -i 's/Microsoft ta/Microsoft Valluvar/g' ./speech-log.txt
-
-sed -i 's/Microsoft th/Microsoft Pattara/g' ./speech-log.txt
-
-sed -i 's/Microsoft tr/Microsoft Tolga/g' ./speech-log.txt
-
-sed -i 's/Microsoft vi/Microsoft An/g' ./speech-log.txt
-
-sed -i 's/Microsoft zh-tw/Microsoft Zhiwei/g' ./speech-log.txt
-
-# Remove double quotation mark from text (which leads to incorrect pronunication
-
-perl -pi -e 's/"//g' ./speech-log.txt
-
-# Insert place marker for secondary languages
-
-sed -i 's/\(###[1-9]\)\(.*\)\(%%%\)/@@ \2/g' ./"$baseName"/"$baseName".txt
-
-count=$1
-lang=1
-while IFS="" read -r p || [ -n "$p" ] ; do echo -ne "Processing secondary languages... \033[1;33m'$count'\033[0m\r" ; balcon -t "$p" -s -1 -v 100 -fr 22 -bt 16 -ch 1 -w ./"$baseName"/output.wav 2> /dev/null ; mv ./"$baseName"/output.wav ./"$baseName"/${lang}.wav ; count=$[ $count + 1 ] ; lang=$[ $lang + 1 ] ; done <./speech-log.txt
-
-IFS=$IFS_OLD
-
-echo -ne 'Processing secondary languages... \033[1;32mDone.\033[0m\r'
-echo -ne '\n\n'
-
-ls -d -1 "$PWD/"**/* | grep -w 'wav' > ./speech-log2.txt
-
-# Remove txt files
-
-rm ./speech-log.txt
-
-# Delete Empty lines
-
-sed -i '/^\s*$/d' ./speech-log2.txt
-
-# Correct path structure
-
-sed -i 's/\//\\/g' ./speech-log2.txt
-
-# Correct XML markup for path to wav file
-
-sed -i 's/\\c\\/<Audio="C:\\/g' ./speech-log2.txt
-
-sed -i 's/.wav/.wav"\/>/g' ./speech-log2.txt
-
-# Add String to beginning of each line
-
-sed -i -e 's/^/@@ /' ./speech-log2.txt
-
-# Insert path to secondary language WAV files back into txt file
-
-# Replace secondary language fragments with paths to WAV files from speech-log2.txt
-
-awk '
-    /^@@/{                   
-        getline <"./speech-log2.txt" 
-    }
-    1                      
-    ' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
-       
-# Replace placeholder text
-
-sed -i -e 's/@@ //g' ./"$baseName"/"$baseName".txt
-    
-# Remove txt files
-
-rm ./speech-log2.txt
-
-# Reposition alternative text on the same line in the HTML file
-
-perl -0777 -pi -e 's/(\n)(<Audio="C)/ $2/g' ./"$baseName"/"$baseName".txt
-
-# Clean up punctuation after the <Audio...> markup
-
-perl -0777 -pi -e 's/(wav"\/>\n)(, )/$1/g' ./"$baseName"/"$baseName".txt
-
-perl -0777 -pi -e 's/(wav"\/>)(,)/$1/g' ./"$baseName"/"$baseName".txt
-
-else
-
 # replace the language tags with the language values
 
 sed -i "s/###1/<voice required='Name=Microsoft "$language1"'>/g" ./"$baseName"/"$baseName".txt
@@ -15304,6 +15294,8 @@ sed -i 's/Microsoft lt/eSpeak-mb-lt1/g' ./"$baseName"/"$baseName".txt
 sed -i 's/Microsoft et/eSpeak-mb-ee1/g' ./"$baseName"/"$baseName".txt
 
 sed -i 's/Microsoft af/eSpeak-mb-af1/g' ./"$baseName"/"$baseName".txt
+
+sed -i 's/Microsoft grc/eSpeak-grc/g' ./"$baseName"/"$baseName".txt
 
 sed -i 's/Microsoft ar-sa/Microsoft Naayf/g' ./"$baseName"/"$baseName".txt
 
@@ -15383,8 +15375,6 @@ sed -i 's/%%%/<\/voice>/g' ./"$baseName"/"$baseName".txt
 
 fi
 
-fi
-
 # Reformatting the document for conversion
 
 # Add an extra line after each new line
@@ -15401,235 +15391,6 @@ mv ./"$baseName"/"$baseName"_segmented.txt ./"$baseName"/"$baseName".txt
 
 perl -0777 -pi -e 's/(\n)(\n)/$1/g' ./"$baseName"/"$baseName".txt
 
-# Check for pronunciation mistakes
-
-		if [[ "$name" == @(Ava|Tom|Allison|Samantha|Susan) ]]; then
-		
-		if [ -n "$insert" ];
-
-		then 
-		
-		stop_words=( "the" "of" "to" "and" "a" "in" "is" "it" "you" "that" "he" "was" "for" "on" "are" "with" "as" "I" "his" "they" "be" "at" "one" "have" "this" "from" "or" "had" "by" "not" "word" "but" "what" "some" "we" "can" "out" "other" "were" "all" "there" "when" "up" "use" "your" "how" "said" "an" "each" "she" "which" "do" "their" "time" "if" "will" "way" "about" "many" "then" "them" "write" "would" "like" "so" "these" "her" "long" "make" "thing" "see" "him" "two" "has" "look" "more" "day" "could" "go" "come" "did" "number" "sound" "no" "most" "people" "my" "over" "know" "water" "than" "call" "first" "who" "may" "down" "side" "been" "now" "find" "any" "new" "work" "part" "take" "get" "place" "made" "live" "where" "after" "back" "little" "only" "round" "man" "year" "came" "show" "every" "good" "me" "give" "our" "under" "name" "very" "through" "just" "form" "sentence" "great" "think" "say" "help" "low" "line" "differ" "turn" "cause" "much" "mean" "before" "move" "right" "boy" "old" "too" "same" "tell" "does" "set" "three" "want" "air" "well" "also" "play" "small" "end" "put" "home" "read" "hand" "port" "large" "spell" "add" "even" "land" "here" "must" "big" "high" "such" "follow" "act" "why" "ask" "men" "change" "went" "light" "kind" "off" "need" "house" "picture" "try" "us" "again" "animal" "point" "mother" "world" "near" "build" "self" "earth" "father" "head" "stand" "own" "page" "should" "country" "found" "answer" "school" "grow" "study" "still" "learn" "plant" "cover" "food" "sun" "four" "between" "state" "keep" "eye" "never" "last" "let" "thought" "city" "tree" "cross" "farm" "hard" "start" "might" "story" "saw" "far" "sea" "draw" "left" "late" "run" "don't" "while" "press" "close" "night" "real" "life" "few" "north" "open" "seem" "together" "next" "white" "children" "begin" "got" "walk" "example" "ease" "paper" "group" "always" "music" "those" "both" "mark" "often" "letter" "until" "mile" "river" "car" "feet" "care" "second" "book" "carry" "took" "science" "eat" "room" "friend" "began" "idea" "fish" "mountain" "stop" "once" "base" "hear" "horse" "cut" "sure" "watch" "color" "face" "wood" "main" "enough" "plain" "girl" "usual" "young" "ready" "above" "ever" "red" "list" "though" "feel" "talk" "bird" "soon" "body" "dog" "family" "direct" "pose" "leave" "song" "measure" "door" "product" "black" "short" "numeral" "class" "wind" "question" "happen" "complete" "ship" "area" "half" "rock" "order" "fire" "south" "problem" "piece" "told" "knew" "pass" "since" "top" "whole" "king" "space" "heard" "best" "hour" "better" "true" "during" "hundred" "five" "remember" "step" "early" "hold" "west" "ground" "interest" "reach" "fast" "verb" "sing" "listen" "six" "table" "travel" "less" "morning" "ten" "simple" "several" "vowel" "toward" "war" "lay" "against" "pattern" "slow" "center" "love" "person" "money" "serve" "appear" "road" "map" "rain" "rule" "govern" "pull" "cold" "notice" "voice" "unit" "power" "town" "fine" "certain" "fly" "fall" "lead" "cry" "dark" "machine" "note" "wait" "plan" "figure" "star" "box" "noun" "field" "rest" "correct" "able" "pound" "done" "beauty" "drive" "stood" "contain" "front" "teach" "week" "final" "gave" "green" "oh" "quick" "develop" "ocean" "warm" "free" "minute" "strong" "special" "mind" "behind" "clear" "tail" "produce" "fact" "street" "inch" "multiply" "nothing" "course" "stay" "wheel" "full" "force" "blue" "object" "decide" "surface" "deep" "moon" "island" "foot" "system" "busy" "test" "record" "boat" "common" "gold" "possible" "plane" "stead" "dry" "wonder" "laugh" "thousand" "ago" "ran" "check" "game" "shape" "equate" "hot" "miss" "brought" "heat" "snow" "tire" "bring" "yes" "distant" "fill" "east" "paint" "language" "among" "grand" "ball" "yet" "wave" "drop" "heart" "am" "present" "heavy" "dance" "engine" "position" "arm" "wide" "sail" "material" "size" "vary" "settle" "speak" "weight" "general" "ice" "matter" "circle" "pair" "include" "divide" "syllable" "felt" "perhaps" "pick" "sudden" "count" "square" "reason" "length" "represent" "art" "subject" "region" "energy" "hunt" "probable" "bed" "brother" "egg" "ride" "cell" "believe" "fraction" "forest" "sit" "race" "window" "store" "summer" "train" "sleep" "prove" "lone" "leg" "exercise" "wall" "catch" "mount" "wish" "sky" "board" "joy" "winter" "sat" "written" "wild" "instrument" "kept" "glass" "grass" "cow" "job" "edge" "sign" "visit" "past" "soft" "fun" "bright" "gas" "weather" "month" "million" "bear" "finish" "happy" "hope" "flower" "clothe" "strange" "gone" "jump" "baby" "eight" "village" "meet" "root" "buy" "raise" "solve" "metal" "whether" "push" "seven" "paragraph" "third" "shall" "held" "hair" "describe" "cook" "floor" "either" "result" "burn" "hill" "safe" "cat" "century" "consider" "type" "law" "bit" "coast" "copy" "phrase" "silent" "tall" "sand" "soil" "roll" "temperature" "finger" "industry" "value" "fight" "lie" "beat" "excite" "natural" "view" "sense" "ear" "else" "quite" "broke" "case" "middle" "kill" "son" "lake" "moment" "scale" "loud" "spring" "observe" "child" "straight" "consonant" "nation" "dictionary" "milk" "speed" "method" "organ" "pay" "age" "section" "dress" "cloud" "surprise" "quiet" "stone" "tiny" "climb" "cool" "design" "poor" "lot" "experiment" "bottom" "key" "iron" "single" "stick" "flat" "twenty" "skin" "smile" "crease" "hole" "trade" "melody" "trip" "office" "receive" "row" "mouth" "exact" "symbol" "die" "least" "trouble" "shout" "except" "wrote" "seed" "tone" "join" "suggest" "clean" "break" "lady" "yard" "rise" "bad" "blow" "oil" "blood" "touch" "grew" "cent" "mix" "team" "wire" "cost" "lost" "brown" "wear" "garden" "equal" "sent" "choose" "fell" "fit" "flow" "fair" "bank" "collect" "save" "control" "decimal" "gentle" "woman" "captain" "practice" "separate" "difficult" "doctor" "please" "protect" "noon" "whose" "locate" "ring" "character" "insect" "caught" "period" "indicate" "radio" "spoke" "atom" "human" "history" "effect" "electric" "expect" "crop" "modern" "element" "hit" "student" "corner" "party" "supply" "bone" "rail" "imagine" "provide" "agree" "thus" "capital" "won't" "chair" "danger" "fruit" "rich" "thick" "soldier" "process" "operate" "guess" "necessary" "sharp" "wing" "create" "neighbor" "wash" "bat" "rather" "crowd" "corn" "compare" "poem" "string" "bell" "depend" "meat" "rub" "tube" "famous" "dollar" "stream" "fear" "sight" "thin" "triangle" "planet" "hurry" "chief" "colony" "clock" "mine" "tie" "enter" "major" "fresh" "search" "send" "yellow" "gun" "allow" "print" "dead" "spot" "desert" "suit" "current" "lift" "rose" "continue" "block" "chart" "hat" "sell" "success" "company" "subtract" "event" "particular" "deal" "swim" "term" "opposite" "wife" "shoe" "shoulder" "spread" "arrange" "camp" "invent" "cotton" "born" "determine" "quart" "nine" "truck" "noise" "level" "chance" "gather" "shop" "stretch" "throw" "shine" "property" "column" "molecule" "select" "wrong" "gray" "repeat" "require" "broad" "prepare" "salt" "nose" "plural" "anger" "claim" "continent" "oxygen" "sugar" "death" "pretty" "skill" "women" "season" "solution" "magnet" "silver" "thank" "branch" "match" "suffix" "especially" "fig" "afraid" "huge" "sister" "steel" "discuss" "forward" "similar" "guide" "experience" "score" "apple" "bought" "led" "pitch" "coat" "mass" "card" "band" "rope" "slip" "win" "dream" "evening" "condition" "feed" "tool" "total" "basic" "smell" "valley" "nor" "double" "seat" "arrive" "master" "track" "parent" "shore" "division" "sheet" "substance" "favor" "connect" "post" "spend" "chord" "fat" "glad" "original" "share" "station" "dad" "bread" "charge" "proper" "bar" "offer" "segment" "slave" "duck" "instant" "market" "degree" "populate" "chick" "dear" "enemy" "reply" "drink" "occur" "support" "speech" "nature" "range" "steam" "motion" "path" "liquid" "log" "meant" "quotient" "teeth" "shell" "neck" "ain" "aren" "aren't" "because" "being" "below" "couldn" "couldn't" "d" "didn" "didn't" "doesn" "doesn't" "doing" "don" "further" "hadn" "hadn't" "hasn" "hasn't" "haven" "haven't" "having" "hers" "herself" "himself" "i" "into" "isn" "isn't" "it's" "its" "itself" "ll" "m" "ma" "mightn" "mightn't" "mustn" "mustn't" "myself" "needn" "needn't" "o" "ours" "ourselves" "re" "s" "shan" "shan't" "she's" "should've" "shouldn" "shouldn't" "t" "that'll" "theirs" "themselves" "ve" "wasn" "wasn't" "weren" "weren't" "whom" "won" "wouldn" "wouldn't" "y" "you'd" "you'll" "you're" "you've" "yours" "yourself" "yourselves" "he'd" "he'll" "he's" "here's" "how's" "i'd" "i'll" "i'm" "i've" "let's" "ought" "she'd" "she'll" "that's" "there's" "they'd" "they'll" "they're" "they've" "we'd" "we'll" "we're" "we've" "what's" "when's" "where's" "who's" "why's" "abst" "accordance" "according" "accordingly" "across" "actually" "added" "adj" "affected" "affecting" "affects" "afterwards" "ah" "almost" "alone" "along" "already" "although" "amongst" "announce" "another" "anybody" "anyhow" "anymore" "anyone" "anything" "anyway" "anyways" "anywhere" "apparently" "approximately" "arent" "arise" "around" "aside" "asking" "auth" "available" "away" "awfully" "b" "became" "become" "becomes" "becoming" "beforehand" "beginning" "beginnings" "begins" "beside" "besides" "beyond" "biol" "brief" "briefly" "c" "ca" "cannot" "can't" "causes" "certainly" "co" "com" "comes" "containing" "contains" "couldnt" "date" "different" "downwards" "due" "e" "ed" "edu" "eg" "eastern" "eighty" "elsewhere" "ending" "et" "etc" "everybody" "everyone" "everything" "everywhere" "ex" "f" "ff" "fifth" "fix" "followed" "following" "follows" "former" "formerly" "forth" "furthermore" "french" "g" "german" "gets" "getting" "given" "gives" "giving" "goes" "gotten" "h" "happens" "hardly" "hed" "hence" "hereafter" "hereby" "herein" "heres" "hereupon" "hes" "hi" "hid" "hither" "howbeit" "however" "id" "ie" "im" "immediate" "heading" "startfraction" "endfraction" "immediately" "importance" "important" "inc" "indeed" "index" "information" "instead" "invention" "inward" "itd" "it'll" "j" "k" "keeps" "kg" "km" "known" "knows" "l" "largely" "lately" "later" "latter" "latterly" "lest" "lets" "liked" "likely" "'ll" "looking" "looks" "ltd" "mainly" "makes" "maybe" "means" "meantime" "meanwhile" "merely" "mg" "ml" "moreover" "mostly" "mr" "mrs" "mug" "n" "na" "namely" "nay" "nd" "nearly" "necessarily" "needs" "neither" "nevertheless" "ninety" "nobody" "non" "none" "nonetheless" "noone" "normally" "nos" "noted" "nowhere" "obtain" "obtained" "obviously" "ok" "okay" "omitted" "ones" "onto" "ord" "others" "otherwise" "outside" "overall" "owing" "p" "pages" "particularly" "per" "placed" "plus" "poorly" "possibly" "potentially" "pp" "predominantly" "previously" "primarily" "probably" "promptly" "proud" "provides" "q" "que" "quickly" "qv" "r" "rd" "readily" "really" "recent" "recently" "ref" "refs" "regarding" "regardless" "regards" "related" "relatively" "research" "respectively" "resulted" "resulting" "results" "saying" "says" "sec" "seeing" "seemed" "seeming" "seems" "seen" "selves" "shed" "shes" "showed" "shown" "showns" "shows" "significant" "significantly" "similarly" "slightly" "somebody" "somehow" "someone" "somethan" "something" "sometime" "sometimes" "somewhat" "somewhere" "sorry" "specifically" "specified" "specify" "specifying" "strongly" "sub" "substantially" "successfully" "sufficiently" "sup" "taken" "taking" "extended" "description" "caption" "tends" "th" "thanks" "thanx" "thats" "that've" "thence" "thereafter" "thereby" "thered" "therefore" "therein" "there'll" "thereof" "therere" "theres" "thereto" "thereupon" "there've" "theyd" "theyre" "thou" "thoughh" "throug" "throughout" "thru" "til" "tip" "towards" "tried" "tries" "truly" "trying" "ts" "twice" "u" "un" "unfortunately" "unless" "unlike" "unlikely" "unto" "upon" "ups" "used" "useful" "usefully" "usefulness" "uses" "using" "usually" "v" "various" "'ve" "via" "viz" "vol" "vols" "vs" "w" "wants" "wasnt" "wed" "welcome" "werent" "whatever" "what'll" "whats" "whence" "whenever" "whereafter" "whereas" "whereby" "wherein" "wheres" "whereupon" "wherever" "whim" "whither" "whod" "whoever" "who'll" "whomever" "whos" "widely" "willing" "within" "without" "wont" "words" "wouldnt" "www" "x" "youd" "youre" "z" "zero" "a's" "ain't" "allows" "apart" "appreciate" "appropriate" "associated" "c'mon" "c's" "cant" "changes" "clearly" "concerning" "consequently" "considering" "corresponding" "currently" "definitely" "described" "despite" "entirely" "exactly" "going" "greetings" "hello" "hopefully" "ignored" "inasmuch" "indicated" "indicates" "inner" "insofar" "it'd" "novel" "presumably" "reasonably" "secondly" "sensible" "serious" "seriously" "t's" "thorough" "thoroughly" "france" "amoungst" "amount" "bill" "con" "de" "detail" "eleven" "empty" "fifteen" "fify" "forty" "hasnt" "society" "church" "mill" "sincere" "sixty" "political" "thickv" "twelve" "western" "january" "february" "march" "april" "june" "july" "august" "september" "god" "lord" "october" "november" "december" "A" "B" "C" "D" "E" "F" "G" "H" "J" "K" "L" "M" "N" "O" "P" "Q" "R" "S" "T" "U" "V" "W" "X" "Y" "Z" "op" "aaron" "abbey" "abbie" "abby" "abdul" "abe" "abel" "abigail" "abraham" "abram" "ada" "adah" "adalberto" "adaline" "adam" "adan" "addie" "adela" "adelaida" "adelaide" "adele" "adelia" "adelina" "adeline" "adell" "adella" "adelle" "adena" "adina" "adolfo" "adolph" "adria" "adrian" "adriana" "adriane" "adrianna" "adrianne" "adrien" "adriene" "adrienne" "afton" "agatha" "agnes" "agnus" "agripina" "agueda" "agustin" "agustina" "ahmad" "ahmed" "ai" "aida" "aide" "aiko" "aileen" "ailene" "aimee" "aisha" "aja" "akiko" "akilah" "al" "alaina" "alaine" "alan" "alana" "alane" "alanna" "alayna" "alba" "albert" "alberta" "albertha" "albertina" "albertine" "alberto" "albina" "alda" "alden" "aldo" "alease" "alec" "alecia" "aleen" "aleida" "aleisha" "alejandra" "alejandrina" "alejandro" "alena" "alene" "alesha" "aleshia" "alesia" "alessandra" "aleta" "aletha" "alethea" "alethia" "alex" "alexa" "alexander" "alexandra" "alexandria" "alexia" "alexis" "alfonso" "alfonzo" "alfred" "alfreda" "alfredia" "alfredo" "ali" "alia" "alica" "alice" "alicia" "alida" "alina" "aline" "alisa" "alise" "alisha" "alishia" "alisia" "alison" "alissa" "alita" "alix" "aliza" "alla" "allan" "alleen" "allegra" "allen" "allena" "allene" "allie" "alline" "allison" "allyn" "allyson" "alma" "almeda" "almeta" "alona" "alonso" "alonzo" "alpha" "alphonse" "alphonso" "alta" "altagracia" "altha" "althea" "alton" "alva" "alvaro" "alvera" "alverta" "alvin" "alvina" "alyce" "alycia" "alysa" "alyse" "alysha" "alysia" "alyson" "alyssa" "amada" "amado" "amal" "amalia" "amanda" "amber" "amberly" "ambrose" "amee" "amelia" "america" "ami" "amie" "amiee" "amina" "amira" "ammie" "amos" "amparo" "amy" "ana" "anabel" "analisa" "anamaria" "anastacia" "anastasia" "andera" "anderson" "andra" "andre" "andrea" "andreas" "andree" "andres" "andrew" "andria" "andy" "anette" "angel" "angela" "angele" "angelena" "angeles" "angelia" "angelic" "angelica" "angelika" "angelina" "angeline" "angelique" "angelita" "angella" "angelo" "angelyn" "angie" "angila" "angla" "angle" "anglea" "anh" "anibal" "anika" "anisa" "anisha" "anissa" "anita" "anitra" "anja" "anjanette" "anjelica" "ann" "anna" "annabel" "annabell" "annabelle" "annalee" "annalisa" "annamae" "annamaria" "annamarie" "anne" "anneliese" "annelle" "annemarie" "annett" "annetta" "annette" "annice" "annie" "annika" "annis" "annita" "annmarie" "anthony" "antione" "antionette" "antoine" "antoinette" "anton" "antone" "antonetta" "antonette" "antonia" "antonietta" "antonina" "antonio" "antony" "antwan" "anya" "apolonia" "apryl" "ara" "araceli" "aracelis" "aracely" "arcelia" "archie" "ardath" "ardelia" "ardell" "ardella" "ardelle" "arden" "ardis" "ardith" "aretha" "argelia" "argentina" "ariana" "ariane" "arianna" "arianne" "arica" "arie" "ariel" "arielle" "arla" "arlean" "arleen" "arlen" "arlena" "arlene" "arletha" "arletta" "arlette" "arlie" "arlinda" "arline" "arlyne" "armand" "armanda" "armandina" "armando" "armida" "arminda" "arnetta" "arnette" "arnita" "arnold" "arnoldo" "arnulfo" "aron" "arron" "arthur" "artie" "arturo" "arvilla" "asa" "asha" "ashanti" "ashely" "ashlea" "ashlee" "ashleigh" "ashley" "ashli" "ashlie" "ashly" "ashlyn" "ashton" "asia" "asley" "assunta" "astrid" "asuncion" "athena" "aubrey" "audie" "audra" "audrea" "audrey" "audria" "audrie" "audry" "augusta" "augustina" "augustine" "augustus" "aundrea" "aura" "aurea" "aurelia" "aurelio" "aurora" "aurore" "austin" "autumn" "ava" "avelina" "avery" "avis" "avril" "awilda" "ayako" "ayana" "ayanna" "ayesha" "azalee" "azucena" "azzie" "babara" "babette" "bailey" "bambi" "bao" "barabara" "barb" "barbar" "barbara" "barbera" "barbie" "barbra" "bari" "barney" "barrett" "barrie" "barry" "bart" "barton" "basil" "basilia" "bea" "beata" "beatrice" "beatris" "beatriz" "beau" "beaulah" "bebe" "becki" "beckie" "becky" "bee" "belen" "belia" "belinda" "belkis" "bella" "belle" "belva" "ben" "benedict" "benita" "benito" "benjamin" "bennett" "bennie" "benny" "benton" "berenice" "berna" "bernadette" "bernadine" "bernard" "bernarda" "bernardina" "bernardine" "bernardo" "berneice" "bernetta" "bernice" "bernie" "berniece" "bernita" "berry" "bert" "berta" "bertha" "bertie" "bertram" "beryl" "bess" "bessie" "beth" "bethanie" "bethann" "bethany" "bethel" "betsey" "betsy" "bette" "bettie" "bettina" "betty" "bettyann" "bettye" "beula" "beulah" "bev" "beverlee" "beverley" "beverly" "bianca" "bibi" "billi" "billie" "billy" "billye" "birdie" "birgit" "blaine" "blair" "blake" "blanca" "blanch" "blanche" "blondell" "blossom" "blythe" "bo" "bob" "bobbi" "bobbie" "bobby" "bobbye" "bobette" "bok" "bong" "bonita" "bonnie" "bonny" "booker" "boris" "boyce" "boyd" "brad" "bradford" "bradley" "bradly" "brady" "brain" "branda" "brande" "brandee" "branden" "brandi" "brandie" "brandon" "brandy" "brant" "breana" "breann" "breanna" "breanne" "bree" "brenda" "brendan" "brendon" "brenna" "brent" "brenton" "bret" "brett" "brian" "briana" "brianna" "brianne" "brice" "bridget" "bridgett" "bridgette" "brigette" "brigid" "brigida" "brigitte" "brinda" "britany" "britney" "britni" "britt" "britta" "brittaney" "brittani" "brittanie" "brittany" "britteny" "brittney" "brittni" "brittny" "brock" "broderick" "bronwyn" "brook" "brooke" "brooks" "bruce" "bruna" "brunilda" "bruno" "bryan" "bryanna" "bryant" "bryce" "brynn" "bryon" "buck" "bud" "buddy" "buena" "buffy" "buford" "bula" "bulah" "bunny" "burl" "burma" "burt" "burton" "buster" "byron" "caitlin" "caitlyn" "calandra" "caleb" "calista" "callie" "calvin" "camelia" "camellia" "cameron" "cami" "camie" "camila" "camilla" "camille" "cammie" "cammy" "candace" "candance" "candelaria" "candi" "candice" "candida" "candie" "candis" "candra" "candy" "candyce" "caprice" "cara" "caren" "carey" "cari" "caridad" "carie" "carin" "carina" "carisa" "carissa" "carita" "carl" "carla" "carlee" "carleen" "carlena" "carlene" "carletta" "carley" "carli" "carlie" "carline" "carlita" "carlo" "carlos" "carlota" "carlotta" "carlton" "carly" "carlyn" "carma" "carman" "carmel" "carmela" "carmelia" "carmelina" "carmelita" "carmella" "carmelo" "carmen" "carmina" "carmine" "carmon" "carol" "carola" "carolann" "carole" "carolee" "carolin" "carolina" "caroline" "caroll" "carolyn" "carolyne" "carolynn" "caron" "caroyln" "carri" "carrie" "carrol" "carroll" "carson" "carter" "cary" "caryl" "carylon" "caryn" "casandra" "casey" "casie" "casimira" "cassandra" "cassaundra" "cassey" "cassi" "cassidy" "cassie" "cassondra" "cassy" "catalina" "catarina" "caterina" "catharine" "catherin" "catherina" "catherine" "cathern" "catheryn" "cathey" "cathi" "cathie" "cathleen" "cathrine" "cathryn" "cathy" "catina" "catrice" "catrina" "cayla" "cecelia" "cecil" "cecila" "cecile" "cecilia" "cecille" "cecily" "cedric" "cedrick" "celena" "celesta" "celeste" "celestina" "celestine" "celia" "celina" "celinda" "celine" "celsa" "ceola" "cesar" "chad" "chadwick" "chae" "chan" "chana" "chanda" "chandra" "chanel" "chanell" "chanelle" "chang" "chantal" "chantay" "chante" "chantel" "chantell" "chantelle" "chara" "charis" "charise" "charissa" "charisse" "charita" "charity" "charla" "charleen" "charlena" "charlene" "charles" "charlesetta" "charlette" "charley" "charlie" "charline" "charlott" "charlotte" "charlsie" "charlyn" "charmain" "charmaine" "charolette" "chas" "chase" "chasidy" "chasity" "chassidy" "chastity" "chau" "chauncey" "chaya" "chelsea" "chelsey" "chelsie" "cher" "chere" "cheree" "cherelle" "cheri" "cherie" "cherilyn" "cherise" "cherish" "cherly" "cherlyn" "cherri" "cherrie" "cherry" "cherryl" "chery" "cheryl" "cheryle" "cheryll" "chester" "chet" "cheyenne" "chi" "chia" "chieko" "chin" "china" "ching" "chiquita" "chloe" "chong" "chris" "chrissy" "christa" "christal" "christeen" "christel" "christen" "christena" "christene" "christi" "christia" "christian" "christiana" "christiane" "christie" "christin" "christina" "christine" "christinia" "christoper" "christopher" "christy" "chrystal" "chu" "chuck" "chun" "chung" "ciara" "cicely" "ciera" "cierra" "cinda" "cinderella" "cindi" "cindie" "cindy" "cinthia" "cira" "clair" "claire" "clara" "clare" "clarence" "claretha" "claretta" "claribel" "clarice" "clarinda" "clarine" "claris" "clarisa" "clarissa" "clarita" "clark" "classie" "claud" "claude" "claudette" "claudia" "claudie" "claudine" "claudio" "clay" "clayton" "clelia" "clemencia" "clement" "clemente" "clementina" "clementine" "clemmie" "cleo" "cleopatra" "cleora" "cleotilde" "cleta" "cletus" "cleveland" "cliff" "clifford" "clifton" "clint" "clinton" "clora" "clorinda" "clotilde" "clyde" "codi" "cody" "colby" "cole" "coleen" "coleman" "colene" "coletta" "colette" "colin" "colleen" "collen" "collene" "collette" "collin" "colton" "columbus" "concepcion" "conception" "concetta" "concha" "conchita" "connie" "conrad" "constance" "consuela" "consuelo" "contessa" "cora" "coral" "coralee" "coralie" "corazon" "cordelia" "cordell" "cordia" "cordie" "coreen" "corene" "coretta" "corey" "cori" "corie" "corina" "corine" "corinna" "corinne" "corliss" "cornelia" "cornelius" "cornell" "corrie" "corrin" "corrina" "corrine" "corrinne" "cortez" "cortney" "cory" "courtney" "coy" "craig" "creola" "cris" "criselda" "crissy" "crista" "cristal" "cristen" "cristi" "cristie" "cristin" "cristina" "cristine" "cristobal" "cristopher" "cristy" "cruz" "crysta" "crystal" "crystle" "cuc" "curt" "curtis" "cyndi" "cyndy" "cynthia" "cyril" "cyrstal" "cyrus" "cythia" "dacia" "dagmar" "dagny" "dahlia" "daina" "daine" "daisey" "daisy" "dakota" "dale" "dalene" "dalia" "dalila" "dallas" "dalton" "damaris" "damian" "damien" "damion" "damon" "dan" "dana" "danae" "dane" "danelle" "danette" "dani" "dania" "danial" "danica" "daniel" "daniela" "daniele" "daniell" "daniella" "danielle" "danika" "danille" "danilo" "danita" "dann" "danna" "dannette" "dannie" "dannielle" "danny" "dante" "danuta" "danyel" "danyell" "danyelle" "daphine" "daphne" "dara" "darby" "darcel" "darcey" "darci" "darcie" "darcy" "darell" "daren" "daria" "darin" "dario" "darius" "darla" "darleen" "darlena" "darlene" "darline" "darnell" "daron" "darrel" "darrell" "darren" "darrick" "darrin" "darron" "darryl" "darwin" "daryl" "dave" "david" "davida" "davina" "davis" "dawn" "dawna" "dawne" "dayle" "dayna" "daysi" "deadra" "dean" "deana" "deandra" "deandre" "deandrea" "deane" "deangelo" "deann" "deanna" "deanne" "deb" "debbi" "debbie" "debbra" "debby" "debera" "debi" "debora" "deborah" "debra" "debrah" "debroah" "dede" "dedra" "dee" "deeann" "deeanna" "deedee" "deedra" "deena" "deetta" "deidra" "deidre" "deirdre" "deja" "del" "delaine" "delana" "delbert" "delcie" "delena" "delfina" "delia" "delicia" "delila" "delilah" "delinda" "delisa" "dell" "della" "delma" "delmar" "delmer" "delmy" "delois" "deloise" "delora" "deloras" "delores" "deloris" "delorse" "delpha" "delphia" "delphine" "delsie" "delta" "demarcus" "demetra" "demetria" "demetrice" "demetrius" "dena" "denae" "deneen" "denese" "denice" "denis" "denise" "denisha" "denisse" "denita" "denna" "dennis" "dennise" "denny" "denver" "denyse" "deon" "deonna" "derek" "derick" "derrick" "deshawn" "desirae" "desire" "desiree" "desmond" "despina" "dessie" "destiny" "detra" "devin" "devon" "devona" "devora" "devorah" "dewayne" "dewey" "dewitt" "dexter" "dia" "diamond" "dian" "diana" "diane" "diann" "dianna" "dianne" "dick" "diedra" "diedre" "diego" "dierdre" "digna" "dillon" "dimple" "dina" "dinah" "dino" "dinorah" "dion" "dione" "dionna" "dionne" "dirk" "divina" "dixie" "dodie" "dollie" "dolly" "dolores" "doloris" "domenic" "domenica" "dominga" "domingo" "dominic" "dominica" "dominick" "dominique" "dominque" "domitila" "domonique" "dona" "donald" "donella" "donetta" "donette" "dong" "donita" "donn" "donna" "donnell" "donnetta" "donnette" "donnie" "donny" "donovan" "donte" "donya" "dora" "dorathy" "dorcas" "doreatha" "doreen" "dorene" "doretha" "dorethea" "doretta" "dori" "doria" "dorian" "dorie" "dorinda" "dorine" "doris" "dorla" "dorotha" "dorothea" "dorothy" "dorris" "dorsey" "dortha" "dorthea" "dorthey" "dorthy" "dot" "dottie" "dotty" "doug" "douglas" "douglass" "dovie" "doyle" "dreama" "drema" "drew" "drucilla" "drusilla" "duane" "dudley" "dulce" "dulcie" "duncan" "dung" "dusti" "dustin" "dusty" "dwain" "dwana" "dwayne" "dwight" "dyan" "dylan" "earl" "earle" "earlean" "earleen" "earlene" "earlie" "earline" "earnest" "earnestine" "eartha" "easter" "eboni" "ebonie" "ebony" "echo" "eda" "edda" "eddie" "eddy" "edelmira" "eden" "edgar" "edgardo" "edie" "edison" "edith" "edmond" "edmund" "edmundo" "edna" "edra" "edris" "eduardo" "edward" "edwardo" "edwin" "edwina" "edyth" "edythe" "effie" "efrain" "efren" "ehtel" "eileen" "eilene" "ela" "eladia" "elaina" "elaine" "elana" "elane" "elanor" "elayne" "elba" "elbert" "elda" "elden" "eldon" "eldora" "eldridge" "eleanor" "eleanora" "eleanore" "elease" "elena" "elene" "eleni" "elenor" "elenora" "elenore" "eleonor" "eleonora" "eleonore" "elfreda" "elfrieda" "elfriede" "eli" "elia" "eliana" "elias" "elicia" "elida" "elidia" "elijah" "elin" "elina" "elinor" "elinore" "elisa" "elisabeth" "elise" "eliseo" "elisha" "elissa" "eliz" "eliza" "elizabet" "elizabeth" "elizbeth" "elizebeth" "elke" "ella" "ellamae" "ellan" "ellen" "ellena" "elli" "ellie" "elliot" "elliott" "ellis" "ellsworth" "elly" "ellyn" "elma" "elmer" "elmira" "elmo" "elna" "elnora" "elodia" "elois" "eloisa" "eloise" "elouise" "eloy" "elroy" "elsa" "elsie" "elsy" "elton" "elva" "elvera" "elvia" "elvie" "elvin" "elvina" "elvira" "elvis" "elwanda" "elwood" "elyse" "elza" "ema" "emanuel" "emelda" "emelia" "emelina" "emeline" "emely" "emerald" "emerita" "emerson" "emery" "emiko" "emil" "emile" "emilee" "emilia" "emilie" "emilio" "emily" "emma" "emmaline" "emmanuel" "emmett" "emmie" "emmitt" "emmy" "emogene" "emory" "ena" "enda" "enedina" "eneida" "enid" "enoch" "enola" "enrique" "enriqueta" "epifania" "era" "erasmo" "eric" "erica" "erich" "erick" "ericka" "erik" "erika" "erin" "erinn" "erlene" "erlinda" "erline" "erma" "ermelinda" "erminia" "erna" "ernest" "ernestina" "ernestine" "ernesto" "ernie" "errol" "ervin" "erwin" "eryn" "esmeralda" "esperanza" "essie" "esta" "esteban" "estefana" "estela" "estell" "estella" "estelle" "ester" "esther" "estrella" "etha" "ethan" "ethel" "ethelene" "ethelyn" "ethyl" "etsuko" "etta" "ettie" "eufemia" "eugena" "eugene" "eugenia" "eugenie" "eugenio" "eula" "eulah" "eulalia" "eun" "euna" "eunice" "eura" "eusebia" "eusebio" "eustolia" "eva" "evalyn" "evan" "evangelina" "evangeline" "eve" "evelia" "evelin" "evelina" "eveline" "evelyn" "evelyne" "evelynn" "everett" "everette" "evette" "evia" "evie" "evita" "evon" "evonne" "ewa" "exie" "ezekiel" "ezequiel" "ezra" "fabian" "fabiola" "fae" "fairy" "faith" "fallon" "fannie" "fanny" "farah" "farrah" "fatima" "fatimah" "faustina" "faustino" "fausto" "faviola" "fawn" "fay" "faye" "fe" "federico" "felecia" "felica" "felice" "felicia" "felicidad" "felicita" "felicitas" "felipa" "felipe" "felisa" "felisha" "felix" "felton" "ferdinand" "fermin" "fermina" "fern" "fernanda" "fernande" "fernando" "ferne" "fidel" "fidela" "fidelia" "filiberto" "filomena" "fiona" "flavia" "fleta" "fletcher" "flo" "flor" "flora" "florance" "florence" "florencia" "florencio" "florene" "florentina" "florentino" "floretta" "floria" "florida" "florinda" "florine" "florrie" "flossie" "floy" "floyd" "fonda" "forrest" "foster" "fran" "francene" "frances" "francesca" "francesco" "franchesca" "francie" "francina" "francine" "francis" "francisca" "francisco" "francoise" "frank" "frankie" "franklin" "franklyn" "fransisca" "fred" "freda" "fredda" "freddie" "freddy" "frederic" "frederica" "frederick" "fredericka" "fredia" "fredric" "fredrick" "fredricka" "freeda" "freeman" "freida" "frida" "frieda" "fritz" "fumiko" "gabriel" "gabriela" "gabriele" "gabriella" "gabrielle" "gail" "gala" "gale" "galen" "galina" "garfield" "garland" "garnet" "garnett" "garret" "garrett" "garry" "garth" "gary" "gaston" "gavin" "gay" "gaye" "gayla" "gayle" "gaylene" "gaylord" "gaynell" "gaynelle" "gearldine" "gema" "gemma" "gena" "genaro" "gene" "genesis" "geneva" "genevie" "genevieve" "genevive" "genia" "genie" "genna" "gennie" "genny" "genoveva" "geoffrey" "georgann" "george" "georgeann" "georgeanna" "georgene" "georgetta" "georgette" "georgia" "georgiana" "georgiann" "georgianna" "georgianne" "georgie" "georgina" "georgine" "gerald" "geraldine" "geraldo" "geralyn" "gerard" "gerardo" "gerda" "geri" "germaine" "gerri" "gerry" "gertha" "gertie" "gertrud" "gertrude" "gertrudis" "gertude" "ghislaine" "gia" "gianna" "gidget" "gigi" "gil" "gilbert" "gilberte" "gilberto" "gilda" "gillian" "gilma" "gina" "ginette" "ginger" "ginny" "gino" "giovanna" "giovanni" "gisela" "gisele" "giselle" "gita" "giuseppe" "giuseppina" "gladis" "glady" "gladys" "glayds" "glen" "glenda" "glendora" "glenn" "glenna" "glennie" "glennis" "glinda" "gloria" "glory" "glynda" "glynis" "golda" "golden" "goldie" "gonzalo" "gordon" "grace" "gracia" "gracie" "graciela" "grady" "graham" "graig" "grant" "granville" "grayce" "grazyna" "greg" "gregg" "gregoria" "gregorio" "gregory" "greta" "gretchen" "gretta" "gricelda" "grisel" "griselda" "grover" "guadalupe" "gudrun" "guillermina" "guillermo" "gus" "gussie" "gustavo" "guy" "gwen" "gwenda" "gwendolyn" "gwenn" "gwyn" "gwyneth" "ha" "hae" "hai" "hailey" "hal" "haley" "halina" "halley" "hallie" "han" "hana" "hang" "hanh" "hank" "hanna" "hannah" "hannelore" "hans" "harlan" "harland" "harley" "harmony" "harold" "harriet" "harriett" "harriette" "harris" "harrison" "harry" "harvey" "hassan" "hassie" "hattie" "haydee" "hayden" "hayley" "haywood" "hazel" "heath" "heather" "hector" "hedwig" "hedy" "hee" "heide" "heidi" "heidy" "heike" "helaine" "helen" "helena" "helene" "helga" "hellen" "henrietta" "henriette" "henry" "herb" "herbert" "heriberto" "herlinda" "herma" "herman" "hermelinda" "hermila" "hermina" "hermine" "herminia" "herschel" "hershel" "herta" "hertha" "hester" "hettie" "hiedi" "hien" "hilaria" "hilario" "hilary" "hilda" "hilde" "hildegard" "hildegarde" "hildred" "hillary" "hilma" "hilton" "hipolito" "hiram" "hiroko" "hisako" "hoa" "hobert" "holley" "holli" "hollie" "hollis" "holly" "homer" "honey" "hong" "horace" "horacio" "hortencia" "hortense" "hortensia" "hosea" "houston" "howard" "hoyt" "hsiu" "hubert" "hue" "huey" "hugh" "hugo" "hui" "hulda" "humberto" "hung" "hunter" "huong" "hwa" "hyacinth" "hye" "hyman" "hyo" "hyon" "hyun" "ian" "ida" "idalia" "idell" "idella" "iesha" "ignacia" "ignacio" "ike" "ila" "ilana" "ilda" "ileana" "ileen" "ilene" "iliana" "illa" "ilona" "ilse" "iluminada" "ima" "imelda" "imogene" "ina" "india" "indira" "inell" "ines" "inez" "inga" "inge" "ingeborg" "inger" "ingrid" "inocencia" "iola" "iona" "ione" "ira" "iraida" "irena" "irene" "irina" "iris" "irish" "irma" "irmgard" "irvin" "irving" "irwin" "isa" "isaac" "isabel" "isabell" "isabella" "isabelle" "isadora" "isaiah" "isaias" "isaura" "isela" "isiah" "isidra" "isidro" "isis" "ismael" "isobel" "israel" "isreal" "issac" "iva" "ivan" "ivana" "ivelisse" "ivette" "ivey" "ivonne" "ivory" "ivy" "izetta" "izola" "ja" "jacalyn" "jacelyn" "jacinda" "jacinta" "jacinto" "jack" "jackeline" "jackelyn" "jacki" "jackie" "jacklyn" "jackqueline" "jackson" "jaclyn" "jacob" "jacqualine" "jacque" "jacquelin" "jacqueline" "jacquelyn" "jacquelyne" "jacquelynn" "jacques" "jacquetta" "jacqui" "jacquie" "jacquiline" "jacquline" "jacqulyn" "jada" "jade" "jadwiga" "jae" "jaime" "jaimee" "jaimie" "jake" "jaleesa" "jalisa" "jama" "jamaal" "jamal" "jamar" "jame" "jamee" "jamel" "james" "jamey" "jami" "jamie" "jamika" "jamila" "jamison" "jammie" "jan" "jana" "janae" "janay" "jane" "janean" "janee" "janeen" "janel" "janell" "janella" "janelle" "janene" "janessa" "janet" "janeth" "janett" "janetta" "janette" "janey" "jani" "janice" "janie" "janiece" "janina" "janine" "janis" "janise" "janita" "jann" "janna" "jannet" "jannette" "jannie" "janyce" "jaqueline" "jaquelyn" "jared" "jarod" "jarred" "jarrett" "jarrod" "jarvis" "jasmin" "jasmine" "jason" "jasper" "jaunita" "javier" "jay" "jaye" "jayme" "jaymie" "jayna" "jayne" "jayson" "jazmin" "jazmine" "jc" "jean" "jeana" "jeane" "jeanelle" "jeanene" "jeanett" "jeanetta" "jeanette" "jeanice" "jeanie" "jeanine" "jeanmarie" "jeanna" "jeanne" "jeannetta" "jeannette" "jeannie" "jeannine" "jed" "jeff" "jefferey" "jefferson" "jeffery" "jeffie" "jeffrey" "jeffry" "jen" "jena" "jenae" "jene" "jenee" "jenell" "jenelle" "jenette" "jeneva" "jeni" "jenice" "jenifer" "jeniffer" "jenine" "jenise" "jenna" "jennefer" "jennell" "jennette" "jenni" "jennie" "jennifer" "jenniffer" "jennine" "jenny" "jerald" "jeraldine" "jeramy" "jere" "jeremiah" "jeremy" "jeri" "jerica" "jerilyn" "jerlene" "jermaine" "jerold" "jerome" "jeromy" "jerrell" "jerri" "jerrica" "jerrie" "jerrod" "jerrold" "jerry" "jesenia" "jesica" "jess" "jesse" "jessenia" "jessi" "jessia" "jessica" "jessie" "jessika" "jestine" "jesus" "jesusa" "jesusita" "jetta" "jettie" "jewel" "jewell" "ji" "jill" "jillian" "jim" "jimmie" "jimmy" "jin" "jina" "jinny" "jo" "joan" "joana" "joane" "joanie" "joann" "joanna" "joanne" "joannie" "joaquin" "joaquina" "jocelyn" "jodee" "jodi" "jodie" "jody" "joe" "joeann" "joel" "joella" "joelle" "joellen" "joesph" "joetta" "joette" "joey" "johana" "johanna" "johanne" "john" "johna" "johnathan" "johnathon" "johnetta" "johnette" "johnie" "johnna" "johnnie" "johnny" "johnsie" "johnson" "joi" "joie" "jolanda" "joleen" "jolene" "jolie" "joline" "jolyn" "jolynn" "jon" "jona" "jonah" "jonas" "jonathan" "jonathon" "jone" "jonell" "jonelle" "jong" "joni" "jonie" "jonna" "jonnie" "jordan" "jordon" "jorge" "jose" "josef" "josefa" "josefina" "josefine" "joselyn" "joseph" "josephina" "josephine" "josette" "josh" "joshua" "josiah" "josie" "joslyn" "jospeh" "josphine" "josue" "jovan" "jovita" "joya" "joyce" "joycelyn" "joye" "juan" "juana" "juanita" "jude" "judi" "judie" "judith" "judson" "judy" "jule" "julee" "julene" "jules" "juli" "julia" "julian" "juliana" "juliane" "juliann" "julianna" "julianne" "julie" "julieann" "julienne" "juliet" "julieta" "julietta" "juliette" "julio" "julissa" "julius" "jung" "junie" "junior" "junita" "junko" "justa" "justin" "justina" "justine" "jutta" "ka" "kacey" "kaci" "kacie" "kacy" "kai" "kaila" "kaitlin" "kaitlyn" "kala" "kaleigh" "kaley" "kali" "kallie" "kalyn" "kam" "kamala" "kami" "kamilah" "kandace" "kandi" "kandice" "kandis" "kandra" "kandy" "kanesha" "kanisha" "kara" "karan" "kareem" "kareen" "karen" "karena" "karey" "kari" "karie" "karima" "karin" "karina" "karine" "karisa" "karissa" "karl" "karla" "karleen" "karlene" "karly" "karlyn" "karma" "karmen" "karol" "karole" "karoline" "karolyn" "karon" "karren" "karri" "karrie" "karry" "kary" "karyl" "karyn" "kasandra" "kasey" "kasha" "kasi" "kasie" "kassandra" "kassie" "kate" "katelin" "katelyn" "katelynn" "katerine" "kathaleen" "katharina" "katharine" "katharyn" "kathe" "katheleen" "katherin" "katherina" "katherine" "kathern" "katheryn" "kathey" "kathi" "kathie" "kathleen" "kathlene" "kathline" "kathlyn" "kathrin" "kathrine" "kathryn" "kathryne" "kathy" "kathyrn" "kati" "katia" "katie" "katina" "katlyn" "katrice" "katrina" "kattie" "katy" "kay" "kayce" "kaycee" "kaye" "kayla" "kaylee" "kayleen" "kayleigh" "kaylene" "kazuko" "kecia" "keeley" "keely" "keena" "keenan" "keesha" "keiko" "keila" "keira" "keisha" "keith" "keitha" "keli" "kelle" "kellee" "kelley" "kelli" "kellie" "kelly" "kellye" "kelsey" "kelsi" "kelsie" "kelvin" "kemberly" "ken" "kena" "kenda" "kendal" "kendall" "kendra" "kendrick" "keneth" "kenia" "kenisha" "kenna" "kenneth" "kennith" "kenny" "kent" "kenton" "kenya" "kenyatta" "kenyetta" "kera" "keren" "keri" "kermit" "kerri" "kerrie" "kerry" "kerstin" "kesha" "keshia" "keturah" "keva" "keven" "kevin" "khadijah" "khalilah" "kia" "kiana" "kiara" "kiera" "kiersten" "kiesha" "kieth" "kiley" "kim" "kimber" "kimberely" "kimberlee" "kimberley" "kimberli" "kimberlie" "kimberly" "kimbery" "kimbra" "kimi" "kimiko" "kina" "kindra" "kip" "kira" "kirby" "kirk" "kirsten" "kirstie" "kirstin" "kisha" "kit" "kittie" "kitty" "kiyoko" "kizzie" "kizzy" "klara" "korey" "kori" "kortney" "kory" "kourtney" "kraig" "kris" "krishna" "krissy" "krista" "kristal" "kristan" "kristeen" "kristel" "kristen" "kristi" "kristian" "kristie" "kristin" "kristina" "kristine" "kristle" "kristofer" "kristopher" "kristy" "kristyn" "krysta" "krystal" "krysten" "krystin" "krystina" "krystle" "krystyna" "kum" "kurt" "kurtis" "kyla" "kyle" "kylee" "kylie" "kym" "kymberly" "kyoko" "kyong" "kyra" "kyung" "lacey" "lachelle" "laci" "lacie" "lacresha" "lacy" "ladawn" "ladonna" "lael" "lahoma" "lai" "laila" "laine" "lajuana" "lakeesha" "lakeisha" "lakendra" "lakenya" "lakesha" "lakeshia" "lakia" "lakiesha" "lakisha" "lakita" "lala" "lamar" "lamonica" "lamont" "lan" "lana" "lance" "landon" "lane" "lanell" "lanelle" "lanette" "lang" "lani" "lanie" "lanita" "lannie" "lanny" "lanora" "laquanda" "laquita" "lara" "larae" "laraine" "laree" "larhonda" "larisa" "larissa" "larita" "laronda" "larraine" "larry" "larue" "lasandra" "lashanda" "lashandra" "lashaun" "lashaunda" "lashawn" "lashawna" "lashawnda" "lashay" "lashell" "lashon" "lashonda" "lashunda" "lasonya" "latanya" "latarsha" "latasha" "latashia" "latesha" "latia" "laticia" "latina" "latisha" "latonia" "latonya" "latoria" "latosha" "latoya" "latoyia" "latrice" "latricia" "latrina" "latrisha" "launa" "laura" "lauralee" "lauran" "laure" "laureen" "laurel" "lauren" "laurena" "laurence" "laurene" "lauretta" "laurette" "lauri" "laurice" "laurie" "laurinda" "laurine" "lauryn" "lavada" "lavelle" "lavenia" "lavera" "lavern" "laverna" "laverne" "laveta" "lavette" "lavina" "lavinia" "lavon" "lavona" "lavonda" "lavone" "lavonia" "lavonna" "lavonne" "lawana" "lawanda" "lawanna" "lawerence" "lawrence" "layla" "layne" "lazaro" "le" "lea" "leah" "lean" "leana" "leandra" "leandro" "leann" "leanna" "leanne" "leanora" "leatha" "leatrice" "lecia" "leda" "lee" "leeann" "leeanna" "leeanne" "leena" "leesa" "leia" "leida" "leif" "leigh" "leigha" "leighann" "leila" "leilani" "leisa" "leisha" "lekisha" "lela" "lelah" "leland" "lelia" "lemuel" "len" "lena" "lenard" "lenita" "lenna" "lennie" "lenny" "lenora" "lenore" "leo" "leola" "leoma" "leon" "leona" "leonard" "leonarda" "leonardo" "leone" "leonel" "leonia" "leonida" "leonie" "leonila" "leonor" "leonora" "leonore" "leontine" "leopoldo" "leora" "leota" "lera" "leroy" "les" "lesa" "lesha" "lesia" "leslee" "lesley" "lesli" "leslie" "lessie" "lester" "leta" "letha" "leticia" "letisha" "letitia" "lettie" "letty" "levi" "lewis" "lexie" "lezlie" "li" "lia" "liana" "liane" "lianne" "libbie" "libby" "liberty" "librada" "lida" "lidia" "lien" "lieselotte" "ligia" "lila" "lili" "lilia" "lilian" "liliana" "lilla" "lilli" "lillia" "lilliam" "lillian" "lilliana" "lillie" "lilly" "lily" "lin" "lina" "lincoln" "linda" "lindsay" "lindsey" "lindsy" "lindy" "linette" "ling" "linh" "linn" "linnea" "linnie" "lino" "linsey" "linwood" "lionel" "lisa" "lisabeth" "lisandra" "lisbeth" "lise" "lisette" "lisha" "lissa" "lissette" "lita" "livia" "liz" "liza" "lizabeth" "lizbeth" "lizeth" "lizette" "lizzette" "lizzie" "lloyd" "loan" "logan" "loida" "lois" "loise" "lola" "lolita" "loma" "lon" "lona" "londa" "loni" "lonna" "lonnie" "lonny" "lora" "loraine" "loralee" "lore" "lorean" "loree" "loreen" "lorelei" "loren" "lorena" "lorene" "lorenza" "lorenzo" "loreta" "loretta" "lorette" "lori" "loria" "loriann" "lorie" "lorilee" "lorina" "lorinda" "lorine" "loris" "lorita" "lorna" "lorraine" "lorretta" "lorri" "lorriane" "lorrie" "lorrine" "lory" "lottie" "lou" "louann" "louanne" "louella" "louetta" "louie" "louis" "louisa" "louise" "loura" "lourdes" "lourie" "louvenia" "lovella" "lovetta" "lovie" "lowell" "loyce" "loyd" "lu" "luana" "luann" "luanna" "luanne" "luba" "lucas" "luci" "lucia" "luciana" "luciano" "lucie" "lucien" "lucienne" "lucila" "lucile" "lucilla" "lucille" "lucina" "lucinda" "lucio" "lucius" "lucrecia" "lucretia" "lucy" "ludie" "ludivina" "lue" "luella" "luetta" "luigi" "luis" "luisa" "luise" "luke" "lula" "lulu" "luna" "lupe" "lupita" "lura" "lurlene" "lurline" "luther" "luvenia" "luz" "lyda" "lydia" "lyla" "lyle" "lyman" "lyn" "lynda" "lyndia" "lyndon" "lyndsay" "lyndsey" "lynell" "lynelle" "lynetta" "lynette" "lynn" "lynna" "lynne" "lynnette" "lynsey" "lynwood" "mabel" "mabelle" "mable" "mac" "machelle" "macie" "mack" "mackenzie" "macy" "madalene" "madaline" "madalyn" "maddie" "madelaine" "madeleine" "madelene" "madeline" "madelyn" "madge" "madie" "madison" "madlyn" "madonna" "mae" "maegan" "mafalda" "magali" "magaly" "magan" "magaret" "magda" "magdalen" "magdalena" "magdalene" "magen" "maggie" "magnolia" "mahalia" "mai" "maia" "maida" "maile" "maira" "maire" "maisha" "maisie" "majorie" "makeda" "malcolm" "malcom" "malena" "malia" "malik" "malika" "malinda" "malisa" "malissa" "malka" "mallie" "mallory" "malorie" "malvina" "mamie" "mammie" "mana" "manda" "mandi" "mandie" "mandy" "manie" "manual" "manuel" "manuela" "mao" "maple" "mara" "maragaret" "maragret" "maranda" "marc" "marcel" "marcela" "marcelene" "marcelina" "marceline" "marcelino" "marcell" "marcella" "marcelle" "marcellus" "marcelo" "marcene" "marchelle" "marci" "marcia" "marcie" "marco" "marcos" "marcus" "marcy" "mardell" "maren" "marg" "margaret" "margareta" "margarete" "margarett" "margaretta" "margarette" "margarita" "margarite" "margarito" "margart" "marge" "margene" "margeret" "margert" "margery" "marget" "margherita" "margie" "margit" "margo" "margorie" "margot" "margret" "margrett" "marguerita" "marguerite" "margurite" "margy" "marhta" "mari" "maria" "mariah" "mariam" "marian" "mariana" "marianela" "mariann" "marianna" "marianne" "mariano" "maribel" "maribeth" "marica" "maricela" "maricruz" "marie" "mariel" "mariela" "mariella" "marielle" "marietta" "mariette" "mariko" "marilee" "marilou" "marilu" "marilyn" "marilynn" "marin" "marina" "marinda" "marine" "mario" "marion" "maris" "marisa" "marisela" "marisha" "marisol" "marissa" "marita" "maritza" "marivel" "marjorie" "marjory" "marketta" "markita" "markus" "marla" "marlana" "marleen" "marlen" "marlena" "marlene" "marlin" "marline" "marlo" "marlon" "marlyn" "marlys" "marna" "marni" "marnie" "marquerite" "marquetta" "marquis" "marquita" "marquitta" "marry" "marsha" "marshall" "marta" "marth" "martha" "marti" "martin" "martina" "martine" "marty" "marva" "marvel" "marvella" "marvin" "marvis" "marx" "mary" "marya" "maryalice" "maryam" "maryann" "maryanna" "maryanne" "marybelle" "marybeth" "maryellen" "maryetta" "maryjane" "maryjo" "maryland" "marylee" "marylin" "maryln" "marylou" "marylouise" "marylyn" "marylynn" "maryrose" "masako" "mason" "matha" "mathew" "mathilda" "mathilde" "matilda" "matilde" "matt" "matthew" "mattie" "maud" "maude" "maudie" "maura" "maureen" "maurice" "mauricio" "maurine" "maurita" "mauro" "mavis" "max" "maxie" "maxima" "maximina" "maximo" "maxine" "maxwell" "maya" "maybell" "maybelle" "maye" "mayme" "maynard" "mayola" "mayra" "mazie" "mckenzie" "mckinley" "meagan" "meaghan" "mechelle" "meda" "mee" "meg" "megan" "meggan" "meghan" "meghann" "mei" "mel" "melaine" "melani" "melania" "melanie" "melany" "melba" "melda" "melia" "melida" "melina" "melinda" "melisa" "melissa" "melissia" "melita" "mellie" "mellisa" "mellissa" "melodee" "melodi" "melodie" "melonie" "melony" "melva" "melvin" "melvina" "melynda" "mendy" "mercedes" "mercedez" "mercy" "meredith" "meri" "merideth" "meridith" "merilyn" "merissa" "merle" "merlene" "merlin" "merlyn" "merna" "merri" "merrie" "merrilee" "merrill" "merry" "mertie" "mervin" "meryl" "meta" "mi" "mia" "mica" "micaela" "micah" "micha" "michael" "michaela" "michaele" "michal" "michale" "micheal" "michel" "michele" "michelina" "micheline" "michell" "michelle" "michiko" "mickey" "micki" "mickie" "miesha" "migdalia" "mignon" "miguel" "miguelina" "mika" "mikaela" "mike" "mikel" "miki" "mikki" "mila" "milagro" "milagros" "milan" "milda" "mildred" "miles" "milford" "milissa" "millard" "millicent" "millie" "milly" "milo" "milton" "mimi" "min" "mina" "minda" "mindi" "mindy" "minerva" "ming" "minh" "minna" "minnie" "minta" "miquel" "mira" "miranda" "mireille" "mirella" "mireya" "miriam" "mirian" "mirna" "mirta" "mirtha" "misha" "missy" "misti" "mistie" "misty" "mitch" "mitchel" "mitchell" "mitsue" "mitsuko" "mittie" "mitzi" "mitzie" "miyoko" "modesta" "modesto" "mohamed" "mohammad" "mohammed" "moira" "moises" "mollie" "molly" "mona" "monet" "monica" "monika" "monique" "monnie" "monroe" "monserrate" "monte" "monty" "mora" "morgan" "moriah" "morris" "morton" "mose" "moses" "moshe" "mozell" "mozella" "mozelle" "mui" "muoi" "muriel" "murray" "myesha" "myles" "myong" "myra" "myriam" "myrl" "myrle" "myrna" "myron" "myrta" "myrtice" "myrtie" "myrtis" "myrtle" "myung" "nada" "nadene" "nadia" "nadine" "naida" "nakesha" "nakia" "nakisha" "nakita" "nam" "nan" "nana" "nancee" "nancey" "nanci" "nancie" "nancy" "nanette" "nannette" "nannie" "naoma" "naomi" "napoleon" "narcisa" "natacha" "natalia" "natalie" "natalya" "natasha" "natashia" "nathalie" "nathan" "nathanael" "nathanial" "nathaniel" "natisha" "natividad" "natosha" "neal" "necole" "ned" "neda" "nedra" "neely" "neida" "neil" "nelda" "nelia" "nelida" "nell" "nella" "nelle" "nellie" "nelly" "nelson" "nena" "nenita" "neoma" "neomi" "nereida" "nerissa" "nery" "nestor" "neta" "nettie" "neva" "nevada" "neville" "newton" "nga" "ngan" "ngoc" "nguyet" "nia" "nichelle" "nichol" "nicholas" "nichole" "nicholle" "nick" "nicki" "nickie" "nickolas" "nickole" "nicky" "nicol" "nicola" "nicolas" "nicolasa" "nicole" "nicolette" "nicolle" "nida" "nidia" "niesha" "nieves" "nigel" "niki" "nikia" "nikita" "nikki" "nikole" "nila" "nilda" "nilsa" "nina" "ninfa" "nisha" "nita" "noah" "noble" "nobuko" "noe" "noel" "noelia" "noella" "noelle" "noemi" "nohemi" "nola" "nolan" "noma" "nona" "nora" "norah" "norbert" "norberto" "noreen" "norene" "noriko" "norine" "norma" "norman" "normand" "norris" "nova" "novella" "nu" "nubia" "numbers" "nydia" "nyla" "obdulia" "ocie" "octavia" "octavio" "oda" "odelia" "odell" "odessa" "odette" "odilia" "odis" "ofelia" "ola" "olen" "olene" "oleta" "olevia" "olga" "olimpia" "olin" "olinda" "oliva" "olive" "oliver" "olivia" "ollie" "olympia" "oma" "omar" "omega" "omer" "ona" "oneida" "onie" "onita" "opal" "ophelia" "ora" "oralee" "oralia" "oren" "oretha" "orlando" "orpha" "orval" "orville" "oscar" "ossie" "osvaldo" "oswaldo" "otelia" "otha" "otilia" "otis" "otto" "ouida" "owen" "ozell" "ozella" "ozie" "pa" "pablo" "paige" "palma" "palmer" "palmira" "pam" "pamala" "pamela" "pamelia" "pamella" "pamila" "pamula" "pandora" "pansy" "paola" "paris" "parker" "parthenia" "particia" "pasquale" "pasty" "pat" "patience" "patria" "patrica" "patrice" "patricia" "patrick" "patrina" "patsy" "patti" "pattie" "patty" "paul" "paula" "paulene" "pauletta" "paulette" "paulina" "pauline" "paulita" "paz" "pearl" "pearle" "pearlene" "pearlie" "pearline" "pearly" "pedro" "peg" "peggie" "peggy" "pei" "penelope" "penney" "penni" "pennie" "penny" "percy" "perla" "perry" "pete" "peter" "petra" "petrina" "petronila" "phebe" "phil" "philip" "phillip" "phillis" "philomena" "phoebe" "phung" "phuong" "phylicia" "phylis" "phyliss" "phyllis" "pia" "piedad" "pierre" "pilar" "ping" "pinkie" "piper" "pok" "polly" "porfirio" "porsche" "porsha" "porter" "portia" "precious" "preston" "pricilla" "prince" "princess" "priscila" "priscilla" "providencia" "prudence" "pura" "qiana" "queen" "queenie" "quentin" "quiana" "quincy" "quinn" "quintin" "quinton" "quyen" "rachael" "rachal" "racheal" "rachel" "rachele" "rachell" "rachelle" "racquel" "rae" "raeann" "raelene" "rafael" "rafaela" "raguel" "raina" "raisa" "raleigh" "ralph" "ramiro" "ramon" "ramona" "ramonita" "rana" "ranae" "randa" "randal" "randall" "randee" "randell" "randi" "randolph" "randy" "ranee" "raphael" "raquel" "rashad" "rasheeda" "rashida" "raul" "raven" "ray" "raye" "rayford" "raylene" "raymon" "raymond" "raymonde" "raymundo" "rayna" "rea" "reagan" "reanna" "reatha" "reba" "rebbeca" "rebbecca" "rebeca" "rebecca" "rebecka" "rebekah" "reda" "reed" "reena" "refugia" "refugio" "regan" "regena" "regenia" "reggie" "regina" "reginald" "regine" "reginia" "reid" "reiko" "reina" "reinaldo" "reita" "rema" "remedios" "remona" "rena" "renae" "renaldo" "renata" "renate" "renato" "renay" "renda" "rene" "renea" "renee" "renetta" "renita" "renna" "ressie" "reta" "retha" "retta" "reuben" "reva" "rex" "rey" "reyes" "reyna" "reynalda" "reynaldo" "rhea" "rheba" "rhett" "rhiannon" "rhoda" "rhona" "rhonda" "ria" "ricarda" "ricardo" "richard" "richelle" "richie" "rick" "rickey" "ricki" "rickie" "ricky" "rico" "rigoberto" "rikki" "riley" "rima" "rina" "risa" "rita" "riva" "rivka" "rob" "robbi" "robbie" "robbin" "robby" "robbyn" "robena" "robert" "roberta" "roberto" "robin" "robt" "robyn" "rocco" "rochel" "rochell" "rochelle" "rocio" "rocky" "rod" "roderick" "rodger" "rodney" "rodolfo" "rodrick" "rodrigo" "rogelio" "roger" "roland" "rolanda" "rolande" "rolando" "rolf" "rolland" "roma" "romaine" "roman" "romana" "romelia" "romeo" "romona" "ron" "rona" "ronald" "ronda" "roni" "ronna" "ronni" "ronnie" "ronny" "roosevelt" "rory" "rosa" "rosalba" "rosalee" "rosalia" "rosalie" "rosalina" "rosalind" "rosalinda" "rosaline" "rosalva" "rosalyn" "rosamaria" "rosamond" "rosana" "rosann" "rosanna" "rosanne" "rosaria" "rosario" "rosaura" "roscoe" "roseann" "roseanna" "roseanne" "roselee" "roselia" "roseline" "rosella" "roselle" "roselyn" "rosemarie" "rosemary" "rosena" "rosenda" "rosendo" "rosetta" "rosette" "rosia" "rosie" "rosina" "rosio" "rosita" "roslyn" "ross" "rossana" "rossie" "rosy" "rowena" "roxana" "roxane" "roxann" "roxanna" "roxanne" "roxie" "roxy" "roy" "royal" "royce" "rozanne" "rozella" "ruben" "rubi" "rubie" "rubin" "ruby" "rubye" "rudolf" "rudolph" "rudy" "rueben" "rufina" "rufus" "rupert" "russ" "russel" "russell" "rusty" "ruth" "rutha" "ruthann" "ruthanne" "ruthe" "ruthie" "ryan" "ryann" "sabina" "sabine" "sabra" "sabrina" "sacha" "sachiko" "sade" "sadie" "sadye" "sage" "sal" "salena" "salina" "salley" "sallie" "sally" "salome" "salvador" "salvatore" "sam" "samantha" "samara" "samatha" "samella" "samira" "sammie" "sammy" "samual" "samuel" "sana" "sanda" "sandee" "sandi" "sandie" "sandra" "sandy" "sanford" "sang" "sanjuana" "sanjuanita" "sanora" "santa" "santana" "santiago" "santina" "santo" "santos" "sara" "sarah" "sarai" "saran" "sari" "sarina" "sarita" "sasha" "saturnina" "sau" "saul" "saundra" "savanna" "savannah" "scarlet" "scarlett" "scot" "scott" "scottie" "scotty" "sean" "sebastian" "sebrina" "seema" "selena" "selene" "selina" "selma" "sena" "senaida" "serafina" "serena" "sergio" "serina" "serita" "seth" "setsuko" "seymour" "sha" "shad" "shae" "shaina" "shakia" "shakira" "shakita" "shala" "shalanda" "shalon" "shalonda" "shameka" "shamika" "shana" "shanae" "shanda" "shandi" "shandra" "shane" "shaneka" "shanel" "shanell" "shanelle" "shani" "shanice" "shanika" "shaniqua" "shanita" "shanna" "shannan" "shannon" "shanon" "shanta" "shantae" "shantay" "shante" "shantel" "shantell" "shantelle" "shanti" "shaquana" "shaquita" "shara" "sharan" "sharda" "sharee" "sharell" "sharen" "shari" "sharice" "sharie" "sharika" "sharilyn" "sharita" "sharla" "sharleen" "sharlene" "sharmaine" "sharolyn" "sharon" "sharonda" "sharri" "sharron" "sharyl" "sharyn" "shasta" "shaun" "shauna" "shaunda" "shaunna" "shaunta" "shaunte" "shavon" "shavonda" "shavonne" "shawana" "shawanda" "shawanna" "shawn" "shawna" "shawnda" "shawnee" "shawnna" "shawnta" "shay" "shayla" "shayna" "shayne" "shea" "sheba" "sheena" "sheila" "sheilah" "shela" "shelba" "shelby" "sheldon" "shelia" "shella" "shelley" "shelli" "shellie" "shelly" "shelton" "shemeka" "shemika" "shena" "shenika" "shenita" "shenna" "shera" "sheree" "sherell" "sheri" "sherice" "sheridan" "sherie" "sherika" "sherill" "sherilyn" "sherise" "sherita" "sherlene" "sherley" "sherly" "sherlyn" "sherman" "sheron" "sherrell" "sherri" "sherrie" "sherril" "sherrill" "sherron" "sherry" "sherryl" "sherwood" "shery" "sheryl" "sheryll" "shiela" "shila" "shiloh" "shin" "shira" "shirely" "shirl" "shirlee" "shirleen" "shirlene" "shirley" "shirly" "shizue" "shizuko" "shon" "shona" "shonda" "shondra" "shonna" "shonta" "shoshana" "shu" "shyla" "sibyl" "sid" "sidney" "sierra" "signe" "sigrid" "silas" "silva" "silvana" "silvia" "sima" "simon" "simona" "simone" "simonne" "sina" "sindy" "siobhan" "sirena" "siu" "sixta" "skye" "slyvia" "socorro" "sofia" "soila" "sol" "solange" "soledad" "solomon" "somer" "sommer" "sona" "sondra" "sonia" "sonja" "sonny" "sonya" "soo" "sook" "sophia" "sophie" "soraya" "sparkle" "spencer" "stacee" "stacey" "staci" "stacia" "stacie" "stacy" "stan" "stanford" "stanley" "stanton" "starla" "starr" "stasia" "stefan" "stefani" "stefania" "stefanie" "stefany" "steffanie" "stella" "stepanie" "stephaine" "stephan" "stephane" "stephani" "stephania" "stephanie" "stephany" "stephen" "stephenie" "stephine" "stephnie" "sterling" "steve" "steven" "stevie" "stewart" "stormy" "stuart" "su" "suanne" "sudie" "sue" "sueann" "suellen" "suk" "sulema" "sumiko" "sunday" "sung" "sunni" "sunny" "sunshine" "susan" "susana" "susann" "susanna" "susannah" "susanne" "susie" "susy" "suzan" "suzann" "suzanna" "suzanne" "suzette" "suzi" "suzie" "suzy" "svetlana" "sybil" "syble" "sydney" "sylvester" "sylvia" "sylvie" "synthia" "syreeta" "ta" "tabatha" "tabetha" "tabitha" "tad" "tai" "taina" "taisha" "tajuana" "takako" "takisha" "talia" "talisha" "talitha" "tam" "tama" "tamala" "tamar" "tamara" "tamatha" "tambra" "tameika" "tameka" "tamekia" "tamela" "tamera" "tamesha" "tami" "tamica" "tamie" "tamika" "tamiko" "tamisha" "tammara" "tammera" "tammi" "tammie" "tammy" "tamra" "tana" "tandra" "tandy" "taneka" "tanesha" "tangela" "tania" "tanika" "tanisha" "tanja" "tanna" "tanner" "tanya" "tara" "tarah" "taren" "tari" "tarra" "tarsha" "taryn" "tasha" "tashia" "tashina" "tasia" "tatiana" "tatum" "tatyana" "taunya" "tawana" "tawanda" "tawanna" "tawna" "tawny" "tawnya" "taylor" "tayna" "ted" "teddy" "teena" "tegan" "teisha" "telma" "temeka" "temika" "tempie" "temple" "tena" "tenesha" "tenisha" "tennie" "tennille" "teodora" "teodoro" "teofila" "tequila" "tera" "tereasa" "terence" "teresa" "terese" "teresia" "teresita" "teressa" "teri" "terica" "terina" "terisa" "terra" "terrance" "terrell" "terrence" "terresa" "terri" "terrie" "terrilyn" "terry" "tesha" "tess" "tessa" "tessie" "thad" "thaddeus" "thalia" "thanh" "thao" "thea" "theda" "thelma" "theo" "theodora" "theodore" "theola" "theresa" "therese" "theresia" "theressa" "theron" "thersa" "thi" "thomas" "thomasena" "thomasina" "thomasine" "thora" "thresa" "thu" "thurman" "thuy" "tia" "tiana" "tianna" "tiara" "tien" "tiera" "tierra" "tiesha" "tifany" "tiffaney" "tiffani" "tiffanie" "tiffany" "tiffiny" "tijuana" "tilda" "tillie" "tim" "timika" "timmy" "timothy" "tina" "tinisha" "tisa" "tish" "tisha" "titus" "tobi" "tobias" "tobie" "toby" "toccara" "tod" "todd" "toi" "tom" "tomas" "tomasa" "tomeka" "tomi" "tomika" "tomiko" "tommie" "tommy" "tommye" "tomoko" "tona" "tonda" "tonette" "toney" "toni" "tonia" "tonie" "tonisha" "tonita" "tonja" "tony" "tonya" "tora" "tori" "torie" "torri" "torrie" "tory" "tosha" "toshia" "toshiko" "tova" "towanda" "toya" "tracee" "tracey" "traci" "tracie" "tracy" "tran" "trang" "travis" "treasa" "treena" "trena" "trent" "trenton" "tresa" "tressa" "tressie" "treva" "trevor" "trey" "tricia" "trina" "trinh" "trinidad" "trinity" "trish" "trisha" "trista" "tristan" "troy" "trudi" "trudie" "trudy" "trula" "truman" "tu" "tuan" "tula" "tuyet" "twana" "twanda" "twanna" "twila" "twyla" "ty" "tyesha" "tyisha" "tyler" "tynisha" "tyra" "tyree" "tyrell" "tyron" "tyrone" "tyson" "ula" "ulrike" "ulysses" "una" "ursula" "usha" "ute" "vada" "val" "valarie" "valda" "valencia" "valene" "valentin" "valentina" "valentine" "valeri" "valeria" "valerie" "valery" "vallie" "valorie" "valrie" "van" "vance" "vanda" "vanesa" "vanessa" "vanetta" "vania" "vanita" "vanna" "vannesa" "vannessa" "vashti" "vasiliki" "vaughn" "veda" "velda" "velia" "vella" "velma" "velva" "velvet" "vena" "venessa" "venetta" "venice" "venita" "vennie" "venus" "veola" "vera" "verda" "verdell" "verdie" "verena" "vergie" "verla" "verlene" "verlie" "verline" "vern" "verna" "vernell" "vernetta" "vernia" "vernice" "vernie" "vernita" "vernon" "verona" "veronica" "veronika" "veronique" "versie" "vertie" "vesta" "veta" "vi" "vicenta" "vicente" "vickey" "vicki" "vickie" "vicky" "victor" "victoria" "victorina" "vida" "viki" "vikki" "vilma" "vina" "vince" "vincent" "vincenza" "vincenzo" "vinita" "vinnie" "viola" "violet" "violeta" "violette" "virgen" "virgie" "virgil" "virgilio" "virgina" "virginia" "vita" "vito" "viva" "vivan" "vivian" "viviana" "vivien" "vivienne" "von" "voncile" "vonda" "vonnie" "wade" "wai" "waldo" "walker" "wallace" "wally" "walter" "walton" "waltraud" "wan" "wanda" "waneta" "wanetta" "wanita" "ward" "warner" "warren" "wava" "waylon" "wayne" "wei" "weldon" "wen" "wendell" "wendi" "wendie" "wendolyn" "wendy" "wenona" "werner" "wes" "wesley" "weston" "whitley" "whitney" "wilber" "wilbert" "wilbur" "wilburn" "wilda" "wiley" "wilford" "wilfred" "wilfredo" "wilhelmina" "wilhemina" "willa" "willard" "willena" "willene" "willetta" "willette" "willia" "william" "williams" "willian" "willie" "williemae" "willis" "willodean" "willow" "willy" "wilma" "wilmer" "wilson" "wilton" "windy" "winford" "winfred" "winifred" "winnie" "winnifred" "winona" "winston" "wm" "wonda" "woodrow" "wyatt" "wynell" "wynona" "xavier" "xenia" "xiao" "xiomara" "xochitl" "xuan" "yadira" "yaeko" "yael" "yahaira" "yajaira" "yan" "yang" "yanira" "yasmin" "yasmine" "yasuko" "yee" "yelena" "yen" "yer" "yesenia" "yessenia" "yetta" "yevette" "yi" "ying" "yoko" "yolanda" "yolande" "yolando" "yolonda" "yon" "yong" "yoshie" "yoshiko" "youlanda" "yu" "yuette" "yuk" "yuki" "yukiko" "yuko" "yulanda" "yun" "yung" "yuonne" "yuri" "yuriko" "yvette" "yvone" "yvonne" "zachariah" "zachary" "zachery" "zack" "zackary" "zada" "zaida" "zana" "zandra" "zane" "zelda" "zella" "zelma" "zena" "zenaida" "zenia" "zenobia" "zetta" "zina" "zita" "zoe" "zofia" "zoila" "zola" "zona" "zonia" "zora" "zoraida" "zula" "zulema" "zulma" "alaska" "alabama" "arkansas" "american samoa" "arizona" "california" "colorado" "connecticut" "district" "columbia" "delaware" "guam" "hawaii" "iowa" "idaho" "illinois" "indiana" "kansas" "kentucky" "louisiana" "massachusetts" "maine" "michigan" "minnesota" "missouri" "mississippi" "montana" "north carolina" "north dakota" "nebraska" "new hampshire" "new jersey" "new mexico" "new york" "ohio" "oklahoma" "oregon" "pennsylvania" "puerto rico" "rhode island" "south carolina" "south dakota" "tennessee" "texas" "utah" "virgin islands" "vermont" "washington" "wisconsin" "west virginia" "wyoming" "afghanistan" "albania" "algeria" "andorra" "angola" "antigua & deps" "armenia" "australia" "austria" "azerbaijan" "bahamas" "bahrain" "bangladesh" "barbados" "belarus" "belgium" "belize" "benin" "bhutan" "bolivia" "bosnia herzegovina" "botswana" "brazil" "brunei" "bulgaria" "burkina" "burundi" "cambodia" "cameroon" "canada" "cape verde" "central african rep" "chile" "colombia" "comoros" "congo" "congo {democratic rep}" "costa rica" "croatia" "cuba" "cyprus" "czech republic" "denmark" "djibouti" "dominican republic" "east timor" "ecuador" "egypt" "el salvador" "equatorial guinea" "eritrea" "estonia" "ethiopia" "fiji" "finland" "gabon" "gambia" "germany" "ghana" "greece" "grenada" "guatemala" "guinea" "guinea-bissau" "guyana" "haiti" "honduras" "hungary" "iceland" "indonesia" "iran" "iraq" "ireland {republic}" "italy" "ivory coast" "jamaica" "japan" "kazakhstan" "kiribati" "korea north" "korea south" "kosovo" "kuwait" "kyrgyzstan" "laos" "latvia" "lebanon" "lesotho" "liberia" "libya" "liechtenstein" "lithuania" "luxembourg" "macedonia" "madagascar" "malawi" "malaysia" "maldives" "mali" "malta" "marshall islands" "mauritania" "mauritius" "mexico" "micronesia" "moldova" "monaco" "mongolia" "montenegro" "morocco" "mozambique" "myanmar, {burma}" "namibia" "nauru" "nepal" "netherlands" "new zealand" "nicaragua" "niger" "nigeria" "norway" "oman" "pakistan" "palau" "panama" "papua new guinea" "paraguay" "peru" "philippines" "poland" "portugal" "qatar" "romania" "russian federation" "rwanda" "st kitts & nevis" "st lucia" "saint vincent & the grenadines" "samoa" "san marino" "sao tome & principe" "saudi arabia" "senegal" "serbia" "seychelles" "sierra leone" "singapore" "slovakia" "slovenia" "solomon islands" "somalia" "south africa" "south sudan" "spain" "sri lanka" "sudan" "suriname" "swaziland" "sweden" "switzerland" "syria" "taiwan" "tajikistan" "tanzania" "thailand" "togo" "tonga" "trinidad & tobago" "tunisia" "turkey" "turkmenistan" "tuvalu" "uganda" "ukraine" "united arab emirates" "united kingdom" "united states" "uruguay" "uzbekistan" "vanuatu" "vatican city" "venezuela" "vietnam" "yemen" "zambia" "zimbabwe" "aberdeen" "abilene" "akron" "albany" "albuquerque" "allentown" "amarillo" "anaheim" "anchorage" "ann arbor" "antioch" "apple valley" "appleton" "arlington" "arvada" "asheville" "athens" "atlanta" "atlantic city" "bakersfield" "baltimore" "barnstable" "baton rouge" "beaumont" "bel air" "bellevue" "berkeley" "bethlehem" "billings" "birmingham" "bloomington" "boise" "boise city" "bonita springs" "boston" "boulder" "bradenton" "bremerton" "bridgeport" "brighton" "brownsville" "buffalo" "burbank" "burlington" "cambridge" "canton" "cape coral" "carrollton" "cathedral city" "cedar rapids" "champaign" "chandler" "charleston" "chattanooga" "chesapeake" "chicago" "chula vista" "cincinnati" "clarke county" "clarksville" "clearwater" "college station" "colorado springs" "concord" "coral springs" "corona" "corpus christi" "costa mesa" "daly city" "danbury" "davenport" "davidson county" "dayton" "daytona beach" "deltona" "denton" "des moines" "detroit" "downey" "duluth" "durham" "el monte" "el paso" "elk grove" "elkhart" "erie" "escondido" "evansville" "fairfield" "fargo" "fayetteville" "fitchburg" "flint" "fontana" "fort collins" "fort lauderdale" "fort smith" "fort walton beach" "fort wayne" "fort worth" "fremont" "fresno" "fullerton" "gainesville" "garden grove" "gastonia" "glendale" "grand prairie" "grand rapids" "grayslake" "green bay" "greenbay" "greensboro" "greenville" "gulfport-biloxi" "hagerstown" "hampton" "harlingen" "harrisburg" "hartford" "havre de grace" "hayward" "hemet" "henderson" "hesperia" "hialeah" "hickory" "high point" "hollywood" "honolulu" "houma" "howell" "huntington" "huntington beach" "huntsville" "independence" "indianapolis" "inglewood" "irvine" "jacksonville" "jersey city" "johnson city" "joliet" "kailua" "kalamazoo" "kaneohe" "kansas city" "kennewick" "kenosha" "killeen" "kissimmee" "knoxville" "lafayette" "lake charles" "lakeland" "lakewood" "lancaster" "lansing" "laredo" "las cruces" "las vegas" "layton" "leominster" "lewisville" "lexington" "little rock" "long beach" "lorain" "los angeles" "louisville" "lubbock" "macon" "manchester" "marysville" "mcallen" "mchenry" "medford" "melbourne" "memphis" "merced" "mesa" "mesquite" "miami" "milwaukee" "minneapolis" "miramar" "mission viejo" "mobile" "monterey" "montgomery" "moreno valley" "murfreesboro" "murrieta" "muskegon" "myrtle beach" "naperville" "naples" "nashua" "nashville" "new bedford" "new haven" "new london" "new orleans" "new york city" "newark" "newburgh" "newport news" "norfolk" "normal" "north charleston" "north las vegas" "north port" "norwalk" "norwich" "oakland" "ocala" "oceanside" "ogden" "oklahoma city" "olathe" "omaha" "ontario" "orange" "orem" "overland park" "oxnard" "palm bay" "palm springs" "palmdale" "panama city" "pasadena" "paterson" "pembroke pines" "pensacola" "peoria" "philadelphia" "phoenix" "pittsburgh" "plano" "pomona" "pompano beach" "port arthur" "port orange" "port saint lucie" "port st. lucie" "portland" "portsmouth" "poughkeepsie" "providence" "provo" "pueblo" "punta gorda" "racine" "rancho cucamonga" "reading" "redding" "reno" "richland" "richmond" "richmond county" "riverside" "roanoke" "rochester" "rockford" "roseville" "round lake beach" "sacramento" "saginaw" "saint louis" "saint paul" "saint petersburg" "salem" "salinas" "salt lake city" "san antonio" "san bernardino" "san buenaventura" "san diego" "san francisco" "san jose" "santa ana" "santa barbara" "santa clara" "santa clarita" "santa cruz" "santa maria" "santa rosa" "sarasota" "scottsdale" "scranton" "seaside" "seattle" "shreveport" "simi valley" "sioux city" "sioux falls" "south bend" "south lyon" "spartanburg" "spokane" "springdale" "springfield" "st. louis" "st. paul" "st. petersburg" "stamford" "sterling heights" "stockton" "sunnyvale" "syracuse" "tacoma" "tallahassee" "tampa" "temecula" "tempe" "thornton" "thousand oaks" "toledo" "topeka" "torrance" "tucson" "tulsa" "tuscaloosa" "utica" "vallejo" "vancouver" "vero beach" "victorville" "virginia beach" "visalia" "waco" "waterbury" "waterloo" "west covina" "west valley city" "westminster" "wichita" "wilmington" "winter haven" "worcester" "yakima" "yonkers" "york" "youngstown" "monday" "tuesday" "wednesday" "thursday" "friday" "saturday" "information" "copyright" "university" "management" "international" "development" "education" "community" "technology" "resources" "including" "directory" "government" "department" "insurance" "categories" "conditions" "accessories" "questions" "application" "financial" "equipment" "performance" "activities" "additional" "professional" "committee" "reference" "companies" "computers" "president" "discussion" "entertainment" "agreement" "marketing" "association" "collection" "solutions" "electronics" "technical" "microsoft" "conference" "environment" "statement" "downloads" "applications" "requirements" "individual" "subscribe" "production" "commercial" "advertising" "treatment" "newsletter" "knowledge" "construction" "registered" "protection" "engineering" "published" "corporate" "customers" "materials" "countries" "standards" "advertise" "environmental" "availability" "employment" "commission" "administration" "institute" "sponsored" "electronic" "effective" "organization" "selection" "corporation" "executive" "facilities" "opportunities" "statistics" "investment" "christmas" "registration" "furniture" "structure" "distribution" "industrial" "potential" "responsible" "communications" "foundation" "documents" "communication" "independent" "operating" "developed" "telephone" "population" "navigation" "operations" "understand" "publications" "worldwide" "connection" "publisher" "introduction" "properties" "accommodation" "excellent" "opportunity" "assessment" "interface" "operation" "restaurants" "beautiful" "locations" "technologies" "manufacturer" "providing" "authority" "considered" "programme" "enterprise" "educational" "employees" "alternative" "processing" "responsibility" "resolution" "publication" "relations" "photography" "components" "assistance" "completed" "organizations" "transportation" "disclaimer" "membership" "recommended" "background" "maintenance" "functions" "trademarks" "phentermine" "submitted" "television" "interested" "established" "programming" "instructions" "increased" "understanding" "associates" "instruments" "businesses" "restaurant" "procedures" "relationship" "traditional" "transport" "interesting" "evaluation" "implementation" "galleries" "references" "presented" "literature" "respective" "definition" "secretary" "networking" "australian" "magazines" "individuals" "guidelines" "installation" "attention" "difference" "regulations" "certificate" "directions" "documentation" "automotive" "successful" "communities" "situation" "publishing" "emergency" "developing" "announcements" "historical" "ringtones" "scientific" "satellite" "functional" "monitoring" "architecture" "recommend" "accounting" "manufacturing" "professor" "generally" "continued" "techniques" "permission" "generation" "component" "guarantee" "processes" "interests" "paperback" "classifieds" "supported" "competition" "providers" "characters" "thousands" "apartments" "generated" "administrative" "practices" "reporting" "essential" "affiliate" "designated" "integrated" "configuration" "comprehensive" "universal" "presentation" "languages" "compliance" "improvement" "challenge" "acceptance" "strategies" "affiliates" "multimedia" "certified" "computing" "interactive" "procedure" "leadership" "religious" "breakfast" "developer" "recommendations" "comparison" "automatically" "adventure" "institutions" "assistant" "advertisement" "headlines" "yesterday" "determined" "wholesale" "extension" "statements" "completely" "electrical" "applicable" "manufacturers" "classical" "dedicated" "direction" "basketball" "personnel" "identified" "professionals" "advantage" "newsletters" "estimated" "anonymous" "miscellaneous" "integration" "interview" "framework" "installed" "associate" "frequently" "discussions" "laboratory" "destination" "intelligence" "specifications" "tripadvisor" "residential" "decisions" "industries" "partnership" "editorial" "expression" "provisions" "principles" "suggestions" "replacement" "strategic" "economics" "compatible" "apartment" "consulting" "recreation" "participants" "favorites" "translation" "estimates" "protected" "officials" "contained" "legislation" "parameters" "relationships" "representative" "frequency" "introduced" "departments" "residents" "displayed" "performed" "administrator" "addresses" "permanent" "agriculture" "constitutes" "portfolio" "practical" "delivered" "collectibles" "infrastructure" "exclusive" "originally" "utilities" "philosophy" "regulation" "reduction" "nutrition" "recording" "secondary" "wonderful" "announced" "prevention" "mentioned" "automatic" "healthcare" "maintained" "increasing" "connected" "directors" "participation" "combination" "amendment" "guaranteed" "libraries" "distributed" "enterprises" "convention" "principal" "certification" "buildings" "household" "batteries" "positions" "subscription" "contemporary" "panasonic" "permalink" "signature" "provision" "newspaper" "liability" "trademark" "trackback" "americans" "promotion" "conversion" "reasonable" "broadband" "influence" "webmaster" "prescription" "conservation" "javascript" "marketplace" "evolution" "certificates" "objectives" "suggested" "concerned" "structures" "encyclopedia" "continuing" "interracial" "competitive" "suppliers" "preparation" "receiving" "discussed" "reservations" "playstation" "instruction" "annotation" "differences" "establish" "expressed" "mathematics" "compensation" "conducted" "percentage" "requested" "personals" "agricultural" "supporting" "collections" "participate" "specialist" "experienced" "investigation" "institution" "searching" "proceedings" "transmission" "characteristics" "experiences" "extremely" "verzeichnis" "contracts" "developers" "equivalent" "chemistry" "neighborhood" "variables" "continues" "curriculum" "psychology" "responses" "circumstances" "identification" "appliances" "elementary" "unlimited" "printable" "enforcement" "hardcover" "celebrity" "chocolate" "hampshire" "bluetooth" "controlled" "requirement" "authorities" "representatives" "pregnancy" "biography" "attractions" "transactions" "authorized" "retirement" "financing" "efficiency" "efficient" "commitment" "specialty" "interviews" "qualified" "discovery" "classified" "confidence" "lifestyle" "consistent" "clearance" "connections" "inventory" "converter" "organisation" "objective" "securities" "volunteer" "democratic" "parameter" "processor" "dimensions" "contribute" "challenges" "recognition" "submission" "encourage" "regulatory" "inspection" "consumers" "territory" "transaction" "contributions" "continuous" "initiative" "execution" "disability" "increases" "contractor" "examination" "committed" "extensive" "affordable" "candidate" "databases" "outstanding" "perspective" "messenger" "tournament" "consideration" "discounts" "catalogue" "publishers" "caribbean" "reservation" "remaining" "depending" "expansion" "purchased" "performing" "collected" "absolutely" "featuring" "implement" "scheduled" "calculator" "temporary" "sufficient" "awareness" "contribution" "measurement" "constitution" "packaging" "consultation" "northwest" "classroom" "democracy" "wallpaper" "merchandise" "resistance" "candidates" "biological" "transition" "preferences" "classification" "physician" "wikipedia" "spiritual" "photographs" "satisfaction" "represents" "preferred" "intellectual" "comfortable" "interaction" "listening" "effectively" "experimental" "revolution" "consolidation" "landscape" "dependent" "mechanical" "consultants" "applicant" "cooperation" "acquisition" "implemented" "directories" "recognized" "notification" "licensing" "textbooks" "diversity" "investments" "accessibility" "sensitive" "templates" "completion" "universities" "technique" "contractors" "subscriptions" "calculate" "broadcast" "converted" "anniversary" "improvements" "specification" "accessible" "accessory" "typically" "representation" "arrangements" "conferences" "uniprotkb" "consumption" "afternoon" "consultant" "controller" "ownership" "committees" "legislative" "researchers" "unsubscribe" "molecular" "residence" "attorneys" "operators" "sustainable" "statistical" "innovation" "employers" "definitions" "elections" "stainless" "newspapers" "hospitals" "exception" "capabilities" "recommendation" "recruitment" "organized" "improving" "expensive" "organisations" "explained" "programmes" "expertise" "mechanism" "jewellery" "eventually" "agreements" "innovative" "conclusion" "disorders" "collaboration" "detection" "formation" "engineers" "proposals" "moderator" "tutorials" "settlement" "collectables" "fantastic" "governments" "purchasing" "appointed" "operational" "descriptions" "determination" "animation" "productions" "telecommunications" "instructor" "approaches" "highlights" "designers" "scientists" "blackjack" "possibility" "commissioner" "dangerous" "reliability" "volunteers" "attachment" "appointment" "workshops" "hurricane" "represented" "mortgages" "responsibilities" "carefully" "productivity" "investors" "underground" "diagnosis" "principle" "vacations" "calculated" "appearance" "incorporated" "notebooks" "algorithm" "involving" "investing" "admission" "terrorism" "parliament" "situations" "allocated" "corrections" "structural" "municipal" "describes" "disabilities" "prohibited" "addressed" "simulation" "initiatives" "concentration" "interpretation" "bankruptcy" "optimization" "substances" "discovered" "restrictions" "participating" "exhibition" "composition" "nationwide" "existence" "commentary" "limousines" "developments" "immigration" "destinations" "attribute" "surrounding" "mountains" "popularity" "postposted" "coordinator" "fundamental" "substantial" "progressive" "championship" "impossible" "depression" "testimonials" "memorabilia" "cartridge" "explanation" "subsection" "electricity" "permitted" "workplace" "confirmed" "wallpapers" "infection" "eligibility" "involvement" "placement" "observations" "vbulletin" "subsequent" "motorcycle" "disclosure" "establishment" "presentations" "undergraduate" "occupation" "donations" "associations" "citysearch" "radiation" "pollution" "conservative" "guestbook" "effectiveness" "demonstrate" "atmosphere" "purchases" "federation" "assignment" "chemicals" "counseling" "acceptable" "satisfied" "measurements" "medication" "warehouse" "shareware" "violation" "configure" "stability" "southwest" "institutional" "expectations" "metabolism" "personally" "excellence" "attributes" "recognize" "screening" "thumbnail" "forgotten" "intelligent" "edinburgh" "obligation" "restricted" "republican" "merchants" "attendance" "arguments" "amsterdam" "adventures" "announcement" "regularly" "mechanisms" "customize" "tradition" "indicators" "emissions" "physicians" "complaint" "experiments" "scholarship" "governance" "supplements" "camcorder" "implementing" "conversation" "capability" "producing" "precision" "contributed" "reproduction" "ingredients" "franchise" "complaints" "promotions" "rehabilitation" "maintaining" "environments" "reception" "correctly" "consequences" "geography" "appearing" "integrity" "discrimination" "processed" "implications" "functionality" "intermediate" "emotional" "platforms" "overnight" "geographic" "preliminary" "districts" "introduce" "promotional" "chevrolet" "specialists" "generator" "suspension" "correction" "authentication" "communicate" "supplement" "showtimes" "promoting" "machinery" "bandwidth" "probability" "dimension" "schedules" "admissions" "quarterly" "illustrated" "continental" "alternate" "achievement" "limitations" "automated" "passenger" "convenient" "orientation" "childhood" "flexibility" "jurisdiction" "displaying" "encouraged" "cartridges" "declaration" "automation" "advantages" "preparing" "recipient" "extensions" "athletics" "southeast" "alternatives" "determining" "personalized" "conditioning" "partnerships" "destruction" "increasingly" "migration" "basically" "conventional" "applicants" "occupational" "adjustment" "treatments" "camcorders" "difficulty" "collective" "coalition" "enrollment" "producers" "collector" "interfaces" "advertisers" "representing" "observation" "restoration" "convenience" "returning" "opposition" "container" "defendant" "confirmation" "supervisor" "peripherals" "bestsellers" "departure" "interactions" "intervention" "attraction" "modification" "customized" "understood" "assurance" "happening" "amendments" "metropolitan" "compilation" "verification" "attractive" "recordings" "gardening" "obligations" "orchestra" "polyphonic" "outsourcing" "adjustable" "allocation" "discipline" "demonstrated" "identifying" "alphabetical" "dispatched" "installing" "voluntary" "photographer" "messaging" "constructed" "additions" "requiring" "engagement" "refinance" "calendars" "arrangement" "conclusions" "bibliography" "compatibility" "cooperative" "measuring" "headquarters" "transfers" "transformation" "attachments" "administrators" "personality" "facilitate" "subscriber" "priorities" "bookstore" "parenting" "incredible" "commonwealth" "pharmaceutical" "manhattan" "workforce" "organizational" "portuguese" "discharge" "halloween" "hazardous" "methodology" "housewares" "reputation" "resistant" "democrats" "recycling" "qualifications" "slideshow" "variation" "transferred" "photograph" "distributor" "underlying" "wrestling" "photoshop" "gathering" "projection" "mathematical" "specialized" "diagnostic" "corporations" "criticism" "automobile" "confidential" "statutory" "accommodations" "northeast" "downloaded" "paintings" "injection" "yorkshire" "populations" "protective" "initially" "indicator" "eliminate" "sunglasses" "preference" "threshold" "exploration" "sequences" "astronomy" "translate" "announces" "compression" "establishing" "constitutional" "perfectly" "instantly" "litigation" "submissions" "broadcasting" "horizontal" "terrorist" "informational" "ecommerce" "suffering" "prospective" "ultimately" "artificial" "spectacular" "coordination" "connector" "affiliated" "activation" "naturally" "subscribers" "mitsubishi" "underwear" "constraints" "inclusive" "dimensional" "considerable" "selecting" "processors" "pantyhose" "difficulties" "complexity" "constantly" "barcelona" "presidential" "documentary" "territories" "palestinian" "legislature" "hospitality" "procurement" "theoretical" "exercises" "surveillance" "protocols" "highlight" "substitute" "inclusion" "brilliant" "evaluated" "assignments" "termination" "households" "authentic" "architectural" "macintosh" "movements" "amenities" "virtually" "authorization" "projector" "comparative" "psychological" "surprised" "genealogy" "expenditure" "liverpool" "connectivity" "algorithms" "collaborative" "excluding" "commander" "suggestion" "spotlight" "investigate" "connecting" "logistics" "proportion" "significance" "symposium" "essentials" "protecting" "transmitted" "screenshots" "intensive" "switching" "correspondence" "supervision" "expenditures" "separation" "testimony" "celebrities" "mandatory" "boundaries" "syndication" "celebration" "filtering" "offensive" "deployment" "colleagues" "separated" "directive" "governing" "retailers" "occasionally" "attending" "recruiting" "instructional" "traveling" "permissions" "biotechnology" "prescribed" "reproduced" "calculation" "consolidated" "occasions" "equations" "exceptional" "respondents" "considerations" "queensland" "musicians" "composite" "unavailable" "essentially" "designing" "assessments" "brunswick" "sensitivity" "preservation" "streaming" "intensity" "technological" "syndicate" "antivirus" "addressing" "discounted" "constitute" "concluded" "desperate" "demonstration" "governmental" "manufactured" "graduation" "variations" "addiction" "synthesis" "undefined" "unemployment" "enhancement" "newcastle" "performances" "societies" "brazilian" "identical" "petroleum" "norwegian" "retention" "exchanges" "soundtrack" "wondering" "profession" "separately" "physiology" "collecting" "participant" "scholarships" "recreational" "dominican" "friendship" "expanding" "provincial" "investigations" "medications" "advertiser" "encryption" "downloadable" "sophisticated" "possession" "laboratories" "vegetables" "thumbnails" "stockings" "respondent" "destroyed" "manufacture" "wordpress" "vulnerability" "accountability" "celebrate" "accredited" "appliance" "compressed" "scheduling" "perspectives" "mortality" "christians" "therapeutic" "impressive" "architect" "challenging" "microwave" "accidents" "relocation" "contributors" "violations" "temperatures" "competitions" "discretion" "cosmetics" "repository" "concentrations" "christianity" "negotiations" "realistic" "generating" "congressional" "photographic" "modifications" "millennium" "achieving" "fisheries" "exceptions" "reactions" "macromedia" "companion" "divisions" "additionally" "fellowship" "victorian" "copyrights" "mastercard" "chronicles" "obtaining" "distribute" "decorative" "enlargement" "campaigns" "conjunction" "instances" "indigenous" "validation" "corruption" "incentives" "cholesterol" "differential" "scientist" "starsmerchant" "arthritis" "practitioners" "transcript" "inflation" "compounds" "contracting" "structured" "graduates" "recommends" "controlling" "distributors" "particles" "extraordinary" "indicating" "coordinate" "exclusively" "limitation" "widescreen" "illustration" "construct" "inquiries" "inspiration" "downloading" "aggregate" "forecasts" "complicated" "shopzilla" "decorating" "expressions" "shakespeare" "connectors" "conflicts" "travelers" "offerings" "incorrect" "furnishings" "perception" "renaissance" "pathology" "ordinance" "photographers" "infections" "configured" "festivals" "possibilities" "contributing" "analytical" "circulation" "assumption" "jerusalem" "transexuales" "technician" "executives" "enquiries" "cognitive" "exploring" "registrar" "supporters" "withdrawal" "predicted" "saskatchewan" "cancellation" "ministers" "veterinary" "prostores" "relevance" "incentive" "butterfly" "mechanics" "numerical" "reflection" "accompanied" "invitation" "princeton" "spirituality" "proprietary" "childrens" "thumbzilla" "porcelain" "pichunter" "translated" "columnists" "consensus" "delivering" "journalism" "intention" "undertaken" "statewide" "semiconductor" "illustrations" "happiness" "identifier" "calculations" "conducting" "accomplished" "calculators" "impression" "correlation" "fragrance" "neighbors" "transparent" "champions" "selections" "projectors" "inappropriate" "comparing" "vocational" "pharmacies" "introducing" "appreciated" "distinguished" "projected" "assumptions" "shareholders" "developmental" "regulated" "anticipated" "completing" "comparable" "confusion" "copyrighted" "warranties" "documented" "paperbacks" "keyboards" "vulnerable" "reflected" "respiratory" "notifications" "transexual" "mainstream" "evaluating" "subcommittee" "maternity" "journalists" "foundations" "volleyball" "liabilities" "decreased" "tolerance" "creativity" "describing" "lightning" "quotations" "inspector" "bookmarks" "behavioral" "bathrooms" "abilities" "initiated" "nonprofit" "suspended" "containers" "attitudes" "simultaneously" "integrate" "sociology" "screenshot" "exhibitions" "confident" "retrieved" "officially" "consortium" "recipients" "delicious" "traditions" "periodically" "hungarian" "referring" "transform" "educators" "vegetable" "humanities" "independently" "alignment" "britannica" "competitors" "visibility" "consciousness" "encounter" "resolutions" "accessing" "attempted" "witnesses" "administered" "strengthen" "aggressive" "advertisements" "sublimedirectory" "disturbed" "determines" "sculpture" "motivation" "pharmacology" "passengers" "quantities" "petersburg" "consistently" "powerpoint" "obituaries" "punishment" "appreciation" "subsequently" "restriction" "incorporate" "backgrounds" "treasurer" "lightweight" "transcription" "complications" "scripting" "remembered" "synthetic" "testament" "specifics" "partially" "wilderness" "generations" "tournaments" "sponsorship" "headphones" "proceeding" "volkswagen" "uncertainty" "breakdown" "reconstruction" "subsidiary" "strengths" "encouraging" "furnished" "terrorists" "comparisons" "beneficial" "distributions" "viewpicture" "threatened" "republicans" "discusses" "responded" "abstracts" "prediction" "pharmaceuticals" "thesaurus" "individually" "battlefield" "literally" "ecological" "appraisal" "consisting" "submitting" "citations" "geographical" "disclaimers" "championships" "sheffield" "finishing" "wellington" "prospects" "bulgarian" "aboriginal" "remarkable" "preventing" "productive" "boulevard" "compliant" "penalties" "imagination" "refurbished" "activated" "conferencing" "armstrong" "politicians" "trackbacks" "accommodate" "accepting" "precipitation" "isolation" "sustained" "approximate" "programmer" "inherited" "incomplete" "chronicle" "legitimate" "biographies" "investigator" "plaintiff" "prisoners" "mediterranean" "nightlife" "architects" "entrepreneur" "freelance" "excessive" "screensaver" "valuation" "unexpected" "cigarette" "characteristic" "metallica" "appointments" "narrative" "academics" "quantitative" "screensavers" "subdivision" "distinction" "livestock" "exemption" "sustainability" "formatting" "nutritional" "affiliation" "relatives" "satisfactory" "revolutionary" "bracelets" "telephony" "breathing" "thickness" "adjustments" "graphical" "discussing" "aerospace" "meaningful" "maintains" "shortcuts" "voyeurweb" "extending" "specifies" "accreditation" "blackberry" "meditation" "microphone" "combining" "instrumental" "organizing" "moderators" "standings" "partition" "invisible" "translations" "commodity" "kilometers" "thanksgiving" "guarantees" "indication" "congratulations" "cigarettes" "controllers" "consultancy" "conventions" "coordinates" "responding" "physically" "stakeholders" "hydrocodone" "consecutive" "attempting" "representations" "competing" "peninsula" "accurately" "considers" "ministries" "vacancies" "parliamentary" "acknowledge" "nottingham" "identifies" "questionnaire" "qualification" "modelling" "miniature" "interstate" "consequence" "systematic" "perceived" "presenting" "troubleshooting" "centuries" "magnitude" "richardson" "fragrances" "vocabulary" "earthquake" "fundraising" "geological" "assessing" "introduces" "webmasters" "computational" "acdbentity" "participated" "handhelds" "answering" "impressed" "conspiracy" "organizer" "combinations" "preceding" "cumulative" "amplifier" "arbitrary" "prominent" "contacted" "recorders" "occasional" "innovations" "postcards" "reviewing" "explicitly" "transsexual" "citizenship" "informative" "girlfriend" "bloomberg" "hierarchy" "influenced" "abandoned" "complement" "checklist" "requesting" "lauderdale" "scenarios" "extraction" "elevation" "utilization" "beverages" "calibration" "efficiently" "entertaining" "prerequisite" "hypothesis" "medicines" "regression" "enhancements" "renewable" "intersection" "passwords" "consistency" "collectors" "astrology" "occurring" "supplemental" "travelling" "induction" "precisely" "spreading" "provinces" "widespread" "incidence" "incidents" "enhancing" "interference" "palestine" "listprice" "atmospheric" "knowledgestorm" "referenced" "publicity" "proposition" "allowance" "designation" "duplicate" "criterion" "civilization" "vietnamese" "tremendous" "corrected" "encountered" "internationally" "surrounded" "creatures" "commented" "accomplish" "vegetarian" "newfoundland" "investigated" "ambassador" "contacting" "vegetation" "findarticles" "specially" "infectious" "continuity" "phenomenon" "conscious" "referrals" "differently" "integrating" "revisions" "reasoning" "charitable" "annotated" "convinced" "replacing" "researcher" "watershed" "occupations" "acknowledged" "equilibrium" "characterized" "privilege" "qualifying" "estimation" "pediatric" "techrepublic" "institutes" "brochures" "traveller" "appropriations" "suspected" "benchmark" "beginners" "instructors" "highlighted" "stationery" "unauthorized" "competent" "contributor" "demonstrates" "gradually" "desirable" "journalist" "religions" "explosion" "signatures" "disciplines" "daughters" "conversations" "simplified" "motherboard" "bibliographic" "champagne" "deviation" "superintendent" "housewives" "influences" "inspections" "irrigation" "hydraulic" "robertson" "penetration" "conviction" "omissions" "retrieval" "qualities" "prototype" "importantly" "apparatus" "explaining" "nomination" "empirical" "dependence" "sexuality" "polyester" "commitments" "suggesting" "remainder" "privileges" "televisions" "specializing" "commodities" "motorcycles" "concentrate" "reproductive" "molecules" "refrigerator" "intervals" "sentences" "exclusion" "workstation" "holocaust" "receivers" "disposition" "navigator" "investigators" "marijuana" "cathedral" "fascinating" "landscapes" "computation" "cardiovascular" "salvation" "predictions" "accompanying" "selective" "arbitration" "configuring" "editorials" "sacrifice" "removable" "convergence" "gibraltar" "anthropology" "malpractice" "reporters" "necessity" "rendering" "hepatitis" "nationally" "waterproof" "specialties" "humanitarian" "invitations" "functioning" "economies" "bacterial" "undertake" "continuously" "achievements" "convertible" "secretariat" "paragraphs" "adolescent" "nominations" "cancelled" "introductory" "reservoir" "occurrence" "demographic" "disciplinary" "respected" "portraits" "interpreted" "evaluations" "elimination" "hypothetical" "immigrants" "complimentary" "helicopter" "performer" "commissions" "powerseller" "graduated" "surprising" "unnecessary" "dramatically" "yugoslavia" "characterization" "likelihood" "fundamentals" "contamination" "endangered" "compromise" "expiration" "namespace" "peripheral" "negotiation" "opponents" "nominated" "confidentiality" "electoral" "changelog" "alternatively" "controversial" "recovered" "upgrading" "frontpage" "demanding" "defensive" "forbidden" "programmers" "monitored" "installations" "deutschland" "practitioner" "motivated" "smithsonian" "examining" "revelation" "delegation" "dictionaries" "greenhouse" "transparency" "currencies" "survivors" "positioning" "descending" "temporarily" "frequencies" "reflections" "municipality" "detective" "experiencing" "fireplace" "endorsement" "psychiatry" "persistent" "summaries" "looksmart" "magnificent" "colleague" "adaptation" "paintball" "enclosure" "supervisors" "distances" "absorption" "treasures" "transcripts" "disappointed" "continually" "communist" "collectible" "entrepreneurs" "creations" "acquisitions" "biodiversity" "excitement" "presently" "mysterious" "librarian" "subsidiaries" "stockholm" "indonesian" "therapist" "promising" "relaxation" "commissioners" "forwarding" "nightmare" "reductions" "southampton" "organisms" "telescope" "advancement" "harassment" "generators" "generates" "replication" "inexpensive" "receptors" "interventions" "internship" "aluminium" "snowboard" "beastality" "evanescence" "coordinated" "shipments" "antarctica" "chancellor" "controversy" "legendary" "beautifully" "antibodies" "examinations" "immunology" "departmental" "terminology" "gentleman" "reproduce" "convicted" "roommates" "threatening" "spokesman" "activists" "frankfurt" "encourages" "assembled" "restructuring" "terminals" "simulations" "conditional" "crossword" "conceptual" "translator" "automobiles" "longitude" "challenged" "telecharger" "insertion" "instrumentation" "constraint" "groundwater" "strengthening" "insulation" "infringement" "subjective" "varieties" "mediawiki" "configurations" "foreign" "writers" "corpora" "british" "britain" "hathi" "uk" "bloomsbury" "woolf" "soho" "hathitrust" "anglo" "oxford" "museum" "hegglund" "english" "thames" "selvon" "norton" "indian" "finally" "fiction" "asian" "afrikaans" "arabic" "bengali" "bulgarian" "catalan" "cantonese" "croatian" "czech" "danish" "dutch" "lithuanian" "malay" "malayalam" "panjabi" "tamil" "english" "finnish" "french" "german" "greek" "hebrew" "hindi" "hungarian" "indonesian" "italian" "japanese" "javanese" "korean" "norwegian" "polish" "portuguese" "romanian" "russian" "serbian" "slovak" "slovene" "spanish" "swedish" "telugu" "thai" "turkish" "ukrainian" "vietnamese" "welsh" "sign language" "algerian" "aramaic" "armenian" "berber" "burmese" "bosnian" "brazilian" "bulgarian" "cypriot" "corsica" "creole" "scottish" "egyptian" "esperanto" "estonian" "finn" "flemish" "georgian" "hawaiian" "indonesian" "inuit" "irish" "icelandic" "latin" "mandarin" "nepalese" "sanskrit" "tagalog" "tahitian" "tibetan" "gypsy" "wu" "afghan" "albanian" "algerian" "american" "andorran" "angolan" "antiguans" "argentinean" "armenian" "australian" "austrian" "azerbaijani" "bahamian" "bahraini" "bangladeshi" "barbadian" "barbudans" "batswana" "belarusian" "belgian" "belizean" "beninese" "bhutanese" "bolivian" "bosnian" "brazilian" "british" "bruneian" "bulgarian" "burkinabe" "burmese" "burundian" "cambodian" "cameroonian" "canadian" "cape verdean" "central african" "chadian" "chilean" "chinese" "colombian" "comoran" "congolese" "costa rican" "croatian" "cuban" "cypriot" "czech" "danish" "djibouti" "dominican" "dutch" "east timorese" "ecuadorean" "egyptian" "emirian" "equatorial guinean" "eritrean" "estonian" "ethiopian" "fijian" "filipino" "finnish" "french" "gabonese" "gambian" "georgian" "german" "ghanaian" "greek" "grenadian" "guatemalan" "guinea-bissauan" "guinean" "guyanese" "haitian" "herzegovinian" "honduran" "hungarian" "i-kiribati" "icelander" "indian" "indonesian" "iranian" "iraqi" "irish" "israeli" "italian" "ivorian" "jamaican" "japanese" "jordanian" "kazakhstani" "kenyan" "kittian" "nevisian" "kuwaiti" "kyrgyz" "laotian" "latvian" "lebanese" "liberian" "libyan" "liechtensteiner" "lithuanian" "luxembourger" "macedonian" "malagasy" "malawian" "malaysian" "maldivian" "malian" "maltese" "marshallese" "mauritanian" "mauritian" "mexican" "micronesian" "moldovan" "monacan" "mongolian" "moroccan" "mosotho" "motswana" "mozambican" "namibian" "nauruan" "nepalese" "new zealander" "ni-vanuatu" "nicaraguan" "nigerian" "nigerien" "north korean" "northern irish" "norwegian" "omani" "pakistani" "palauan" "panamanian" "papua new guinean" "paraguayan" "peruvian" "polish" "portuguese" "qatari" "romanian" "russian" "rwandan" "saint lucian" "salvadoran" "samoan" "san marinese" "sao tomean" "saudi" "scottish" "senegalese" "serbian" "seychellois" "sierra leonean" "singaporean" "slovakian" "slovenian" "solomon islander" "somali" "south african" "south korean" "spanish" "sri lankan" "sudanese" "surinamer" "swazi" "swedish" "swiss" "syrian" "taiwanese" "tajik" "tanzanian" "thai" "togolese" "tongan" "trinidadian" "tobagonian" "tunisian" "turkish" "tuvaluan" "ugandan" "ukrainian" "uruguayan" "uzbekistani" "venezuelan" "vietnamese" "welsh" "yemenite" "zambian" "zimbabwean" "methods" "risk" "notation" "footnote" "smallcaps" )
-
-### Common Words		
-grep -E -o '\b[[:lower:]]+\b' < ./"$baseName"/"$baseName".txt | tr -d [:punct:] | tr [:upper:] [:lower:] | tr -d '\r' | sort | uniq -c | sort -nr > ./"$baseName"/output.txt		
-# grep -oP '\b\p{Ll}+\b' < ./"$baseName"/"$baseName".txt | tr -d [:punct:] | tr [:upper:] [:lower:] | tr -d '\r' | sort | uniq -c | sort -nr > ./"$baseName"/output.txt
-
-printf "%s " "${stop_words[@]}" > ./"$baseName"/stop_words.txt
-
-awk 'FNR==NR{for(i=1;i<=NF;i++)w[$i];next}(!($2 in w))' ./"$baseName"/stop_words.txt ./"$baseName"/output.txt > ./"$baseName"/results1.txt		
-
-rm ./"$baseName"/output.txt
-
-sed "s/^[ \t]*//" -i ./"$baseName"/results1.txt
-
-# Print any common words that appear more than 45 times
-
-perl -ae 'print if !(grep { $_ < 45 && /^\d+$/ } @F)' ./"$baseName"/results1.txt > ./"$baseName"/results2.txt
-
-if [ -n "$error" ];
-		
-then
-
-cp ./"$baseName"/results2.txt ./"$baseName"/"$baseName"_common_words.txt
-		
-fi
-
-### Proper Nouns
-grep -E -o '\b[[:upper:]][[:lower:]]+\b' < ./"$baseName"/"$baseName".txt | tr -d [:punct:] | tr [:upper:] [:lower:] | tr -d '\r' | sort | uniq -c | sort -nr > ./"$baseName"/output.txt
-# grep -oP '\b\p{Lu}+\b' < ./"$baseName"/"$baseName".txt | tr -d [:punct:] | tr [:upper:] [:lower:] | tr -d '\r' | sort | uniq -c | sort -nr > ./"$baseName"/output.txt
-
-awk 'FNR==NR{for(i=1;i<=NF;i++)w[$i];next}(!($2 in w))' ./"$baseName"/stop_words.txt ./"$baseName"/output.txt > ./"$baseName"/results3.txt
-
-rm ./"$baseName"/output.txt
-
-sed "s/^[ \t]*//" -i ./"$baseName"/results3.txt
-
-# Print proper nouns that appear more than 10 times
-
-perl -ae 'print if !(grep { $_ < 10 && /^\d+$/ } @F)' ./"$baseName"/results3.txt > ./"$baseName"/results4.txt
-
-cat ./"$baseName"/results4.txt >> ./"$baseName"/results2.txt
-
-if [ -n "$error" ];
-		
-then
-
-cp ./"$baseName"/results4.txt ./"$baseName"/"$baseName"_proper_nouns.txt
-		
-fi
-
-if [ -n "$error" ];
-		
-then
-
-cp ./"$baseName"/results2.txt ./"$baseName"/"$baseName"_common_and_proper_nouns.txt
-		
-fi
-
-# Remove word count from list of proper nouns and common words
-
-sed -i 's/^[0-9]\+ //' ./"$baseName"/results2.txt
-
-# Replace duplicate in proper nouns and common words lists
-
-gawk -i inplace '!a[$0]++' ./"$baseName"/results2.txt
-
-### 
-
-if [[ -s ./"$baseName"/results2.txt ]]; then echo -e "These words appear frequently in \033[1;35m"$baseName".docx\033[0m:\n"; cat ./"$baseName"/results2.txt ;
-
-read -n1 -p "`echo $'\n> '`Would you like to check the pronunciation of these words? [Y/N]?" answer
-
-case $answer in
-Y | y) 
-       echo -e "\n"
-	   pronunciation=yes
-	   ;;
-	   
-N | n) 
-		echo -e "\n"
-		pronunciation=no
-		;;
-	*)
-	   echo -e "\n"
-       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ y / n].\033[0m\n"
-       ;;
- 
-esac
-
-else echo -e "No words with potential mispronunciations were detected in \033[1;35m"$baseName".docx\033[0m.\n"; 
-
-fi
-
-if [[ "$pronunciation" == "yes" ]]; then		
-		
-# Create separate TXT files for each line
-
-awk '{filename = sprintf("frequent_word%d.txt", NR); print >filename; close(filename)}' ./"$baseName"/results2.txt
-
-if [ -f ./frequent_word1.txt ]; then
-
-mv ./frequent_word*.txt ./"$baseName"/
-
-fi
-
-count=1
-for x in ./"$baseName"/frequent_word*.txt; do
-
-        basePath=${x%.*}
-        Name=${basePath##*/}
-		
- printf "\rProcessing frequent words in \033[1;35m$baseName.docx\033[0m... \033[1;33m'$count'\033[0m"
-
- sleep 1
- "C:\Program Files (x86)\Linguatec\VoiceReaderStudio15\vrs15cmd.exe" input="$x" voice=$name lang=enu speed=100 format=mp3 codepage=65001 coding=11 volume=75 output=./"$baseName"/"$Name".mp3 &>/dev/null
-count=$[ $count + 1 ] ; 
-done
-printf "\rProcessing frequent words in \033[1;35m$baseName.docx\033[0m... \033[1;32mDone.\033[0m"
-
-
-echo -e "\n"
-
-IFS=$IFS_OLD
-
-file="./"$baseName"/results2.txt"
-
-count=1
-IFS=$'\n' 
-for word in $(cat $file); do
-
-mpv "./"$baseName"/frequent_word$count.mp3" >/dev/null  2>&1
-
-getfrequency() {
-
-read -n1 -p "Was the pronunciation of $(echo -e "\033[1;44m$word\033[0m ")correct? [Y/N]? Replay it [R]?" answer
-
-case $answer in
-Y | y) 
-       echo -e "\n"
-	   echo -e "Speech markup for \033[1;44m$word\033[0m retained.\n"
-	   sed -i -e :a -e '/^\n*$/{$d;N;ba' -e '}' ./"$baseName"/frequent_word$count.txt
-	   read frequent_word < ./"$baseName"/frequent_word$count.txt
-	   frequent_word=(${frequent_word[@]})
-	   sed -i --expression "s#$word#$frequent_word#g" ./"$baseName"/"$baseName".txt
-	   upper_case_word=$( echo "${word^}" )
-	   sed -i --expression "s#$upper_case_word#$frequent_word#g" ./"$baseName"/"$baseName".txt
-	   return 0
-	   ;;
-	   
-N | n) 
-		echo -e "\n"
-		read -p "Enter correct markup for $(echo -e "\033[1;44m$word\033[0m"): "
-		echo "<TOI=LHP:\""$word"\"\/>$REPLY<TOI=ORTH\/>" > "./"$baseName"/frequent_word$count.txt"
-		echo -e "\nSpeech markup for \033[1;44m$word\033[0m changed.\n"
-		"C:\Program Files (x86)\Linguatec\VoiceReaderStudio15\vrs15cmd.exe" input=./"$baseName"/frequent_word$count.txt voice=$name lang=enu speed=100 format=mp3 codepage=65001 coding=11 volume=75 output=./"$baseName"/frequent_word$count.mp3 &>/dev/null
-		mpv "./"$baseName"/frequent_word$count.mp3" >/dev/null  2>&1
-		return 1
-		;;
-R | r) 
-		echo -e "\n"
-		mpv "./"$baseName"/frequent_word$count.mp3" >/dev/null 2>&1
-		return 1
-		;;
-		
-	*)
-	   echo -e "\n"
-       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ y / n /r].\033[0m\n"
-	   return 1
-       ;;
-
-	   
-esac
-
-}
-until getfrequency; do : ; done
-count=$[ $count + 1 ] ; 
-
-done
-
-IFS=$IFS_OLD
-
-rm ./"$baseName"/frequent_word*.mp3
-
-rm ./"$baseName"/frequent_word*.txt
-
-fi
-		
-fi
-
-if [ -f ./"$baseName"/results4.txt ]; then
-
-rm ./"$baseName"/results4.txt
-
-fi
-
-if [ -f ./"$baseName"/results1.txt ]; then
-
-rm ./"$baseName"/results1.txt
-
-fi
-
-if [ -f ./"$baseName"/results3.txt ]; then
-
-rm ./"$baseName"/results3.txt
-
-fi
-
-if [ -f ./"$baseName"/results2.txt ]; then
-
-rm ./"$baseName"/results2.txt
-
-fi
-
-if [ -f ./"$baseName"/stop_words.txt ]; then
-
-rm ./"$baseName"/stop_words.txt
-
-fi
-
-fi
-
 # Convert file to MP3
 
 	echo -ne "Converting \033[1;35m"$baseName".docx\033[0m to MP3...\r"
@@ -15644,37 +15405,43 @@ fi
 	
 	if [[ "$textbook" == "long" ]]; then
 	
-	if [[ "$speed" -ge 50 && "$speed" -le 69 ]]; then 
+	if [[ "$speed" -ge -10 && "$speed" -le -8 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%2==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 	
 	fi
 	
-	if [[ "$speed" -ge 70 && "$speed" -le 89 ]]; then 
+	if [[ "$speed" -ge -7 && "$speed" -le -5 ]]; then 
+	
+	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%3==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
+	
+	fi
+	
+	if [[ "$speed" -ge -4 && "$speed" -le -2 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%4==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 	
 	fi
 	
-	if [[ "$speed" -ge 90 && "$speed" -le 109 ]]; then 
+	if [[ "$speed" -ge -1 && "$speed" -le 1 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%6==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 	
 	fi
 	
-	if [[ "$speed" -ge 110 && "$speed" -le 129 ]]; then 
+	if [[ "$speed" -ge 2 && "$speed" -le 4 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%7==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 	
 	fi
 	
-	if [[ "$speed" -ge 130 && "$speed" -le 159 ]]; then 
+	if [[ "$speed" -ge 5 && "$speed" -le 7 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%8==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 	
 	fi
 	
-	if [[ "$speed" -ge 160 && "$speed" -le 200 ]]; then 
+	if [[ "$speed" -ge 8 && "$speed" -le 10 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%9==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 	
@@ -15685,37 +15452,43 @@ fi
 	if [[ "$textbook" == "short" ]]; then
 	
 		
-	if [[ "$speed" -ge 50 && "$speed" -le 69 ]]; then 
+	if [[ "$speed" -ge -10 && "$speed" -le -8 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%3==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 	
 	fi
 	
-	if [[ "$speed" -ge 70 && "$speed" -le 89 ]]; then 
+	if [[ "$speed" -ge -7 && "$speed" -le -5 ]]; then 
+	
+	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%4==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
+	
+	fi
+	
+	if [[ "$speed" -ge -4 && "$speed" -le -2 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%5==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 	
 	fi
 	
-	if [[ "$speed" -ge 90 && "$speed" -le 109 ]]; then 
+	if [[ "$speed" -ge -1 && "$speed" -le 1 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%7==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 	
 	fi
 	
-	if [[ "$speed" -ge 110 && "$speed" -le 129 ]]; then 
+	if [[ "$speed" -ge 2 && "$speed" -le 4 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%8==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 	
 	fi
 	
-	if [[ "$speed" -ge 130 && "$speed" -le 159 ]]; then 
+	if [[ "$speed" -ge 5 && "$speed" -le 7 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%9==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 	
 	fi
 	
-	if [[ "$speed" -ge 160 && "$speed" -le 200 ]]; then 
+	if [[ "$speed" -ge 8 && "$speed" -le 10 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%10==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 	
@@ -15725,37 +15498,43 @@ fi
 
 	if [[ "$novel" == "on" ]]; then
 
-	if [[ "$speed" -ge 50 && "$speed" -le 69 ]]; then 
+	if [[ "$speed" -ge -10 && "$speed" -le -8 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%5==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 	
 	fi
 	
-	if [[ "$speed" -ge 70 && "$speed" -le 89 ]]; then 
+	if [[ "$speed" -ge -7 && "$speed" -le -5 ]]; then 
+	
+	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%6==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
+	
+	fi
+	
+	if [[ "$speed" -ge -4 && "$speed" -le -2 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%7==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 	
 	fi
 	
-	if [[ "$speed" -ge 90 && "$speed" -le 109 ]]; then 
+	if [[ "$speed" -ge -1 && "$speed" -le 1 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%11==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 	
 	fi
 	
-	if [[ "$speed" -ge 110 && "$speed" -le 129 ]]; then 
+	if [[ "$speed" -ge 2 && "$speed" -le 4 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%13==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 	
 	fi
 	
-	if [[ "$speed" -ge 130 && "$speed" -le 159 ]]; then 
+	if [[ "$speed" -ge 5 && "$speed" -le 7 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%15==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 	
 	fi
 	
-	if [[ "$speed" -ge 160 && "$speed" -le 200 ]]; then 
+	if [[ "$speed" -ge 8 && "$speed" -le 10 ]]; then 
 	
 	awk '{for(i=1; i<=NF; i++) if($i=="<page>") if(++count%17==0) $i="<split>"}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 	
@@ -15800,7 +15579,7 @@ fi
 	perl -pi -e 's/(\[\^)(\d+)(\])(:)/$2$4/g' ./"$baseName"/headings$count.txt
 	perl -pi -e 's/(\[\^)(\d+)(\])//g' ./"$baseName"/headings$count.txt
 	sed -i -E 's|\^([^\^]?*)\^||g' ./"$baseName"/headings$count.txt
-	
+ 
 	# New
  
 	sed -i ':a;$!{N;/\n@@/!{s/\n/ /;ba}};P;D' ./"$baseName"/headings$count.txt
@@ -15811,269 +15590,11 @@ fi
 	done
 	
 	fi	
-		#
-	if [[ "$name" == @(Ava|Tom|Allison|Samantha|Susan) ]]; then
-		
-	if [[ "$split" == "on" ]]; then 
-	
-	count=1
-	for x in ./"$baseName"/"$baseName"[1-9]*.txt; do
 
-        basePath=${x%.*}
-        Name=${basePath##*/}
-		
-	sleep 1
-	
-	# # Add pause before and after parentheses or brackets:
-	
-	sed -i "s/\((\)\([^)]*\)\()\)/<Pitch=END_100\/><Pause=500\/><Pitch=75\/>\1\2\3<Pitch=END_75\/><Pause=500\/><Pitch=100\/>/g"  ./"$baseName"/"$baseName"$count.txt
-	
-	sed -i "s/\(\[\)\([^]]*\)\(\]\)/<Pitch=END_100\/><Pause=500\/><Pitch=75\/>\1\2\3<Pitch=END_75\/><Pause=500\/><Pitch=100\/>/g" ./"$baseName"/"$baseName"$count.txt
-	
-	# Add pitch change for headings
-	
-	perl -pi -e 's/(<heading1>)(.*)(<\/heading1>)/$2<Pause=600\/>/g' ./"$baseName"/"$baseName"$count.txt
-	
-	perl -pi -e 's/(<heading2>)(.*)(<\/heading2>)/<Pause=600\/><Pitch=120\/>$2<Pitch=END_120\/><Pause=600\/>/g' ./"$baseName"/"$baseName"$count.txt
-	
-	perl -pi -e 's/(<heading3>)(.*)(<\/heading3>)/<Pause=600\/><Pitch=120\/>$2<Pitch=END_120\/><Pause=600\/>/g' ./"$baseName"/"$baseName"$count.txt
-		
-	perl -pi -e 's/(<heading4>)(.*)(<\/heading4>)/<Pause=600\/><Pitch=120\/>$2<Pitch=END_120\/><Pause=600\/>/g' ./"$baseName"/"$baseName"$count.txt
-			
-	perl -pi -e 's/(<heading5>)(.*)(<\/heading5>)/<Pause=600\/><Pitch=120\/>$2<Pitch=END_120\/><Pause=600\/>/g' ./"$baseName"/"$baseName"$count.txt
-	
-	# Check for broken headings (when there is a period in the middle of the line)
-	
-	perl -0777 -pi -e 's/<heading2>//g' ./"$baseName"/"$baseName"$count.txt
-	
-	perl -0777 -pi -e 's/<\/heading2>//g' ./"$baseName"/"$baseName"$count.txt
-	
-	perl -0777 -pi -e 's/<heading3>//g' ./"$baseName"/"$baseName"$count.txt
-	
-	perl -0777 -pi -e 's/<\/heading3>//g' ./"$baseName"/"$baseName"$count.txt
-	
-	perl -0777 -pi -e 's/<heading4>//g' ./"$baseName"/"$baseName"$count.txt
-	
-	perl -0777 -pi -e 's/<\/heading4>//g' ./"$baseName"/"$baseName"$count.txt
-	
-	perl -0777 -pi -e 's/<heading5>//g' ./"$baseName"/"$baseName"$count.txt
-	
-	perl -0777 -pi -e 's/<\/heading5>//g' ./"$baseName"/"$baseName"$count.txt
-	
-	# Add pitch change for secondary text areas
-	
-	sed -i 's/\(<secondary>\)\(.*\)/<Pause=600\/><Pitch=75\/>\2<Pitch=END_75\/><Pause=600\/>/g' ./"$baseName"/"$baseName"$count.txt
-	
-	sed -i 's/<\/secondary>//g' ./"$baseName"/"$baseName"$count.txt
-	
-		# Add pitch change for table captions
-	
-	sed -i 's/\(<table>\)\(.*\)/<Pause=600\/><Pitch=75\/>\2<Pitch=END_75\/><Pause=600\/>/g' ./"$baseName"/"$baseName"$count.txt
-	
-	sed -i 's/<\/table>//g' ./"$baseName"/"$baseName"$count.txt
-	
-		# Add pitch change for footnote text areas
-	
-	sed -i 's/\(<footnote>\)\(.*\)/<Pause=600\/><Pitch=75\/>\2<Pitch=END_75\/><Pause=600\/>/g' ./"$baseName"/"$baseName"$count.txt
-	
-    sed -i 's/<\/footnote>//g' ./"$baseName"/"$baseName"$count.txt
-	
-		# Add pitch change for figure caption areas
-	
-	sed -i 's/\(<figcaption>\)\(.*\)/<Pause=600\/><Pitch=75\/>\2<Pitch=END_75\/><Pause=600\/>/g' ./"$baseName"/"$baseName"$count.txt
-	
-    sed -i 's/<\/figcaption>//g' ./"$baseName"/"$baseName"$count.txt
-	
-	# Add pitch change for extended description areas
-	
-	sed -i 's/\(<description>\)\(.*\)/<Pause=600\/><Pitch=75\/>\2<Pitch=END_75\/><Pause=600\/>/g' ./"$baseName"/"$baseName"$count.txt
-	
-    sed -i 's/<\/description>//g' ./"$baseName"/"$baseName"$count.txt
-	
-	# Add pauses and pitch changes for footnote references (if they are retained)
-	
-	sed -i 's/<footnote_ref>/<Pause=600\/><Pitch=75\/>/g' ./"$baseName"/"$baseName"$count.txt
-	
-	sed -i 's/<\/footnote_ref>/<Pitch=END_75\/><Pause=600\/>/g' ./"$baseName"/"$baseName"$count.txt
-	
-	## Add pitch change for line numbers
-	
-	sed -i 's/<line>/<Pause=600\/><Pitch=70\/>/g' ./"$baseName"/"$baseName"$count.txt
-	
-	sed -i 's/<\/line>/<Pitch=END_70\/><Pitch=100\/>/g' ./"$baseName"/"$baseName"$count.txt
-	
-	# Add pitch change for page numbers
-	
-	perl -pi -e 's/(<page>)(.*)(<\/page>)/<Pause=600\/><Pitch=120\/>$2<Pitch=END_120\/>/g' ./"$baseName"/"$baseName"$count.txt
-	
-	# Fix double quote on its own line
-	
-	perl -0777 -pi  -e 's/\n\"\n/"\n/g' ./"$baseName"/"$baseName"$count.txt
-	
-	# Correct common mispronunciations
-	
-	sed -i "s/a priori/<TOI=LHP:\"a priori\"\/>e\&I  p\{R\+i\'OR\+a\&I<TOI=ORTH\/>/g" ./"$baseName"/"$baseName"$count.txt
-	
-	# Add extra pause after each line in poetry texts
-	
-	if [ -n "$remove" ]; then
+	# Generate the MP3
 
-	perl -pi -e 's/\n/<Pause=800\/>\n/g' ./"$baseName"/"$baseName"$count.txt
-	
-	fi
-  	
-		# Create MP3 using Linguatec
 		
-		if [ -n "$error" ]; then
-		
-		cp ./"$baseName"/"$baseName"$count.txt ./"$baseName"/"$baseName"$count_pre.txt
-		
-		fi
-	
-	
-	count=$[ $count + 1 ] ; 
-	done
-		
-	
-	else
-		
-	# # Add pause before and after parentheses or brackets:
-	
-	sed -i "s/\((\)\([^)]*\)\()\)/<Pitch=END_100\/><Pause=500\/><Pitch=75\/>\1\2\3<Pitch=END_75\/><Pause=500\/><Pitch=100\/>/g"  ./"$baseName"/"$baseName".txt
-	
-	sed -i "s/\(\[\)\([^]]*\)\(\]\)/<Pitch=END_100\/><Pause=500\/><Pitch=75\/>\1\2\3<Pitch=END_75\/><Pause=500\/><Pitch=100\/>/g" ./"$baseName"/"$baseName".txt
-	
-	# Add pitch change for headings
-	
-	perl -pi -e 's/(<heading1>)(.*)(<\/heading1>)/$2<Pause=600\/>/g' ./"$baseName"/"$baseName".txt
-	
-	perl -pi -e 's/(<heading2>)(.*)(<\/heading2>)/<Pause=600\/><Pitch=120\/>$2<Pitch=END_120\/><Pause=600\/>/g' ./"$baseName"/"$baseName".txt
-	
-	perl -pi -e 's/(<heading3>)(.*)(<\/heading3>)/<Pause=600\/><Pitch=120\/>$2<Pitch=END_120\/><Pause=600\/>/g' ./"$baseName"/"$baseName".txt
-		
-	perl -pi -e 's/(<heading4>)(.*)(<\/heading4>)/<Pause=600\/><Pitch=120\/>$2<Pitch=END_120\/><Pause=600\/>/g' ./"$baseName"/"$baseName".txt
-			
-	perl -pi -e 's/(<heading5>)(.*)(<\/heading5>)/<Pause=600\/><Pitch=120\/>$2<Pitch=END_120\/><Pause=600\/>/g' ./"$baseName"/"$baseName".txt
-	
-		# Check for broken headings (when there is a period in the middle of the line)
-	
-	perl -0777 -pi -e 's/<heading2>//g' ./"$baseName"/"$baseName".txt
-	
-	perl -0777 -pi -e 's/<\/heading2>//g' ./"$baseName"/"$baseName".txt
-	
-	perl -0777 -pi -e 's/<heading3>//g' ./"$baseName"/"$baseName".txt
-	
-	perl -0777 -pi -e 's/<\/heading3>//g' ./"$baseName"/"$baseName".txt
-	
-	perl -0777 -pi -e 's/<heading4>//g' ./"$baseName"/"$baseName".txt
-	
-	perl -0777 -pi -e 's/<\/heading4>//g' ./"$baseName"/"$baseName".txt
-	
-	perl -0777 -pi -e 's/<heading5>//g' ./"$baseName"/"$baseName".txt
-	
-	perl -0777 -pi -e 's/<\/heading5>//g' ./"$baseName"/"$baseName".txt
-	
-	# Add pitch change for secondary text areas
-	
-	sed -i 's/\(<secondary>\)\(.*\)/<Pause=600\/><Pitch=75\/>\2<Pitch=END_75\/><Pause=600\/>/g' ./"$baseName"/"$baseName".txt
-	
-	sed -i 's/<\/secondary>//g' ./"$baseName"/"$baseName".txt
-	
-		# Add pitch change for table captions
-	
-	sed -i 's/\(<table>\)\(.*\)/<Pause=600\/><Pitch=75\/>\2<Pitch=END_75\/><Pause=600\/>/g' ./"$baseName"/"$baseName".txt
-	
-	sed -i 's/<\/table>//g' ./"$baseName"/"$baseName".txt
-	
-		# Add pitch change for footnote text areas
-	
-	sed -i 's/\(<footnote>\)\(.*\)/<Pause=600\/><Pitch=75\/>\2<Pitch=END_75\/><Pause=600\/>/g' ./"$baseName"/"$baseName".txt
-	
-    sed -i 's/<\/footnote>//g' ./"$baseName"/"$baseName".txt
-	
-		# Add pitch change for figure caption areas
-	
-	sed -i 's/\(<figcaption>\)\(.*\)/<Pause=600\/><Pitch=75\/>\2<Pitch=END_75\/><Pause=600\/>/g' ./"$baseName"/"$baseName".txt
-	
-    sed -i 's/<\/figcaption>//g' ./"$baseName"/"$baseName".txt
-	
-			# Add pitch change for extended description areas
-	
-	sed -i 's/\(<description>\)\(.*\)/<Pause=600\/><Pitch=75\/>\2<Pitch=END_75\/><Pause=600\/>/g' ./"$baseName"/"$baseName".txt
-	
-    sed -i 's/<\/description>//g' ./"$baseName"/"$baseName".txt
-	
-	# Add pauses and pitch changes for footnote references (if they are retained)
-	
-	sed -i 's/<footnote_ref>/<Pause=600\/><Pitch=75\/>/g' ./"$baseName"/"$baseName".txt
-	
-	sed -i 's/<\/footnote_ref>/<Pitch=END_75\/><Pause=600\/>/g' ./"$baseName"/"$baseName".txt
-	
-	## Add pitch change for line numbers
-	
-	sed -i 's/<line>/<Pause=600\/><Pitch=70\/>/g' ./"$baseName"/"$baseName".txt
-	
-	sed -i 's/<\/line>/<Pitch=END_70\/><Pitch=100\/>/g' ./"$baseName"/"$baseName".txt
-	
-	# Add pitch change for page numbers
-	
-	perl -pi -e 's/(<page>)(.*)(<\/page>)/<Pause=600\/><Pitch=120\/>$2<Pitch=END_120\/>/g' ./"$baseName"/"$baseName".txt
-	
-	# Fix double quote on its own line
-	
-	perl -0777 -pi  -e 's/\n\"\n/"\n/g' ./"$baseName"/"$baseName".txt
-	
-	# Correct common mispronunciations
-	
-	sed -i "s/a priori/<TOI=LHP:\"a priori\"\/>e\&I  p\{R\+i\'OR\+a\&I<TOI=ORTH\/>/g" ./"$baseName"/"$baseName".txt
-	
-	# Add extra pause after each line in poetry texts
-	
-	if [ -n "$remove" ]; then
-
-	perl -pi -e 's/\n/<Pause=800\/>\n/g' ./"$baseName"/"$baseName".txt
-	
-	fi
-  	
-		# Create MP3 using Linguatec
-		
-if [ -n "$error" ]; then
-		
-		cp ./"$baseName"/"$baseName".txt ./"$baseName"/"$baseName"_pre.txt
-		
-		fi
-	
-	fi	
-
-	
-	if [[ "$split" == "on" ]]; then 
-
-	count=1
-	for x in ./"$baseName"/"$baseName"[1-9]*.txt; do
-
-        basePath=${x%.*}
-        Name=${basePath##*/}
-		
-	sleep 1
-	
-	mv ./"$baseName"/"$baseName"$count.txt ./"$baseName"/"$baseName"_$count.txt 
-	
-	echo -ne "Converting \033[1;35m"$baseName".docx\033[0m to MP3... \033[1;33mTrack $count\033[0m\r"
-	
-	"C:\Program Files (x86)\Linguatec\VoiceReaderStudio15\vrs15cmd.exe" input=./"$baseName"/"$baseName"_$count.txt voice=$name lang=enu speed=$speed format=mp3 codepage=65001 coding=11 volume=75 output=./"$baseName"/"$baseName"_$count.mp3 &>/dev/null
- 
-	count=$[ $count + 1 ] ; 
-	done
-	
-	else
-		
-        "C:\Program Files (x86)\Linguatec\VoiceReaderStudio15\vrs15cmd.exe" input=./"$baseName"/"$baseName".txt voice=$name lang=enu speed=$speed format=mp3 codepage=65001 coding=11 volume=75 output=./"$baseName"/"$baseName".mp3 &>/dev/null
-				
-		fi
-		
-		fi
-		
-		if [[ "$name" == @(Microsoft Elsa Desktop|Microsoft Hortense Desktop|Microsoft Hedda Desktop|Microsoft Helena Desktop|Microsoft Haruka Desktop|Microsoft Mark|Microsoft Hazel Desktop|Microsoft Huihui Desktop|Microsoft Irina Desktop|Microsoft Maria Desktop|Microsoft Paulina Desktop|Microsoft Sabina Desktop|Microsoft Tracy Desktop|Microsoft Naayf|Microsoft Hoda|Microsoft Ivan|Microsoft Herena|Microsoft Jakub|Microsoft Helle|Microsoft Michael|Microsoft Karsten|Microsoft Stefanos|Microsoft James|Microsoft Linda|Microsoft Ravi|Microsoft Sean|Microsoft Heidi|Microsoft Claude|Microsoft Guillaume|Microsoft Asaf|Microsoft Hemant|Microsoft Matej|Microsoft Andika|Microsoft Szabolcs|Microsoft Heami|Microsoft Rizwan|Microsoft Frank|Microsoft Bart|Microsoft Jon|Microsoft Helia|Microsoft Andrei||Microsoft Lado|Microsoft Bengt|Microsoft Valluvar|Microsoft Pattara|Microsoft Tolga|Microsoft An|Microsoft Zhiwei|IVONA \2 Joey) ]]; then
+		if [[ "$name" == @(Microsoft David Desktop|Microsoft Zira Desktop|Microsoft Elsa Desktop|Microsoft Hortense Desktop|Microsoft Hedda Desktop|Microsoft Helena Desktop|Microsoft Haruka Desktop|Microsoft Mark|Microsoft Hazel Desktop|Microsoft Huihui Desktop|Microsoft Irina Desktop|Microsoft Maria Desktop|Microsoft Paulina Desktop|Microsoft Sabina Desktop|Microsoft Tracy Desktop|Microsoft Naayf|Microsoft Hoda|Microsoft Ivan|Microsoft Herena|Microsoft Jakub|Microsoft Helle|Microsoft Michael|Microsoft Karsten|Microsoft Stefanos|Microsoft James|Microsoft Linda|Microsoft Ravi|Microsoft Sean|Microsoft Heidi|Microsoft Claude|Microsoft Guillaume|Microsoft Asaf|Microsoft Hemant|Microsoft Matej|Microsoft Andika|Microsoft Szabolcs|Microsoft Heami|Microsoft Rizwan|Microsoft Frank|Microsoft Bart|Microsoft Jon|Microsoft Helia|Microsoft Andrei|Microsoft Lado|Microsoft Bengt|Microsoft Valluvar|Microsoft Pattara|Microsoft Tolga|Microsoft An|Microsoft Zhiwei|IVONA \2 Joey|IVONA \2 Mathieu|IVONA \2 Miguel|IVONA \2 Giorgio|IVONA \2 Penélope|eSpeak-grc) ]]; then
 		
 		if [[ "$split" == "on" ]]; then 
 	
@@ -16320,7 +15841,7 @@ if [ -n "$error" ]; then
 	
 		mv ./"$baseName"/"$baseName"$count.txt ./"$baseName"/"$baseName"_$count.txt 
 	
-		"C:\balcon\balcon.exe" -f ./"$baseName"/"$baseName"_$count.txt -n "$name" -s "$bspeed" -v 90 -fr 22 -bt 16 -ch 1 -w ./"$baseName"/"$baseName"_$count.wav 2>/dev/null |:
+		"C:\balcon\balcon.exe" -f ./"$baseName"/"$baseName"_$count.txt -n "$name" -s "$speed" -v 90 -fr 22 -bt 16 -ch 1 -w ./"$baseName"/"$baseName"_$count.wav 2>/dev/null |:
 		
 		lame -V 5 ./"$baseName"/"$baseName"_$count.wav ./"$baseName"/"$baseName"_$count.mp3  &>/dev/null
 		
@@ -16331,7 +15852,7 @@ if [ -n "$error" ]; then
 	
 	else
 		
-		"C:\balcon\balcon.exe" -f ./"$baseName"/"$baseName".txt -n "$name" -s "$bspeed" -v 90 -fr 22 -bt 16 -ch 1 -w ./"$baseName"/"$baseName".wav &>/dev/null 2>/dev/null |:
+		"C:\balcon\balcon.exe" -f ./"$baseName"/"$baseName".txt -n "$name" -s "$speed" -v 90 -fr 22 -bt 16 -ch 1 -w ./"$baseName"/"$baseName".wav &>/dev/null 2>/dev/null |:
 		
 		lame -V 5 ./"$baseName"/"$baseName".wav ./"$baseName"/"$baseName".mp3 &>/dev/null
 		
@@ -16359,7 +15880,7 @@ if [ -n "$error" ]; then
 		
 		echo -ne "Adding cover image and id3 tags...   \033[1;33mTrack $count\033[0m\r"
 		
-		lame --ti "C:\MP3 Cover\UC_Berkeley_Seal.jpg" ./"$baseName"/"$baseName"_$count.mp3 &>/dev/null
+		lame --ti "C:\MP3 Cover\Default_Cover.jpg" ./"$baseName"/"$baseName"_$count.mp3 &>/dev/null
 		
 		rm ./"$baseName"/"$baseName"_$count.mp3
 		
@@ -16370,7 +15891,7 @@ if [ -n "$error" ]; then
 		
 		else
 		
-		lame --ti "C:\MP3 Cover\UC_Berkeley_Seal.jpg" ./"$baseName"/"$baseName".mp3 &>/dev/null
+		lame --ti "C:\MP3 Cover\Default_Cover.jpg" ./"$baseName"/"$baseName".mp3 &>/dev/null
 
 		rm ./"$baseName"/"$baseName".mp3
 	
@@ -16432,36 +15953,6 @@ if [ -n "$error" ]; then
 		
 if [ -n "$error" ]; then
 	
-# # Remove voice markups (Linguatec)
-	
-# # Remove pause before and after parentheses or brackets:
-	
-	sed -i 's/<Pitch=END_100\/><Pause=500\/><Pitch=75\/>//g' ./"$baseName"/"$baseName".txt
-	
-	sed -i 's/<Pitch=END_75\/><Pause=500\/><Pitch=100\/>//g' ./"$baseName"/"$baseName".txt
-	
-	sed -i 's/<Pitch=END_100\/><Pitch=75\/><Pause=500\/>//g' ./"$baseName"/"$baseName".txt
-	
-# # Remove pitch changes for page numbers
-	
-	perl -pi -e 's/<Pitch=120\/>//g' ./"$baseName"/"$baseName".txt
-	
-	perl -pi -e 's/<Pitch=END_120\/>//g' ./"$baseName"/"$baseName".txt
-
-# # Remove pitch changes for line numbers
-
-	perl -pi -e 's/<Pause=600\/><Pitch=70\/>//g' ./"$baseName"/"$baseName".txt
-	
-	perl -pi -e 's/<Pitch=END_70\/><Pitch=100\/>//g' ./"$baseName"/"$baseName".txt
-	
-# # Remove pause in poetry files
-
-    perl -pi -e 's/<Pause=800\/>//g' ./"$baseName"/"$baseName".txt
-	
-# # Remove pauses
-
-    perl -pi -e 's/<Pause=600\/>//g' ./"$baseName"/"$baseName".txt
-
 # # Remove voice markups (SAPI5)
 	
 # # Remove pause before and after parentheses or brackets:
@@ -16516,13 +16007,13 @@ then
 
 		# Assign proper language variable to Aeneas
 		
-		if [[ "$name" == @(Ava|Tom|Allison|Samantha|Susan|Microsoft David Desktop|Microsoft Hazel Desktop|Microsoft Mark|Microsoft James|Microsoft Linda|Microsoft Ravi|Microsoft Sean|IVONA \2 Joey) ]]; then
+		if [[ "$name" == @(Microsoft David Desktop|Microsoft Zira Desktop|Microsoft Hazel Desktop|Microsoft Mark|Microsoft James|Microsoft Linda|Microsoft Ravi|Microsoft Sean|IVONA \2 Joey) ]]; then
 		
 		lingua=eng
 		
 		fi 
 		
-		if [ "$name" == "Microsoft Elsa Desktop" ]; then
+		if [[ "$name" == @(Microsoft Elsa Desktop|IVONA \2 Giorgio) ]]; then
 		
 		lingua=ita
 		
@@ -16540,13 +16031,13 @@ then
 		
 		fi
 		
-		if [[ "$name" == @(Microsoft Helena Desktop|Microsoft Sabina Desktop) ]]; then
+		if [[ "$name" == @(Microsoft Helena Desktop|Microsoft Sabina Desktop|IVONA \2 Miguel|IVONA \2 Penélope) ]]; then
 		
 		lingua=spa
 		
 		fi 
 		
-		if [[ "$name" == @(Microsoft Hortense Desktop|Microsoft Claude|Microsoft Guillaume) ]]; then
+		if [[ "$name" == @(Microsoft Hortense Desktop|Microsoft Claude|Microsoft Guillaume|IVONA \2 Mathieu) ]]; then
 		
 		lingua=fra
 		
@@ -16696,7 +16187,7 @@ then
 		
 		fi
 		
-		if [ "$name" == "Microsoft Stefanos" ]; then
+		if [[ "$name" == @(Microsoft Stefanos|eSpeak-grc) ]]; then
 		
 		lingua=ell
 		
@@ -16738,7 +16229,7 @@ then
 		echo -ne "Creating caption (.vtt) file and MP3 bookmarks... \033[1;33mTrack $count\033[0m\r"
 			
 		sleep 1
-		
+			
 			mv ./"$baseName"/"$baseName"_formatted$count.txt ./"$baseName"/"$baseName"_formatted_$count.txt
 	
 			fold -w 35 -s ./"$baseName"/"$baseName"_formatted_$count.txt > ./"$baseName"/"$baseName"_segmented_$count.txt
