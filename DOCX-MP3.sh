@@ -3,7 +3,7 @@
 # Joseph Polizzotto
 # UC Berkeley
 # 510-642-0329
-# Version 0.1.6
+# Version 0.1.7
 # Instructions: 
 # 1. Create a folder where you will convert DOCX files to MP3s (C:\MP3 Projects)
 # 2. Place DOCX files in the folder
@@ -205,7 +205,7 @@ return 0
 }
 
 function version (){
-    printf "\nVersion 0.1.6\n"
+    printf "\nVersion 0.1.7\n"
 
 return 0
 }
@@ -3106,6 +3106,12 @@ perl -0777 -pi -e 's/(\n)(\$\$)/$1<equation>\n/g' ./"$baseName"/"$baseName".txt
 
 perl -0777 -pi -e 's/\$\$.*\n/\n<\/equation>\n/g' ./"$baseName"/"$baseName".txt
 
+#### New in 0.1.7
+
+sed -i 's/\\%/%/g' ./"$baseName"/"$baseName".txt
+
+####
+
 # join lines in between  $$
 
 awk '/^<equation>/{a=1;b="$$";next}/^<\/equation>/{a=0;print"$$";next}a{printf b$0;b="";next}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
@@ -3120,7 +3126,17 @@ perl -0777 -pi -e 's/(<equation>)/\n$1\n/g' ./"$baseName"/"$baseName".txt
 
 perl -0777 -pi -e 's/(<\/equation>)/\n$1\n/g' ./"$baseName"/"$baseName".txt
 
-awk '/^<equation>/{a=1;b="$$";next}/^<\/equation>/{a=0;print"$$";next}a{printf b$0;b="";next}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
+#### New in 0.1.7
+
+perl -pi -e 's/<equation>\n/<equation>/g' ./"$baseName"/"$baseName".txt
+
+perl -0777 -pi -e 's/\n<\/equation>/<\/equation>/g' ./"$baseName"/"$baseName".txt
+
+sed -i 's/<equation>/\$\$/g' ./"$baseName"/"$baseName".txt
+
+sed -i 's/<\/equation>/\$\$/g' ./"$baseName"/"$baseName".txt
+
+# awk '/^<equation>/{a=1;b="$$";next}/^<\/equation>/{a=0;print"$$";next}a{printf b$0;b="";next}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 
 perl -0777 -pi -e 's/(\n\n)(\$\$\$\$\n)(.*)/$1\$\$$3/g' ./"$baseName"/"$baseName".txt
 
@@ -3201,6 +3217,18 @@ sed -n 's/\(\$\$\)\(.*\)\(\$\$\)/\2/p' ./"$baseName"/"$baseName".txt > ./"$baseN
 
 sed -i 's/^-/ -/g' ./"$baseName"/display-log.txt
 
+## New in 0.1.7
+
+sed -i 's/~/ /g' ./"$baseName"/display-log.txt
+
+sed -i '/\\text/ s/^/"/' ./"$baseName"/display-log.txt
+
+sed -i '/^"/ s/$/"/' ./"$baseName"/display-log.txt
+
+# cp ./"$baseName"/display-log.txt ./pre_math_tts.txt
+
+##
+
 # Insert place marker for display equatios
 
 sed -i 's/\(\$\$\)\(.*\)\(\$\$\)/@@ \2/g' ./"$baseName"/"$baseName".txt
@@ -3208,6 +3236,17 @@ sed -i 's/\(\$\$\)\(.*\)\(\$\$\)/@@ \2/g' ./"$baseName"/"$baseName".txt
 # Delete Empty lines
 
 sed -i '/^\s*$/d' ./"$baseName"/display-log.txt 
+
+# New in 0.1.7
+
+
+#sed -i 's/\\%/%/g' ./"$baseName"/display-log.txt
+
+#sed -i 's/\\\%/%/g' ./"$baseName"/display-log.txt
+
+sed -i 's/~/ /g' ./"$baseName"/display-log.txt
+
+#
 
 touch ./"$baseName"/display-log2.txt
 
@@ -3253,6 +3292,30 @@ awk '
     }
     1                      
     ' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
+	
+	#### New in 0.1.7
+	
+sed -i '/@@/s/\ quotation-mark//g' ./"$baseName"/"$baseName".txt	
+
+sed -i '/@@/s/\ slash/\ divided by/g' ./"$baseName"/"$baseName".txt
+
+sed -i '/@@/s/ percent-sign/ percent/g' ./"$baseName"/"$baseName".txt
+
+sed -i '/@@/s/ StartFraction/ /g' ./"$baseName"/"$baseName".txt
+
+sed -i '/@@/s/ EndFraction/ /g' ./"$baseName"/"$baseName".txt
+
+sed -i '/@@/s/ upper/ /g' ./"$baseName"/"$baseName".txt
+
+sed -i '/@@/s/ left-parenthesis/ /g' ./"$baseName"/"$baseName".txt
+
+sed -i '/@@/s/ right-parenthesis/ /g' ./"$baseName"/"$baseName".txt
+
+sed -i '/@@/s/ right-parenthesis/ /g' ./"$baseName"/"$baseName".txt
+
+sed -i '/@@/s/ comma //g' ./"$baseName"/"$baseName".txt
+
+####
        
 # Replace placeholder text
 
