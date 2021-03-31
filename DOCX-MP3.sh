@@ -2784,6 +2784,16 @@ sed -i 's/Caption Begin:/<table>/g' ./"$baseName"/"$baseName".txt
 
 sed -i 's/Caption End./<\/table>/g' ./"$baseName"/"$baseName".txt
 
+# New in 1.0.8 (see further code)
+
+# Add XML tags for Footer text regions if present
+
+sed -i 's/Footer Begin:/<footer>/g' ./"$baseName"/"$baseName".txt
+
+sed -i 's/Footer End./<\/footer>/g' ./"$baseName"/"$baseName".txt
+
+#
+
 # Ask to remove Footnote Regions (but retain the numbers if the regions are retained)
 
 if grep -q '<footnote>' ./"$baseName"/"$baseName".txt ; then
@@ -2894,6 +2904,8 @@ N | n)
 		echo -e "\n"
 		table="no"
 		perl -0777 -pi -e 's/\h*<table>[^<]*<\/table>//g' ./"$baseName"/"$baseName".txt
+		awk '/<footer>/{p=1;print}/<\/footer>/{p=0}!p' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
+		perl -0777 -pi -e 's/<footer>\n<\/footer>\n\n//g' ./"$baseName"/"$baseName".txt
 		echo -e "Tables captions removed from \033[1;35m"$baseName".docx\033[0m.\n" 
 		break
 		;;
@@ -2914,6 +2926,40 @@ fi
          table="no"        
     fi
 
+if grep -q '<footer>' ./"$baseName"/"$baseName".txt ; then
+
+while true; do
+
+echo -e "\033[1;33mATTENTION:\033[0m It looks like there are table footers in \033[1;35m"$baseName".docx\033[0m.\n"
+
+read -n1 -p "Do you wish to keep the table footers [Y/N]?" answer
+case $answer in
+Y | y) 
+       echo -e "\n"
+	   sed -i 's/<footer>/<footer>Table Footer/g' ./"$baseName"/"$baseName".txt
+	   perl -0777 -pi -e 's/(Table Footer\n\n)(\d+% )/$1/g' ./"$baseName"/"$baseName".txt
+	   echo -e "Tables footers retained in \033[1;35m"$baseName".docx\033[0m.\n"
+	   break
+	   ;;
+N | n) 
+		echo -e "\n"
+		awk '/<footer>/{p=1;print}/<\/footer>/{p=0}!p' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
+		perl -0777 -pi -e 's/<footer>\n<\/footer>\n\n//g' ./"$baseName"/"$baseName".txt
+		echo -e "Tables footers removed from \033[1;35m"$baseName".docx\033[0m.\n" 
+		break
+		;;
+	*)
+	   echo -e "\n"
+       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ y / n ].\033[0m\n"
+	   break
+       ;;
+	   
+     
+esac
+
+done
+
+fi
 
 if grep -q '<secondary>' ./"$baseName"/"$baseName".txt ; then
 
@@ -3796,6 +3842,10 @@ sed -i 's/<\/description>//g' ./"$baseName"/"$baseName"_formatted.txt
 sed -i 's/<table>//g' ./"$baseName"/"$baseName"_formatted.txt
 
 sed -i 's/<\/table>//g' ./"$baseName"/"$baseName"_formatted.txt
+
+sed -i 's/<footer>//g' ./"$baseName"/"$baseName"_formatted.txt
+
+sed -i 's/<\/footer>//g' ./"$baseName"/"$baseName"_formatted.txt
 
 fi
 
@@ -15670,6 +15720,12 @@ perl -0777 -pi -e 's/(\n)(\n)/$1/g' ./"$baseName"/"$baseName".txt
 	
 	sed -i 's/<\/table>//g' ./"$baseName"/"$baseName"$count.txt
 	
+				# Add pitch change for table footer
+	
+	sed -i "s/\(<footer>\)\(.*\)/<silence msec='800'\/><pitch absmiddle='-5'>\2<\/pitch><silence msec='800'\/>/g" ./"$baseName"/"$baseName"$count.txt
+	
+	sed -i 's/<\/footer>//g' ./"$baseName"/"$baseName"$count.txt
+	
 		# Add pitch change for footnote text areas
 	
 	sed -i "s/\(<footnote>\)\(.*\)/<silence msec='800'\/><pitch absmiddle='-5'>\2<\/pitch><silence msec='800'\/>/g" ./"$baseName"/"$baseName"$count.txt
@@ -15780,6 +15836,12 @@ perl -0777 -pi -e 's/(\n)(\n)/$1/g' ./"$baseName"/"$baseName".txt
 	sed -i "s/\(<table>\)\(.*\)/<silence msec='800'\/><pitch absmiddle='-5'>\2<\/pitch><silence msec='800'\/>/g" ./"$baseName"/"$baseName".txt
 	
 	sed -i 's/<\/table>//g' ./"$baseName"/"$baseName".txt
+	
+				# Add pitch change for table footer
+	
+	sed -i "s/\(<footer>\)\(.*\)/<silence msec='800'\/><pitch absmiddle='-5'>\2<\/pitch><silence msec='800'\/>/g" ./"$baseName"/"$baseName".txt
+	
+	sed -i 's/<\/footer>//g' ./"$baseName"/"$baseName".txt
 	
 		# Add pitch change for footnote text areas
 	
