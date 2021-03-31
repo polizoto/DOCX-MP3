@@ -3,7 +3,7 @@
 # Joseph Polizzotto
 # UC Berkeley
 # 510-642-0329
-# Version 0.1.7
+# Version 0.1.8
 # Instructions: 
 # 1. Create a folder where you will convert DOCX files to MP3s (C:\MP3 Projects)
 # 2. Place DOCX files in the folder
@@ -205,7 +205,7 @@ return 0
 }
 
 function version (){
-    printf "\nVersion 0.1.7\n"
+    printf "\nVersion 0.1.8\n"
 
 return 0
 }
