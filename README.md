@@ -329,4 +329,4 @@ If there are multiple languages in your DOCX file, you will need to use the `-l`
 
 ## Further Resources
 
-Video resource forthcoming...
+[DOCX-MP3 Script Demonstration Video](https://www.dropbox.com/s/q27gtr1atgre0em/DOCX-MP3_opencaptions.mp4?dl=0)
