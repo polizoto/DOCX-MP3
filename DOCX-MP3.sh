@@ -3,7 +3,7 @@
 # Joseph Polizzotto
 # UC Berkeley
 # 510-642-0329
-# Version 0.1.8
+# Version 0.1.9
 # Instructions: 
 # 1. Create a folder where you will convert DOCX files to MP3s (C:\MP3 Projects)
 # 2. Place DOCX files in the folder
@@ -205,7 +205,7 @@ return 0
 }
 
 function version (){
-    printf "\nVersion 0.1.8\n"
+    printf "\nVersion 0.1.9\n"
 
 return 0
 }
@@ -1014,14 +1014,6 @@ for val in "${language[@]}"; do
 if [ "$val" == "la" ] ; then
 
 eval secondlanguage$count="Latin"
-
-shift
-
-fi
-
-if [ "$val" == "grc" ] ; then
-
-eval secondlanguage$count="Ancient-Greek"
 
 shift
 
@@ -2897,7 +2889,7 @@ Y | y)
        echo -e "\n"
 	   table="yes"
 	   sed -i 's/<table>/<table>Table Caption/g' ./"$baseName"/"$baseName".txt
-	   echo -e "Tables captions retained in \033[1;35m"$baseName".docx\033[0m.\n"
+	   echo -e "Table captions retained in \033[1;35m"$baseName".docx\033[0m.\n"
 	   break
 	   ;;
 N | n) 
@@ -2906,7 +2898,7 @@ N | n)
 		perl -0777 -pi -e 's/\h*<table>[^<]*<\/table>//g' ./"$baseName"/"$baseName".txt
 		awk '/<footer>/{p=1;print}/<\/footer>/{p=0}!p' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 		perl -0777 -pi -e 's/<footer>\n<\/footer>\n\n//g' ./"$baseName"/"$baseName".txt
-		echo -e "Tables captions removed from \033[1;35m"$baseName".docx\033[0m.\n" 
+		echo -e "Table captions removed from \033[1;35m"$baseName".docx\033[0m.\n" 
 		break
 		;;
 	*)
@@ -2938,14 +2930,14 @@ Y | y)
        echo -e "\n"
 	   sed -i 's/<footer>/<footer>Table Footer/g' ./"$baseName"/"$baseName".txt
 	   perl -0777 -pi -e 's/(Table Footer\n\n)(\d+% )/$1/g' ./"$baseName"/"$baseName".txt
-	   echo -e "Tables footers retained in \033[1;35m"$baseName".docx\033[0m.\n"
+	   echo -e "Table footers retained in \033[1;35m"$baseName".docx\033[0m.\n"
 	   break
 	   ;;
 N | n) 
 		echo -e "\n"
 		awk '/<footer>/{p=1;print}/<\/footer>/{p=0}!p' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
 		perl -0777 -pi -e 's/<footer>\n<\/footer>\n\n//g' ./"$baseName"/"$baseName".txt
-		echo -e "Tables footers removed from \033[1;35m"$baseName".docx\033[0m.\n" 
+		echo -e "Table footers removed from \033[1;35m"$baseName".docx\033[0m.\n" 
 		break
 		;;
 	*)
@@ -3142,7 +3134,9 @@ math_equations="Math - removed"
 
 # Remove line breaks within equations ( \\)
 
-perl -0777 -pi -e 's/ \\\\(\n)//g' ./"$baseName"/"$baseName".txt
+# New in 0.1.9
+
+perl -0777 -pi -e 's/\\\\\n/\\\\ /g' ./"$baseName"/"$baseName".txt
 
 # add <equation> to opening $$
 
@@ -3216,7 +3210,9 @@ if [[ "$math" == "on" ]]; then
 
 # Remove line breaks within equations ( \\)
 
-perl -0777 -pi -e 's/ \\\\(\n)//g' ./"$baseName"/"$baseName".txt
+# New in 0.1.9
+
+perl -0777 -pi -e 's/\\\\\n/\\\\ /g' ./"$baseName"/"$baseName".txt
 
 # add <equation> to opening $$
 
@@ -3262,6 +3258,22 @@ sed -n 's/\(\$\$\)\(.*\)\(\$\$\)/\2/p' ./"$baseName"/"$baseName".txt > ./"$baseN
 # Place spacein front of minus sign if it begins the LaTeX equation (causes a LaTeX parsing error)
 
 sed -i 's/^-/ -/g' ./"$baseName"/display-log.txt
+
+## New in 0.1.9
+
+# Remove comma within equations
+
+perl -pi -e 's/&lt;/\\lt/g' ./"$baseName"/display-log.txt
+
+perl -pi -e 's/\\&amp;/\\ & /g' ./"$baseName"/display-log.txt
+
+perl -pi -e 's/&amp;/&/g' ./"$baseName"/display-log.txt
+
+perl -pi -e 's/\\\&/\&/g' ./"$baseName"/display-log.txt
+
+perl -pi -e 's/∰/\\iiint\\limits/g' ./"$baseName"/display-log.txt
+
+perl -pi -e 's/,//g' ./"$baseName"/display-log.txt
 
 ## New in 0.1.7
 
