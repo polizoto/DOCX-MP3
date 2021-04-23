@@ -3,7 +3,7 @@
 # Joseph Polizzotto
 # UC Berkeley
 # 510-642-0329
-# Version 0.1.9
+# Version 0.2.0
 # Instructions: 
 # 1. Create a folder where you will convert DOCX files to MP3s (C:\MP3 Projects)
 # 2. Place DOCX files in the folder
@@ -39,6 +39,12 @@ function usage (){
 	printf "  %-10s %-6s\n" "" "Off"
 	printf "\n"
 	printf "  %-5s %-3s\n" "-h" "Print help"
+	printf "\n"
+	printf "  %-5s %-3s\n" "-i" "Inspect pronunciation of math equations and proper nouns"
+	printf "  %-5s %-3s\n" "" "Parameters:"
+	printf "  %-10s %-6s\n" "" "None"
+	printf "  %-5s %-3s\n" "" "Default:"
+	printf "  %-10s %-6s\n" "" "Off"
 	printf "\n"
 	printf "  %-5s %-3s\n" "-l" "Designate secondary languages"
 	printf "  %-5s %-3s\n" "" "Use -l flag before every secondary language"
@@ -205,12 +211,12 @@ return 0
 }
 
 function version (){
-    printf "\nVersion 0.1.9\n"
+    printf "\nVersion 0.2.0\n"
 
 return 0
 }
 
-while getopts :n:s:a:p:l:mc:et:hr:w:v flag
+while getopts :n:s:a:p:l:mc:et:hir:w:v flag
 
 do
     case "${flag}" in
@@ -224,6 +230,7 @@ do
 		fi
 		;;
 		e) error="${flag}";;
+		i) inspect="${flag}";;
 		l) language+=("$OPTARG");;
         n) name=${OPTARG};
 		if [[ ! "$name" == An && ! "$name" == Andika && ! "$name" == Andrei && ! "$name" == Asaf && ! "$name" == Bart && ! "$name" == Bengt && ! "$name" == Claude && ! "$name" == David && ! "$name" == Elsa && ! "$name" == Filip && ! "$name" == Frank && ! "$name" == Guillaume && ! "$name" == Haruka && ! "$name" == Hazel && ! "$name" == Heami && ! "$name" == Hedda && ! "$name" == Heidi && ! "$name" == Helena && ! "$name" == Helia && ! "$name" == Helle && ! "$name" == Hemant && ! "$name" == Herena && ! "$name" == Hoda && ! "$name" == Hortense && ! "$name" == Huihui && ! "$name" == Irina && ! "$name" == Ivan && ! "$name" == Jakub && ! "$name" == James && ! "$name" == Joey && ! "$name" == Jon && ! "$name" == Karsten && ! "$name" == Lado && ! "$name" == Linda && ! "$name" == Maria && ! "$name" == Mark && ! "$name" == Matej && ! "$name" == Michael && ! "$name" == Naayf && ! "$name" == Pattara && ! "$name" == Paulina && ! "$name" == Ravi && ! "$name" == Rizwan && ! "$name" == Sabina && ! "$name" == Sean && ! "$name" == Stefanos && ! "$name" == Susan && ! "$name" == Szabolcs && ! "$name" == Tolga && ! "$name" == Tracy && ! "$name" == Valluvar && ! "$name" == Zhiwei && ! "$name" == Zira && ! "$name" == AncientGr && ! "$name" == Mathieu && ! "$name" == Miguel && ! "$name" == Giorgio && ! "$name" == Penelope ]]; then 
@@ -2472,6 +2479,51 @@ if [ -n "$math" ]; then
 math=on
 fi
 
+# Turn on Inspect if MS Edge is installed
+
+if [ -n "$inspect" ]; then
+inspect=on
+nounphrase=on
+fi
+
+# Check if Python is installed
+
+if [ "$nounphrase" == "on" ];
+
+then
+if  ! command -v python >/dev/null  2>&1; then 
+echo -e "\n\033[1;31mError: Python was not found, which is required for running lexconvert.py and nounphrase.py to process proper nouns. Use the Aeneas installer (https://github.com/sillsdev/aeneas-installer/releases) included in this repository to install Python. Will not process proper nouns....\033[0m" >&2
+nounphrase="off"
+fi
+fi
+
+if [ "$nounphrase" == "on" ];
+
+then
+if [ ! -f  "/c/scripts/noun_phrases.py" ]; then 
+echo -e "\033[1;31mCould not locate \033[1;35mnoun_phrases.py\033[0m\033[1;31m file. Place \033[1;35mnoun_phrases.py\033[0m\033[1;31m in \033[0m\033[1;44mC:\scripts\ \033[0m\033[1;31mfolder. Will not process proper nouns....\033[0m\n" >&2
+nounphrase=off
+fi
+fi
+
+if [ "$nounphrase" == "on" ];
+
+then
+if  ! command -v python import nltk >/dev/null  2>&1; then 
+echo -e "\n\033[1;31mError: Python NLTK package was not found, which is required for running noun_phrases.py, the python script used in processing proper nouns. Type 'pip install --user -U nltk' to install NLTK. Will not process proper nouns....\033[0m" >&2
+nounphrase=off
+fi
+fi
+
+if [ "$nounphrase" == "on" ];
+
+then
+if [ ! -f  "/c/scripts/lexconvert.py" ]; then 
+echo -e "\033[1;31mCould not locate \033[1;35mlexconvert.py\033[0m\033[1;31m file. Place \033[1;35mlexconvert.py\033[0m\033[1;31m in \033[0m\033[1;44mC:\scripts\ \033[0m\033[1;31mfolder. Will not process proper nouns....\033[0m\n" >&2
+nounphrase=off
+fi
+fi
+
 # Check if Lame is installed
 
 if  ! command -v lame >/dev/null  2>&1; then 
@@ -2639,7 +2691,7 @@ rm ./~*.docx 2> /dev/null
 # Add the Byte Order Mark (BOM) to support languages with unrepresented characters
 	
 	sed -i '1s/^\(\xef\xbb\xbf\)\?/\xef\xbb\xbf/' ./"$baseName"/"$baseName".txt
-
+	
 # Save a copy of the original
 	
 if [ -n "$error" ];
@@ -3089,7 +3141,7 @@ case $answer in
 Y | y) 
        echo -e "\n"
 	   math=on
-       echo -e "Mathspeak flag turned on.\n"
+       #echo -e "Mathspeak flag turned on.\n"
 	   break
 	   ;;
 N | n) 
@@ -3144,19 +3196,11 @@ perl -0777 -pi -e 's/(\n)(\$\$)/$1<equation>\n/g' ./"$baseName"/"$baseName".txt
 
 # add </equation> to closing $$
 
-perl -0777 -pi -e 's/\$\$.*\n/\n<\/equation>\n/g' ./"$baseName"/"$baseName".txt
-
-#### New in 0.1.7
-
-sed -i 's/\\%/%/g' ./"$baseName"/"$baseName".txt
-
-####
+perl -0777 -pi -e 's/\$\$\n/\n<\/equation>\n/g' ./"$baseName"/"$baseName".txt
 
 # join lines in between  $$
 
-awk '/^<equation>/{a=1;b="$$";next}/^<\/equation>/{a=0;print"$$";next}a{printf b$0;b="";next}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
-
-# sed -i -E 's|\\\$|LITDOL|g;s|\$([^$]*)\$|<equation>\1</equation>|g;s|LITDOL|\\\$|g' ./"$baseName"/"$baseName".txt
+awk '/^<equation>/{a=1;b="$$";next}/^<\/equation>/{a=0;print"$$";next}a{printf b$0;b="";next}1' ./"$baseName"/"$baseName".txt > tmp 2> /dev/null && mv tmp ./"$baseName"/"$baseName".txt
 
 sed -i -E 's|\\\\\\\$|LITDOL|g;s|\$([^$]*)\$|<equation>\1</equation>|g;s|LITDOL|\\\\\\\$|g' ./"$baseName"/"$baseName".txt
 
@@ -3166,17 +3210,16 @@ perl -0777 -pi -e 's/(<equation>)/\n$1\n/g' ./"$baseName"/"$baseName".txt
 
 perl -0777 -pi -e 's/(<\/equation>)/\n$1\n/g' ./"$baseName"/"$baseName".txt
 
-#### New in 0.1.7
+awk '/^<equation>/{a=1;b="$$";next}/^<\/equation>/{a=0;print"$$";next}a{printf b$0;b="";next}1' ./"$baseName"/"$baseName".txt > tmp 2> /dev/null && mv tmp ./"$baseName"/"$baseName".txt
 
-perl -pi -e 's/<equation>\n/<equation>/g' ./"$baseName"/"$baseName".txt
+# New in 0.2.0
+# Catch equations that were not captured by the last command
 
-perl -0777 -pi -e 's/\n<\/equation>/<\/equation>/g' ./"$baseName"/"$baseName".txt
+sed -zi 's/\n<equation>\n/\n$$/g' ./"$baseName"/"$baseName".txt
 
-sed -i 's/<equation>/\$\$/g' ./"$baseName"/"$baseName".txt
+sed -zi 's/\n<\/equation>\n/$$\n/g' ./"$baseName"/"$baseName".txt
 
-sed -i 's/<\/equation>/\$\$/g' ./"$baseName"/"$baseName".txt
-
-# awk '/^<equation>/{a=1;b="$$";next}/^<\/equation>/{a=0;print"$$";next}a{printf b$0;b="";next}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
+#
 
 perl -0777 -pi -e 's/(\n\n)(\$\$\$\$\n)(.*)/$1\$\$$3/g' ./"$baseName"/"$baseName".txt
 
@@ -3190,6 +3233,14 @@ cp ./"$baseName"/"$baseName".txt ./"$baseName"/"$baseName"_equation.txt
 		
 fi
 
+###
+
+# New in 0.2.0
+
+sed -zi 's/\n$$\n/$$\n/g' ./"$baseName"/"$baseName".txt
+
+sed -zi 's/\n$$\n/\n$$/g' ./"$baseName"/"$baseName".txt
+		
 fi
 
 if [[ "$math" == "on" ]]; then 
@@ -3220,13 +3271,11 @@ perl -0777 -pi -e 's/(\n)(\$\$)/$1<equation>\n/g' ./"$baseName"/"$baseName".txt
 
 # add </equation> to closing $$
 
-perl -0777 -pi -e 's/\$\$.*\n/\n<\/equation>\n/g' ./"$baseName"/"$baseName".txt
+perl -0777 -pi -e 's/\$\$\n/\n<\/equation>\n/g' ./"$baseName"/"$baseName".txt
 
 # join lines in between  $$
 
-awk '/^<equation>/{a=1;b="$$";next}/^<\/equation>/{a=0;print"$$";next}a{printf b$0;b="";next}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
-
-# sed -i -E 's|\\\$|LITDOL|g;s|\$([^$]*)\$|<equation>\1</equation>|g;s|LITDOL|\\\$|g' ./"$baseName"/"$baseName".txt
+awk '/^<equation>/{a=1;b="$$";next}/^<\/equation>/{a=0;print"$$";next}a{printf b$0;b="";next}1' ./"$baseName"/"$baseName".txt > tmp 2> /dev/null && mv tmp ./"$baseName"/"$baseName".txt
 
 sed -i -E 's|\\\\\\\$|LITDOL|g;s|\$([^$]*)\$|<equation>\1</equation>|g;s|LITDOL|\\\\\\\$|g' ./"$baseName"/"$baseName".txt
 
@@ -3236,7 +3285,16 @@ perl -0777 -pi -e 's/(<equation>)/\n$1\n/g' ./"$baseName"/"$baseName".txt
 
 perl -0777 -pi -e 's/(<\/equation>)/\n$1\n/g' ./"$baseName"/"$baseName".txt
 
-awk '/^<equation>/{a=1;b="$$";next}/^<\/equation>/{a=0;print"$$";next}a{printf b$0;b="";next}1' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
+awk '/^<equation>/{a=1;b="$$";next}/^<\/equation>/{a=0;print"$$";next}a{printf b$0;b="";next}1' ./"$baseName"/"$baseName".txt > tmp 2> /dev/null && mv tmp ./"$baseName"/"$baseName".txt
+
+# New in 0.2.0
+# Catch equations that were not captured by the last command
+
+sed -zi 's/\n<equation>\n/\n$$/g' ./"$baseName"/"$baseName".txt
+
+sed -zi 's/\n<\/equation>\n/$$\n/g' ./"$baseName"/"$baseName".txt
+
+#
 
 perl -0777 -pi -e 's/(\n\n)(\$\$\$\$\n)(.*)/$1\$\$$3/g' ./"$baseName"/"$baseName".txt
 
@@ -3251,6 +3309,14 @@ cp ./"$baseName"/"$baseName".txt ./"$baseName"/"$baseName"_equation.txt
 fi
 
 ###
+
+# New in 0.2.0
+
+sed -zi 's/\n$$\n/$$\n/g' ./"$baseName"/"$baseName".txt
+
+sed -zi 's/\n$$\n/\n$$/g' ./"$baseName"/"$baseName".txt
+
+#
 
 # Extract display equations
 sed -n 's/\(\$\$\)\(.*\)\(\$\$\)/\2/p' ./"$baseName"/"$baseName".txt > ./"$baseName"/display-log.txt
@@ -3283,11 +3349,9 @@ sed -i '/\\text/ s/^/"/' ./"$baseName"/display-log.txt
 
 sed -i '/^"/ s/$/"/' ./"$baseName"/display-log.txt
 
-# cp ./"$baseName"/display-log.txt ./pre_math_tts.txt
-
 ##
 
-# Insert place marker for display equatios
+# Insert place marker for display equations
 
 sed -i 's/\(\$\$\)\(.*\)\(\$\$\)/@@ \2/g' ./"$baseName"/"$baseName".txt
 
@@ -3297,19 +3361,468 @@ sed -i '/^\s*$/d' ./"$baseName"/display-log.txt
 
 # New in 0.1.7
 
-
-#sed -i 's/\\%/%/g' ./"$baseName"/display-log.txt
-
-#sed -i 's/\\\%/%/g' ./"$baseName"/display-log.txt
-
 sed -i 's/~/ /g' ./"$baseName"/display-log.txt
+
+sed -i 's/"//g'  ./"$baseName"/display-log.txt
+
+# New in 0.2.0
+# Remove backslash SPACE if it exists within \text commands
+
+perl -0777 -i -wpe's{(\\text\{ (?:(?!\\text\{|\}).)*? \})}{ $1 =~ s/\\ / /gr }egmsx' ./"$baseName"/display-log.txt
+
+# Remove zero-width spaces from math text
+
+sed -i 's/\xe2\x80\x8b//g' ./"$baseName"/display-log.txt 
+
+sed -i 's/\xe2\x80\x8d//g' ./"$baseName"/display-log.txt 
 
 #
 
+sed -i 's/\\%/%/g'  ./"$baseName"/display-log.txt
+
 touch ./"$baseName"/display-log2.txt
 
+##################
+
+# New in 0.2.0
+
+if [[ "$inspect" == "on" ]]; then 
+
+cp ./"$baseName"/display-log.txt ./"$baseName"/latex_full.txt
+
 count=1
-while IFS="" read -r p || [ -n "$p" ] ; do echo -ne "Processing equations... \033[1;33m'$count'\033[0m\r" ; tex2svg "$p" | sed -n 's/.*1-Title">//p' >> ./"$baseName"/display-log2.txt  ; count=$[ $count + 1 ] ; done <./"$baseName"/display-log.txt 
+while IFS="" read -r p || [ -n "$p" ] ; do echo -ne "Processing equations... \033[1;33m$count\033[0m\r" ; tex2svg "$p" >> ./"$baseName"/display-log2.txt  ; count=$[ $count + 1 ] ; done <./"$baseName"/display-log.txt 
+
+count=$[ $count - 1 ]
+
+cp ./"$baseName"/display-log2.txt ./"$baseName"/svg_full.txt
+
+sed -i -n 's/.*1-Title">//p' ./"$baseName"/display-log2.txt
+
+IFS=$IFS_OLD
+
+# Remove txt files
+
+rm ./"$baseName"/display-log.txt 
+
+# Delete Empty lines
+
+sed -i '/^\s*$/d' ./"$baseName"/display-log2.txt 
+
+# Remove <\/title>
+
+sed -i 's/<\/title>//g' ./"$baseName"/display-log2.txt 
+
+# Correct speech markup
+
+# Remove "reverse solidus" text within equations that have text style
+
+sed -i -e 's/ reverse-solidus//g' ./"$baseName"/display-log2.txt 
+
+
+### Add More Corrections Here #####
+
+# sed -i -e 's/ reverse-solidus//g' ./"$baseName"/display-log2.txt 
+
+# 
+
+# Add String to beginning of each line
+
+sed -i -e 's/^/@@ /' ./"$baseName"/display-log2.txt 
+
+cp ./"$baseName"/display-log2.txt ./"$baseName"/TTS_full.txt
+
+	#### New in 0.1.7
+	
+	# Make Corrections
+	
+sed -i 's/ quotation-mark//g' ./"$baseName"/TTS_full.txt	
+
+sed -i 's/ slash/ divided by/g' ./"$baseName"/TTS_full.txt
+
+sed -i 's/ percent-sign/ percent/g' ./"$baseName"/TTS_full.txt
+
+sed -i 's/ StartFraction/ /g' ./"$baseName"/TTS_full.txt
+
+sed -i 's/ EndFraction/ /g' ./"$baseName"/TTS_full.txt
+
+sed -i 's/ upper/ /g' ./"$baseName"/TTS_full.txt
+
+sed -i 's/ left-parenthesis/ /g' ./"$baseName"/TTS_full.txt
+
+sed -i 's/ right-parenthesis/ /g' ./"$baseName"/TTS_full.txt
+
+sed -i 's/ right-parenthesis/ /g' ./"$baseName"/TTS_full.txt
+
+sed -i 's/ comma //g' ./"$baseName"/TTS_full.txt
+
+####
+
+touch ./"$baseName"/math_equations.html
+
+echo -e "<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" lang="en">\n<head>\n<title>"$baseName" - Review Equations</title>\n<style>\n</style>\n</head>\n<body>\n<main>\n<h1>"$baseName" - Review Equations</h1>" | cat - ./"$baseName"/math_equations.html > temp && mv temp ./"$baseName"/math_equations.html
+
+COUNTER=1
+eval MAX=$count
+Headers="<h2>Equation</h2>"
+
+while (( $COUNTER <= $MAX )); do
+        echo -e "<div>\n<h2>"$COUNTER"</h2>\n<p><textarea id=\"equation_"$COUNTER"\">\n@@\n</textarea></p>\n</div>" >> ./"$baseName"/math_equations.html
+        let COUNTER=$COUNTER+1
+done
+
+#
+
+sed -i -e 's/src=/src="/g' ./"$baseName"/math_equations.html
+
+sed -i -e 's/ type=/" type="/g' ./"$baseName"/math_equations.html
+
+sed -i -e 's/\/wav>/\/wav">/g' ./"$baseName"/math_equations.html
+
+echo -e "</main>\n<footer>\n<p role=\"contentinfo\">This document was created by the Alternative Media Unit of the Disabled Students' Program at UC Berkeley. For questions or concerns about this document, please contact us at dspamc@berkeley.edu.</p>\n</footer>\n</main>\n</body>\n</html>" >> ./"$baseName"/math_equations.html
+
+perl -pi -e 's/<\/h2>/<\/h2>\n<p><code>\n##\n<\/code><\/p>\n<p>\n%%\n<\/p>/g' ./"$baseName"/math_equations.html
+
+sed -i -e 's/^/## /g' ./"$baseName"/latex_full.txt
+
+# Add line marker before SVG line
+
+perl -0777 -pi -e 's/<svg /&&&\n<svg /g' ./"$baseName"/svg_full.txt
+
+# Move SVG components onto the same line
+
+awk '/^&&&/{a=1;b="";next}/^<\/svg>/{a=0;print"</svg>";next}a{printf b$0;b="";next}1' ./"$baseName"/svg_full.txt > tmp && mv tmp ./"$baseName"/svg_full.txt
+
+# Correct the IDs for each SVG to make them distinct
+
+sed -i 's/aria-labelledby="MathJax-SVG-1-Title"/aria-labelledby="svg_title_~~~"/g' ./"$baseName"/svg_full.txt
+
+sed -i 's/title id="MathJax-SVG-1-Title"/title id="svg_title_%%%"/g' ./"$baseName"/svg_full.txt
+
+awk '{for(x=1;x<=NF;x++)if($x~/~~~/){sub(/~~~/,++i)}}1' ./"$baseName"/svg_full.txt > tmp && mv tmp ./"$baseName"/svg_full.txt
+
+awk '{for(x=1;x<=NF;x++)if($x~/%%%/){sub(/%%%/,++i)}}1' ./"$baseName"/svg_full.txt > tmp && mv tmp ./"$baseName"/svg_full.txt
+
+# Add math class to SVG files
+
+sed -i -e 's/<svg /<svg class="math" /g' ./"$baseName"/svg_full.txt
+
+# Add String to beginning of each line
+
+sed -i -e 's/^/%% /' ./"$baseName"/svg_full.txt
+
+mv ./"$baseName"/latex_full.txt ./
+
+mv ./"$baseName"/svg_full.txt ./
+
+mv ./"$baseName"/TTS_full.txt ./
+
+awk '
+    /^##/{                   
+        getline <"./latex_full.txt" 
+    }
+    1                      
+    ' ./"$baseName"/math_equations.html > tmp && mv tmp ./"$baseName"/math_equations.html
+	
+awk '
+    /^%%/{                   
+        getline <"./svg_full.txt" 
+    }
+    1                      
+    ' ./"$baseName"/math_equations.html > tmp && mv tmp ./"$baseName"/math_equations.html
+	
+awk '
+    /^@@/{                   
+        getline <"./TTS_full.txt" 
+    }
+    1                      
+    ' ./"$baseName"/math_equations.html > tmp && mv tmp ./"$baseName"/math_equations.html
+	
+rm ./latex_full.txt
+
+rm ./svg_full.txt
+	
+sed -i 's/^\(## \)*//g' ./"$baseName"/math_equations.html
+
+sed -i 's/^\(%% \)*//g' ./"$baseName"/math_equations.html
+
+sed -i 's/^\(@@ \)*//g'	./"$baseName"/math_equations.html
+
+sed -zi 's/\(id="equation_[[:digit:]]\+>\)\(\n\)/\1/g' ./"$baseName"/math_equations.html
+
+sed -i "s/<svg /<svg class="math" /g"	./"$baseName"/math_equations.html
+
+perl -pi -e 's/<style>/<style>\n.math {\nbackground-color: #E7FFE7 ;\ndisplay: inline-block\n}\n/g' ./"$baseName"/math_equations.html
+
+perl -pi -e 's/<style>/<style>\ncode {\nbackground: #f4f4f4;background: #f4f4f4;\n}\n/g' ./"$baseName"/math_equations.html
+
+perl -pi -e 's/<style>/<style>\n.alt-text {\nbackground-color: #E6E6FA ;\ndisplay: inline-block\n}\n/g' ./"$baseName"/math_equations.html
+
+#perl -pi -e 's/<style>/<style>\nh2 {\ncolor:blue;text-align:center;;\n}\n/g' ./"$baseName"/math_equations.html
+
+perl -pi -e 's/<style>/<style>\nh2 {\ncolor:blue;\n}\n/g' ./"$baseName"/math_equations.html
+
+#sed -i 's/<div>/<div style="text-align:center;">/g' ./"$baseName"/math_equations.html
+
+perl -pi -e 's/(id="equation.*)(\n)/$1/g' ./"$baseName"/math_equations.html
+
+cp ./TTS_full.txt ./"$baseName"/TTS_full_2.txt
+
+rm ./TTS_full.txt 
+
+sed -i 's/^\(@@ \)*//g'	./"$baseName"/TTS_full_2.txt
+
+awk '{filename = sprintf("equation_%d.txt", NR); print >filename; close(filename)}' ./"$baseName"/TTS_full_2.txt
+
+mv ./equation_*.txt ./"$baseName"/
+
+rm ./"$baseName"/TTS_full_2.txt
+
+echo -ne 'Processing equations... \033[1;32mDone.\033[0m\r'
+
+echo -ne '\n\n'
+
+echo -ne 'Opening MS Edge...'
+
+echo -ne '\n\n'
+
+cwd=$(pwd)
+
+start msedge "$cwd/$baseName/math_equations.html"
+
+while true; do
+
+read -n1 -p "Would you like to correct the alternative text of math equations in $(echo -e "\033[1;44m$baseName.mp3\033[0m\x1B[49m\x1B[K")? [Y/N]?" answer
+
+case $answer in
+Y | y) 
+	   echo -e "\n"
+	   correct=on
+	   break
+	   ;;
+	   
+N | n) 
+	   echo -e "\n"
+	   correct=off
+	   break
+	   ;;	
+	*)
+	   echo -e "\n"
+       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ y / n].\033[0m\n"
+	   ;;
+
+	   
+esac
+
+done
+
+if [[ "$correct" == "on" ]]; then 
+
+function alt_text_math {
+if [ ! -f  "./$baseName/equation_new_$CHOICE.txt" ]; then 
+
+sed -i -e 's/^## //' ./"$baseName"/equation_$CHOICE.txt
+
+touch ./"$baseName"/equation_new_$CHOICE.txt
+
+cp ./"$baseName"/equation_$CHOICE.txt ./"$baseName"/equation_new_$CHOICE.txt
+
+"C:\balcon\balcon.exe" -f ./"$baseName"/equation_new_$CHOICE.txt -n "$name" -s 1 -v 100 -fr 22 -bt 16 -ch 1 -w ./"$baseName"/equation_$CHOICE.wav 2> /dev/null
+
+perl -pi -e 's/(equation_'$CHOICE'">.*\n)/$1<\/textarea><\/p>\n<p>\n<audio controls>\n<source src=".\/equation_'$CHOICE'.wav" type="audio\/wav">\n <\/audio>\n<\/p>/' ./"$baseName"/math_equations.html
+
+sed -i -e 's/^/%% /g' ./"$baseName"/equation_new_$CHOICE.txt
+
+cp ./"$baseName"/equation_new_$CHOICE.txt ./pronunciation.txt
+
+awk '
+    /^%%/{                   
+        getline <"./pronunciation.txt" 
+    }
+    1                      
+    ' ./"$baseName"/math_equations.html > tmp && mv tmp ./"$baseName"/math_equations.html
+
+sed -i 's/^\(%% \)*//g'	./"$baseName"/math_equations.html
+
+rm ./pronunciation.txt
+
+echo -ne '\n'
+
+echo -e "Refresh MS Edge browser (CTRL +R) to hear the pronuncation of $(echo -e "\033[1;44mequation $CHOICE\033[0m\x1B[49m\x1B[K")."
+
+fi
+
+}
+
+function equation_pronunciation {
+
+echo -ne '\n'
+
+read -p "Enter the correct pronunciation for $(echo -e "\033[1;44mequation $CHOICE\033[0m\x1B[49m\x1B[K"):" value
+
+echo "$value" > ./"$baseName"/equation_new_$CHOICE.txt
+
+"C:\balcon\balcon.exe" -f ./"$baseName"/equation_new_$CHOICE.txt -n "$name" -s 1 -v 100 -fr 22 -bt 16 -ch 1 -w ./"$baseName"/equation_$CHOICE.wav 2> /dev/null
+
+perl -pi -e 's|(id="equation_'$CHOICE'">)(.*\n)|$1\n%%\n|g' ./"$baseName"/math_equations.html
+
+perl -pi -e 's|^%%.*|%% |g' ./"$baseName"/math_equations.html
+
+sed -i -e 's/^/%% /g' ./"$baseName"/equation_new_$CHOICE.txt
+
+cp ./"$baseName"/equation_new_$CHOICE.txt ./pronunciation.txt
+
+awk '
+    /^%%/{                   
+        getline <"./pronunciation.txt" 
+    }
+    1                      
+    ' ./"$baseName"/math_equations.html > tmp && mv tmp ./"$baseName"/math_equations.html
+
+sed -i 's/^\(%% \)*//g'	./"$baseName"/math_equations.html
+
+perl -pi -e 's|(id="equation_'$CHOICE'">.*)(\n)|$1|g' ./"$baseName"/math_equations.html
+
+rm ./pronunciation.txt
+
+echo -ne '\n'
+
+echo -ne "Pronunciation for $(echo -e "\033[1;44mequation $CHOICE\033[0m\x1B[49m\x1B[K") changed. Refresh MS Edge browser (CTRL +R) to see and hear changes."
+
+echo -ne '\n\n'
+
+}
+
+while :; do
+
+	read -p "Enter the equation number $(echo -e "\033[1;44m(1-$MAX)\033[0m\x1B[49m\x1B[K"), or $(echo -e "\033[1;44mq\033[0m\x1B[49m\x1B[K") to exit:" CHOICE
+    
+	if [[ "$CHOICE" == "q" ]] ; then
+	
+	break;
+	
+	fi;
+	
+	if [[ "$CHOICE" -le "$MAX" ]] ; then
+	
+	alt_text_math
+	
+	equation_pronunciation
+	
+	else
+	
+	echo -e "\n\033[1;31mError: Invalid number\033[0m "$CHOICE". \033[1;31mYou must enter a number between\033[0m 1 \033[1;31mand\033[0m" $MAX"\033[1;31m.\033[0m\n"
+	
+	fi;
+	
+	done
+	
+	echo -ne '\n'
+
+fi
+
+touch ./"$baseName"/all.txt
+
+counter_math=1
+for x in ./"$baseName"/equation_*.txt; do
+
+        basePath=${x%.*}
+        Name=${basePath##*/}
+
+if [ -f ./"$baseName"/equation_new_$counter_math.txt ]; then
+
+perl -pi -e 's|^%% ||g' ./"$baseName"/equation_new_$counter_math.txt
+
+cat ./"$baseName"/equation_new_$counter_math.txt > ./"$baseName"/equation_$counter_math.txt		
+		
+fi
+
+if [ -f ./"$baseName"/equation_$counter_math.txt ]; then	
+
+cat ./"$baseName"/equation_$counter_math.txt >> ./"$baseName"/all.txt
+
+fi
+
+counter_math=$[ $counter_math + 1 ] ; 
+done
+
+rm ./"$baseName"/equation_*.txt
+sed -i -e 's/^/@@ /' ./"$baseName"/all.txt 
+mv ./"$baseName"/all.txt ./"$baseName"/display-log2.txt
+rm ./"$baseName"/math_equations.html
+
+while true; do
+
+read -n1 -p "Would you like to perform find and replace functions for the alternative text of math equations in $(echo -e "\033[1;44m$baseName.mp3\033[0m\x1B[49m\x1B[K")? [Y/N]?" answer
+
+case $answer in
+Y | y) 
+	   echo -e "\n"
+	   replace_correct=on
+	   break
+	   ;;
+	   
+N | n) 
+	   echo -e "\n"
+	   replace_correct=off
+	   break
+	   ;;	
+	*)
+	   echo -e "\n"
+       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ y / n].\033[0m\n"
+	   ;;
+
+	   
+esac
+
+done
+
+function replace_pronunciation {
+
+while :; do
+
+	read -p "Enter the word(s) that you wish to replace (type q and press Enter to exit):" find
+	
+	if [[ "$find" == "q" ]] ; then
+	
+	break;
+	
+	fi;
+
+	echo -e "\n"
+
+read -p "Enter the word(s) that you wish to use instead of $(echo -e "\033[1;44m$find\033[0m\x1B[49m\x1B[K") (press enter to replace with NOTHING):" replace
+
+sed -i "s/$find/$replace/gI" ./"$baseName"/display-log2.txt
+
+if [[ ! $replace ]] ; then
+
+echo -e "\n\033[1;44m$find\033[0m\x1B[49m\x1B[K removed.\n"
+
+else 
+
+echo -e "\n\033[1;44m$find\033[0m\x1B[49m\x1B[K changed to \033[1;44m$replace\033[0m\x1B[49m\x1B[K.\n"
+
+fi
+	
+done
+
+echo -e "\n"
+
+}
+
+if [[ "$replace_correct" == "on" ]]; then 
+
+replace_pronunciation
+
+fi
+
+# End New in 0.2.0
+
+else
+
+count=1
+while IFS="" read -r p || [ -n "$p" ] ; do echo -ne "Processing equations... \033[1;33m$count\033[0m\r" ; tex2svg "$p" | sed -n 's/.*1-Title">//p' >> ./"$baseName"/display-log2.txt  ; count=$[ $count + 1 ] ; done <./"$baseName"/display-log.txt 
 
 IFS=$IFS_OLD
 
@@ -3334,9 +3847,38 @@ sed -i 's/<\/title>//g' ./"$baseName"/display-log2.txt
 
 sed -i -e 's/ reverse-solidus//g' ./"$baseName"/display-log2.txt 
 
+
 # Add String to beginning of each line
 
 sed -i -e 's/^/@@ /' ./"$baseName"/display-log2.txt 
+
+### Add More Corrections Here #####
+
+# 
+
+sed -i '/@@/s/\ quotation-mark//g' ./"$baseName"/display-log2.txt 
+
+sed -i '/@@/s/\ slash/\ divided by/g' ./"$baseName"/display-log2.txt 
+
+sed -i '/@@/s/ percent-sign/ percent/g' ./"$baseName"/display-log2.txt 
+
+sed -i '/@@/s/ StartFraction/ /g' ./"$baseName"/display-log2.txt 
+
+sed -i '/@@/s/ EndFraction/ /g' ./"$baseName"/display-log2.txt 
+
+sed -i '/@@/s/ upper/ /g' ./"$baseName"/display-log2.txt 
+
+sed -i '/@@/s/ left-parenthesis/ /g' ./"$baseName"/display-log2.txt 
+
+sed -i '/@@/s/ right-parenthesis/ /g' ./"$baseName"/display-log2.txt 
+
+sed -i '/@@/s/ right-parenthesis/ /g' ./"$baseName"/display-log2.txt 
+
+#
+
+fi
+
+##################
 
 # Insert equations into txt file
 
@@ -3350,30 +3892,6 @@ awk '
     }
     1                      
     ' ./"$baseName"/"$baseName".txt > tmp && mv tmp ./"$baseName"/"$baseName".txt
-	
-	#### New in 0.1.7
-	
-sed -i '/@@/s/\ quotation-mark//g' ./"$baseName"/"$baseName".txt	
-
-sed -i '/@@/s/\ slash/\ divided by/g' ./"$baseName"/"$baseName".txt
-
-sed -i '/@@/s/ percent-sign/ percent/g' ./"$baseName"/"$baseName".txt
-
-sed -i '/@@/s/ StartFraction/ /g' ./"$baseName"/"$baseName".txt
-
-sed -i '/@@/s/ EndFraction/ /g' ./"$baseName"/"$baseName".txt
-
-sed -i '/@@/s/ upper/ /g' ./"$baseName"/"$baseName".txt
-
-sed -i '/@@/s/ left-parenthesis/ /g' ./"$baseName"/"$baseName".txt
-
-sed -i '/@@/s/ right-parenthesis/ /g' ./"$baseName"/"$baseName".txt
-
-sed -i '/@@/s/ right-parenthesis/ /g' ./"$baseName"/"$baseName".txt
-
-sed -i '/@@/s/ comma //g' ./"$baseName"/"$baseName".txt
-
-####
        
 # Replace placeholder text
 
@@ -3538,6 +4056,414 @@ fi
 
 fi
 
+#
+
+if [[ "$nounphrase" == "on" ]]; then 
+
+#echo -e "\rCollecting the proper nouns...\r"
+
+cp ./"$baseName"/"$baseName".txt ./noun_phrases_raw.txt
+
+# Remove XML tags for headings if present
+
+sed -i 's/<heading1>//g' ./noun_phrases_raw.txt
+sed -i 's/<heading2>//g' ./noun_phrases_raw.txt
+sed -i 's/<heading3>//g' ./noun_phrases_raw.txt
+sed -i 's/<heading4>//g' ./noun_phrases_raw.txt
+sed -i 's/<heading5>//g' ./noun_phrases_raw.txt
+sed -i 's/<\/heading1>//g' ./noun_phrases_raw.txt
+sed -i 's/<\/heading2>//g' ./noun_phrases_raw.txt
+sed -i 's/<\/heading3>//g' ./noun_phrases_raw.txt
+sed -i 's/<\/heading4>//g' ./noun_phrases_raw.txt
+sed -i 's/<\/heading5>//g' ./noun_phrases_raw.txt
+
+sed -i 's/<line>//g' ./noun_phrases_raw.txt
+sed -i 's/<\/line>//g' ./noun_phrases_raw.txt
+
+sed -i 's/<page>//g' ./noun_phrases_raw.txt
+sed -i 's/<\/page>//g' ./noun_phrases_raw.txt
+
+# Remove XML tags for secondary text regions if present
+
+sed -i 's/<secondary>//g' ./noun_phrases_raw.txt
+
+sed -i 's/<\/secondary>//g' ./noun_phrases_raw.txt
+
+# Remove XML tags for footnote text regions if present
+
+sed -i 's/<footnote>//g' ./noun_phrases_raw.txt
+
+sed -i 's/<\/footnote>//g' ./noun_phrases_raw.txt
+
+# Remove XML tags for figcaption text regions if present
+
+sed -i 's/<figcaption>//g' ./noun_phrases_raw.txt
+
+sed -i 's/<\/figcaption>//g' ./noun_phrases_raw.txt
+
+# Remove XML tags for Description text regions if present
+
+sed -i 's/<description>//g' ./noun_phrases_raw.txt
+
+sed -i 's/<\/description>//g' ./noun_phrases_raw.txt
+
+# Remove XML tags for Description text regions if present
+
+sed -i 's/<table>//g' ./noun_phrases_raw.txt
+
+sed -i 's/<\/table>//g' ./noun_phrases_raw.txt
+
+# Remove XML tags for Footer text regions if present
+
+sed -i 's/<footer>//g' ./noun_phrases_raw.txt
+
+sed -i 's/<\/footer>//g' ./noun_phrases_raw.txt
+
+sed -i 's/ \[ //g' ./noun_phrases_raw.txt
+
+sed -i 's/\[ //g' ./noun_phrases_raw.txt
+
+sed -i 's/ \[//g' ./noun_phrases_raw.txt
+
+sed -i 's/\[//g' ./noun_phrases_raw.txt
+
+sed -i 's/ \] //g' ./noun_phrases_raw.txt
+
+sed -i 's/ \]//g' ./noun_phrases_raw.txt
+
+sed -i 's/\] //g' ./noun_phrases_raw.txt
+
+sed -i 's/\]//g' ./noun_phrases_raw.txt
+
+python "C:\scripts\noun_phrases.py"
+
+rm ./noun_phrases_raw.txt
+
+mv ./Noun_Phrases.txt ./"$baseName"/
+
+perl -pi -e 's/,/\n/g' ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e 's/ =+//g' ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e 's/\^\d+\^//g' ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e 's/'\\\\'.*//g' ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e 's/.*footnote begin.*\n//g' ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e 's/.*footnote end.*\n//g' ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e 's/\* //g' ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e "s/.*\'\*.*\n//g" ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e 's/}//g' ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e 's/{//g' ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e "s/'//g" ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e "s/\"//g" ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e "s/[a-z]\n//g" ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e 's/[^\x0-\xB1]//g' ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e 's/^\:.*\n//g' ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e 's/^a:.*\n//g' ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e 's/^x:.*\n//g' ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e 's/^\^:.*\n//g' ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e 's/^\+:.*\n//g' ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e 's/^x \+:.*\n//g' ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e 's/^<:.*\n//g' ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e 's/^>:.*\n//g' ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e 's/.*page.*\n//g' ./"$baseName"/Noun_Phrases.txt
+
+sed -i '/^\s*$/d' ./"$baseName"/Noun_Phrases.txt
+
+perl -pi -e 's/^\s+//' ./"$baseName"/Noun_Phrases.txt
+
+# Create HTML document
+
+cp ./"$baseName"/Noun_Phrases.txt ./"$baseName"/Noun_Phrases_word.txt
+
+cp ./"$baseName"/Noun_Phrases.txt ./"$baseName"/Noun_Phrases_number.txt
+
+wc -l ./"$baseName"/Noun_Phrases.txt | sed 's/ .*//g' > ./"$baseName"/numbers.txt
+
+noun_phrase_max=`cat ./"$baseName"/numbers.txt`
+
+perl -pi -e 's/:.*\n/\n/g' ./"$baseName"/Noun_Phrases_word.txt
+
+perl -pi -e 's/: \d//g' ./"$baseName"/Noun_Phrases_word.txt
+
+perl -pi -e 's/.*://g' ./"$baseName"/Noun_Phrases_number.txt
+
+touch ./"$baseName"/noun_phrases.html
+
+echo -e "<!DOCTYPE html>\n<html xmlns="http://www.w3.org/1999/xhtml" lang="en">\n<head>\n<title>"$baseName" - Review Proper Nouns</title>\n<style>\n</style>\n</head>\n<body>\n<main>\n<h1>"$baseName" - Review Proper Nouns</h1>" | cat - ./"$baseName"/noun_phrases.html > temp && mv temp ./"$baseName"/noun_phrases.html
+
+noun_phrase_max=$[ $noun_phrase_max + 1 ] ;
+
+COUNTER=1
+eval MAX=$noun_phrase_max
+
+while (( $COUNTER <= $MAX )); do
+        echo -e "<div>\n<h2>"$COUNTER"</h2>\n<code id=\"phrase_"$COUNTER"\"> \n@@\n</code></p>\n</div>" >> ./"$baseName"/noun_phrases.html
+        let COUNTER=$COUNTER+1
+done
+
+echo -e "</main>\n<footer>\n<p role=\"contentinfo\">This document was created by the Alternative Media Unit of the Disabled Students' Program at UC Berkeley. For questions or concerns about this document, please contact us at dspamc@berkeley.edu.</p>\n</footer>\n</main>\n</body>\n</html>" >> ./"$baseName"/noun_phrases.html
+
+perl -pi -e 's/<\/h2>/<\/h2>\n<p><code>\n##\n<\/code>/g' ./"$baseName"/noun_phrases.html
+
+sed -i -e 's/^/## /g' ./"$baseName"/Noun_Phrases_word.txt
+
+sed -i -e 's/^/@@ /g' ./"$baseName"/Noun_Phrases_number.txt
+
+mv ./"$baseName"/Noun_Phrases_word.txt ./
+
+mv ./"$baseName"/Noun_Phrases_number.txt ./
+
+
+awk '
+    /^@@/{                   
+        getline <"./Noun_Phrases_number.txt" 
+    }
+    1                      
+    ' ./"$baseName"/noun_phrases.html > tmp && mv tmp ./"$baseName"/noun_phrases.html
+	
+awk '
+    /^##/{                   
+        getline <"./Noun_Phrases_word.txt" 
+    }
+    1                      
+    ' ./"$baseName"/noun_phrases.html > tmp && mv tmp ./"$baseName"/noun_phrases.html
+
+mv ./Noun_Phrases_word.txt ./"$baseName"/
+
+rm ./Noun_Phrases_number.txt
+
+sed -i 's/^\(## \)*//g' ./"$baseName"/noun_phrases.html
+
+sed -i 's/^\(@@ \)*//g'	./"$baseName"/noun_phrases.html
+
+perl -pi -e 's/<style>/<style>\ncode {\nbackground: #f4f4f4;background: #f4f4f4;\n}\n/g' ./"$baseName"/noun_phrases.html
+
+perl -pi -e 's/<style>/<style>\n.non-code {\nbackground-color: #FFFFFF;\n}\n/g' ./"$baseName"/noun_phrases.html
+
+perl -pi -e 's/<style>/<style>\nh2 {\ncolor:blue;;\n}\n/g' ./"$baseName"/noun_phrases.html
+
+perl -pi -e 's/(id="noun_phrase_.*)(\n)/$1/g' ./"$baseName"/noun_phrases.html
+
+sed -zi 's/\n<\/code><\/p>/<\/code><\/p>/g' ./"$baseName"/noun_phrases.html
+
+perl -pi -e 's/(phrase_)(.*)(\n)/$1$2/g' ./"$baseName"/noun_phrases.html
+
+sed -i 's/^\(@@ \)*//g' ./"$baseName"/Noun_Phrases_word.txt
+
+awk '{filename = sprintf("phrase_%d.txt", NR); print >filename; close(filename)}' ./"$baseName"/Noun_Phrases_word.txt
+
+mv ./phrase_*.txt ./"$baseName"/ 
+
+rm ./"$baseName"/Noun_Phrases.txt
+	
+echo -ne 'Opening MS Edge...'
+
+echo -ne '\n\n'
+
+cwd=$(pwd)
+
+start msedge "$cwd/$baseName/noun_phrases.html"
+
+while true; do
+
+read -n1 -p "Would you like to check the pronunciation of proper nouns in $(echo -e "\033[1;44m$baseName.mp3\033[0m\x1B[49m\x1B[K")? [Y/N]?" answer
+
+case $answer in
+Y | y) 
+	   echo -e "\n"
+	   correct=on
+	   break
+	   ;;
+	   
+N | n) 
+	   echo -e "\n"
+	   correct=off
+	   break
+	   ;;	
+	*)
+	   echo -e "\n"
+       echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ y / n].\033[0m\n"
+	   ;;
+
+	   
+esac
+
+done
+
+if [[ "$correct" == "on" ]]; then 
+
+function generate_UPS_prounciation {
+
+if [ ! -f  "./$baseName/phrase_new_$CHOICE.txt" ]; then 
+
+sed -i -e 's/^## //' ./"$baseName"/phrase_$CHOICE.txt
+
+python "C:\scripts\lexconvert.py" --phones sapi < ./"$baseName"/phrase_$CHOICE.txt > ./"$baseName"/phrase_new_$CHOICE.txt
+
+"C:\balcon\balcon.exe" -f ./"$baseName"/phrase_new_$CHOICE.txt -n "$name" -s 1 -v 100 -fr 22 -bt 16 -ch 1 -w ./"$baseName"/phrase_$CHOICE.wav 2> /dev/null
+
+perl -pi -e 's/(_'$CHOICE'">)(.*)(<\/p>)/$1$2$3\n<p>\n<audio controls>\n<source src=".\/phrase_'$CHOICE'.wav" type="audio\/wav">\n <\/audio>\n<\/p>/g' ./"$baseName"/noun_phrases.html
+
+sed -i -e 's/^/%% /g' ./"$baseName"/phrase_new_$CHOICE.txt
+
+perl -pi -e 's/(_'$CHOICE'\">)(.*)(<\/p>)/$1$2$3\n<p><textarea id=\"pronunciation_'$CHOICE'\" style=\"border:none;\">\n%%\n<\/textarea><\/p>/g' ./"$baseName"/noun_phrases.html
+
+cp ./"$baseName"/phrase_new_$CHOICE.txt ./pronunciation.txt
+
+awk '
+    /^%%/{                   
+        getline <"./pronunciation.txt" 
+    }
+    1                      
+    ' ./"$baseName"/noun_phrases.html > tmp && mv tmp ./"$baseName"/noun_phrases.html
+
+sed -i 's/^\(%% \)*//g'	./"$baseName"/noun_phrases.html
+
+rm ./pronunciation.txt
+
+echo -ne '\n'
+
+echo -e "Refresh MS Edge browser (CTRL +R) to hear the pronuncation of $(echo -e "\033[1;44mproper noun $CHOICE\033[0m\x1B[49m\x1B[K")."
+
+fi
+
+}
+
+function noun_phrase_pronunciation {
+
+echo -ne '\n'
+
+read -p "Enter the correct pronunciation for $(echo -e "\033[1;44mproper noun $CHOICE\033[0m\x1B[49m\x1B[K"):" value
+
+echo "$value" > ./"$baseName"/phrase_new_$CHOICE.txt
+
+"C:\balcon\balcon.exe" -f ./"$baseName"/phrase_new_$CHOICE.txt -n "$name" -s 1 -v 100 -fr 22 -bt 16 -ch 1 -w ./"$baseName"/phrase_$CHOICE.wav 2> /dev/null
+
+perl -pi -e 's|(id="pronunciation_'$CHOICE'".*)(\n)|$1\n%%|g' ./"$baseName"/noun_phrases.html
+
+perl -pi -e 's|^%%.*|%% |g' ./"$baseName"/noun_phrases.html
+
+sed -i -e 's/^/%% /g' ./"$baseName"/phrase_new_$CHOICE.txt
+
+cp ./"$baseName"/phrase_new_$CHOICE.txt ./pronunciation.txt
+
+awk '
+    /^%%/{                   
+        getline <"./pronunciation.txt" 
+    }
+    1                      
+    ' ./"$baseName"/noun_phrases.html > tmp && mv tmp ./"$baseName"/noun_phrases.html
+
+sed -i 's/^\(%% \)*//g'	./"$baseName"/noun_phrases.html
+
+rm ./pronunciation.txt
+
+echo -ne '\n'
+
+echo -ne "Pronunciation for $(echo -e "\033[1;44mproper noun $CHOICE\033[0m\x1B[49m\x1B[K") changed. Refresh MS Edge browser (CTRL +R) to see and hear changes."
+
+echo -ne '\n\n'
+
+}
+
+while :; do
+
+	read -p "Enter the proper noun number $(echo -e "\033[1;44m(1-$MAX)\033[0m\x1B[49m\x1B[K"), or $(echo -e "\033[1;44mq\033[0m\x1B[49m\x1B[K") to exit:" CHOICE
+    
+	if [[ "$CHOICE" == "q" ]] ; then
+	
+	break;
+	
+	fi;
+	
+	if [[ "$CHOICE" -le "$MAX" ]] ; then
+	
+	generate_UPS_prounciation
+
+	noun_phrase_pronunciation
+
+	else
+	
+	echo -e "\n\033[1;31mError: Invalid number\033[0m "$CHOICE". \033[1;31mYou must enter a number between\033[0m 1 \033[1;31mand\033[0m" $MAX"\033[1;31m.\033[0m\n"
+	
+	fi;
+	
+	done
+
+	echo -ne '\n'
+
+touch ./"$baseName"/phrases_all.txt
+
+counter_phrase=1
+for x in ./"$baseName"/phrase_*.txt; do
+
+        basePath=${x%.*}
+        Name=${basePath##*/}
+
+if [ -f ./"$baseName"/phrase_new_$counter_phrase.txt ]; then
+	
+   sed -i -e 's/^/s\//' ./"$baseName"/phrase_$counter_phrase.txt
+   
+   sed -i -e 's/^/\//' ./"$baseName"/phrase_$counter_phrase.txt
+   
+   sed -i -e 's/%% /\//' ./"$baseName"/phrase_new_$counter_phrase.txt
+	
+   cat ./"$baseName"/phrase_new_$counter_phrase.txt >> ./"$baseName"/phrase_$counter_phrase.txt
+   
+   perl -pi -e 's/\n//g' ./"$baseName"/phrase_$counter_phrase.txt
+   
+   perl -pi -e 's/\/>/\\\/>/g' ./"$baseName"/phrase_$counter_phrase.txt
+   
+   perl -pi -e 's/\/>$/\/>\/gI/g' ./"$baseName"/phrase_$counter_phrase.txt
+   
+   perl -pi -e 's/\/s/s/' ./"$baseName"/phrase_$counter_phrase.txt
+   
+   rm ./"$baseName"/phrase_new_$counter_phrase.txt
+   
+   cat ./"$baseName"/phrase_$counter_phrase.txt >> ./"$baseName"/phrases_all.txt
+   
+   sed -i -e '$a\' ./"$baseName"/phrases_all.txt
+   
+fi
+
+counter_phrase=$[ $counter_phrase + 1 ] ; 
+done
+
+mv ./"$baseName"/phrases_all.txt ./"$baseName"/phrases_all.sed
+####
+
+#rm ./"$baseName"/noun_phrases.html
+
+fi
+
+rm ./"$baseName"/phrase_*.txt
+
+rm ./"$baseName"/noun_phrases.html
+
+fi
+
+#
+
 ### Count the number characters and decide whether to split
 
 word_count="$(wc -l ./"$baseName"/"$baseName".txt | sed -r  's/^[^0-9]*([0-9]+).*/\1/')"
@@ -3549,8 +4475,6 @@ then
 if grep -q '<page>' ./"$baseName"/"$baseName".txt ;
 
 then
-
-# echo -e "Higher"; 
 
 echo -e "\033[1;33mATTENTION:\033[0m \033[1;35m"$baseName".docx\033[0m will be split into smaller MP3 units for easier review.\n"
 
@@ -3573,8 +4497,6 @@ fi
 fi
 
 else 
-
-# echo -e "lower"; 
 
 split="off"
 
@@ -3635,11 +4557,17 @@ then
 
 cp ./"$baseName"/"$baseName".txt ./"$baseName"/"$baseName"_formatted.txt 2> /dev/null
 
-# sed -i 's/\\#\\#\\#[1-9]//g' ./"$baseName"/"$baseName"_formatted.txt
+#
 
-# sed -i 's/###[1-9]//g' ./"$baseName"/"$baseName"_formatted.txt
+if [[ "$correct" == "on" ]]; then
 
-# sed -i 's/%%%//g' ./"$baseName"/"$baseName"_formatted.txt
+sed -i -f ./"$baseName"/phrases_all.sed ./"$baseName"/"$baseName".txt
+
+rm ./"$baseName"/phrases_all.sed
+
+fi 
+
+# 
 
 if [[ "$split" == "on" ]]; then 
 
@@ -16560,5 +17488,11 @@ if [ -f ./~ ] ; then
 rm ./~
 
 fi
+
+# New in 0.2.0
+
+find ./"$baseName"/ -type f -iname \*.txt -delete
+
+#
 
 exit 1
