@@ -297,11 +297,19 @@ DOCX-MP3.sh allows you to convert math equations in a DOCX to a more natural sou
 
 If a DOCX in your folder contains math equations, you can use the following steps to convert these to mathspeak.
 1. From a Git Bash window, enter the path to the script (/c/scripts/DOCX-MP3.sh)
-2. In the terminal enter the `-m` flag (for math)
+2. In the terminal enter the `-m` option (for math)
 3. Press Enter.
 
 **Notes:**
 Remember to use [GrindEQ MathType to Equation](https://www.grindeq.com/index.php?p=mathtype2equation&lang=en) to convert MathType equations to OMML format before using DOCX-MP3.sh
+
+## Inspecting the Alternative Text of Math Equations and Pronunciation of Proper Nouns
+DOCX-MP3.sh allows you to check the alternative text (“mathspeak”) in MS Edge prior to converting to MP3. In addition, you can see a list of the proper nouns in MS Edge and check their pronunciation.
+
+To inspect the alternative text for math equations and the pronunciation of proper nouns, use the `-i` option when you run the script.
+
+**Notes:**
+Checking the the pronunication of proper nouns requires installation of these programs: `Python`, `NLTK`, and adding the `lexconvert.py` and `nounphrase.py` files to /c/scripts/ directory on your PC. To change the pronunciation of proper nouns, use [Microsoft Speech API 5.3](https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms717077(v=vs.85)#pron). E.g., the word `hello` would be replaced with this syntax `<pron sym="h eh 1 l ow"/>`. 
 
 ## Reading Terminal Output 
 When you run DOCX-MP3.sh, you may see that there are messages warning you about the presence of items in your document that you may wish to remove:
