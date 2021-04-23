@@ -21,6 +21,7 @@ Create MP3 Files From DOCX
 - [MP3Chaps](https://pypi.org/project/mp3chaps/)
 - [Additional SAPI 5 Voices](https://support.microsoft.com/en-us/topic/download-voices-for-immersive-reader-read-mode-and-read-aloud-4c83a8d8-7486-42f7-8e46-2b0fdf753130) (For More Languages); See these instructions for [making these voices available systemwide](https://github.com/polizoto/DOCX-MP3/blob/main/README.md#optional-setup-for-making-microsoft-sapi-5-voices-available-systemide)
 - [eSpeak](http://espeak.sf.net/download.html) (for additional voices, including Latin and Ancient Greek)
+- [NLTK](http://www.nltk.org/install.html)(for checking the pronunciation of proper nouns)
 
 ## General Setup
 1. Download the DOCX-MP3.sh script to your [PC](https://github.com/polizoto/DOCX-MP3/blob/main/DOCX-MP3.sh)
@@ -153,6 +154,14 @@ Some voices (Latin, Lithuanian, Estonian, Farsi, and Afrikaans) must be installe
 - eSpeak-mb-ir1 (Farsi)
 - eSpeak-mb-lt1 (Lithuanian)
 - eSpeak-grc (Ancient Greek)
+
+### Optional Setup for processing proper nouns
+1. Install NLTK
+      `python -i`
+      `pip install --user -U nltk`
+2. Download `noun_phrases.py` and `lexconvert.py` from this repository and place these in your `\c\scripts\` folder
+
+Note: When installing NLTK, you may also need to download the 'punkt' and 'averaged_perceptron_tagger' packages. If so, type `python -i` in the Git Bash terminal and then enter `nltk.download('punkt')`. Then type `nltk.download('averaged_perceptron_tagger')`.
 
 ## Features
 
