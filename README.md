@@ -310,7 +310,7 @@ To inspect the alternative text for math equations and the pronunciation of prop
 
 **Notes:**
 
-Checking the the pronunciation of proper nouns requires installation of these programs: `Python`, `NLTK`, and adding the `lexconvert.py` and `nounphrase.py` files to the /c/scripts/ directory on your PC. 
+Checking the the pronunciation of proper nouns requires installation of these programs: `Python`, `NLTK`, and adding the `lexconvert.py` and `nounphrase.py` files to the `\c\scripts\` directory on your PC. 
 
 To change the pronunciation of proper nouns, use [Microsoft Speech API 5.3](https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms717077(v=vs.85)#pron). E.g., the word `hello` would be replaced with this syntax `<pron sym="h eh 1 l ow"/>`. 
 
