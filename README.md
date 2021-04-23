@@ -316,7 +316,7 @@ To change the pronunciation of proper nouns, use [Microsoft Speech API 5.3](http
 
 When changing the prounciation of a word(s), refresh the Edge browser to listen to the new pronunciation. You may need to close and reopen the browser to remove the previous audio file from the cache. If an audio file is not produced, you may have used incorrect syntax. 
 
-Currently support for inspect the pronunciation of proper nouns in languages other than English is **NOT** support. Change the pronunication only for words that you will know will be read by an US English voice.
+Currently inspection of the pronunciation of proper nouns in languages other than English is **NOT** supported. Change the pronunication only for words that you know will be read by an US English voice.
 
 ## Reading Terminal Output 
 When you run DOCX-MP3.sh, you may see that there are messages warning you about the presence of items in your document that you may wish to remove:
