@@ -21,7 +21,7 @@ Create MP3 Files From DOCX
 - [MP3Chaps](https://pypi.org/project/mp3chaps/)
 - [Additional SAPI 5 Voices](https://support.microsoft.com/en-us/topic/download-voices-for-immersive-reader-read-mode-and-read-aloud-4c83a8d8-7486-42f7-8e46-2b0fdf753130) (For More Languages); See these instructions for [making these voices available systemwide](https://github.com/polizoto/DOCX-MP3/blob/main/README.md#optional-setup-for-making-microsoft-sapi-5-voices-available-systemide)
 - [eSpeak](http://espeak.sf.net/download.html) (for additional voices, including Latin and Ancient Greek)
-- [NLTK](http://www.nltk.org/install.html)(for checking the pronunciation of proper nouns)
+- [NLTK](http://www.nltk.org/install.html) (for checking the pronunciation of proper nouns)
 
 ## General Setup
 1. Download the DOCX-MP3.sh script to your [PC](https://github.com/polizoto/DOCX-MP3/blob/main/DOCX-MP3.sh)
@@ -174,7 +174,9 @@ Note: When installing NLTK, you may also need to download the 'punkt' and 'avera
 - Adds Cover Image
 - Creates MP3 Bookmarks when DOCX has headings
 - Creates a caption files (when using `-c keep` option)
+- Inspects the pronunciation of proper nouns (when using the `-i` option)
 - Supports processing of OMML equations into more natural sounding 'math speech' (uses MathJax SRE)
+- Checks the alternative text of math equations (when using the `-i` option)
 - Detects secondary text, footnotes, foonote regions, mathematical content areas and allows users the option to delete them before processing
 - Lower pitch for parentheses
 - batch processing
