@@ -66,7 +66,7 @@ Create MP3 Files From DOCX
 
 **Note:** All of the languages available from Microsoft are supported by the script (as of 1/5/2021). While some voices are available system wide after installation, such as German - Microsoft Hedda Desktop or French  - Microsoft Hortense Desktop, voices from some languages cannot be used by the script unless you edit your registry (see below). Some examples of voices for which you will need to edit the registry: Hebrew - Microsoft Asaf; Hungarian - Microsoft Szabolcs etc.
 
-### Optional Setup for making Microsoft SAPI 5 voices available systemide
+### Optional Setup for making Microsoft SAPI 5 voices available systemwide
 
 1. Start > Create a System Restore Point and Press Create
 
