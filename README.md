@@ -24,10 +24,11 @@ Create MP3 Files From DOCX
 - [NLTK](http://www.nltk.org/install.html) (for checking the pronunciation of proper nouns)
 
 ## General Setup
-1. Download the DOCX-MP3.sh script to your [PC](https://github.com/polizoto/DOCX-MP3/blob/main/DOCX-MP3.sh)
-2. Place the script in an easy-to-locate folder (`C:\scripts\` for PC)
-3. Create a "MP3 Cover" folder in your `C:\` drive (PC). Name your default cover image "Default_Cover.jpg"
-4. Download the executables for Balcon, Lame, id3, and FFMPEG and add the path to these executables to your Environmental Variables (requires admin rights):
+1. Install [Pandoc](https://pandoc.org/installing.html) and [Git for Windows](https://git-scm.com/download/win)
+2. Download the DOCX-MP3.sh script to your [PC](https://github.com/polizoto/DOCX-MP3/blob/main/DOCX-MP3.sh)
+3. Place the script in an easy-to-locate folder (`C:\scripts\` for PC)
+4. Create a "MP3 Cover" folder in your `C:\` drive (PC). Name your default cover image "Default_Cover.jpg"
+5. Download the executables for Balcon, Lame, id3, and FFMPEG and add the path to these executables to your Environmental Variables (requires admin rights):
       - Windows Start > Edit System Variables > Environment Variables
       - In the System variables group, select the Path variable and click Edit...
       - In the Edit Environment variable window, click New
@@ -39,7 +40,9 @@ Create MP3 Files From DOCX
       - Click New again
       - Paste the path to the FFMPEG executable (C:\Program Files (x86)\FFMPEG)
       - Click OK three times
-5. Place Tasklist.exe in the `C:\scripts\` folder (PC only)
+6. Place Tasklist.exe in the `C:\scripts\` folder (PC only)
+
+Note: To make the DOCX-MP3.sh available systemwide, place it in this folder: `C:\Program Files\Git\usr\bin`
 
 ### Optional Setup for processing math equations:
 1. Install Node.js
