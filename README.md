@@ -33,13 +33,13 @@ Create MP3 Files From DOCX
       - Windows Start > Edit System Variables > Environment Variables
       - In the System variables group, select the Path variable and click Edit...
       - In the Edit Environment variable window, click New
-      - Paste the path to the Lame executable (C:\Program Files (x86)\Balcon)
+      - Paste the path to the Lame executable (`C:\Program Files (x86)\Balcon`)
       - Click New again
-      - Paste the path to the Lame executable (C:\Program Files (x86)\Lame)
+      - Paste the path to the Lame executable (`C:\Program Files (x86)\Lame`)
       - Click New again
-      - Paste the path to the id3 executable (C:\Program Files (x86)\id3)
+      - Paste the path to the id3 executable (`C:\Program Files (x86)\id3`)
       - Click New again
-      - Paste the path to the FFMPEG executable (C:\Program Files (x86)\FFMPEG)
+      - Paste the path to the FFMPEG executable (`C:\Program Files (x86)\FFMPEG`)
       - Click OK three times
 6. Place Tasklist.exe in the `C:\scripts\` folder (PC only)
 
