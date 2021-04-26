@@ -28,7 +28,8 @@ Create MP3 Files From DOCX
 2. Download the DOCX-MP3.sh script to your [PC](https://github.com/polizoto/DOCX-MP3/blob/main/DOCX-MP3.sh)
 3. Place the script in an easy-to-locate folder (`C:\scripts\` for PC)
 4. Create a "MP3 Cover" folder in your `C:\` drive (PC). Name your default cover image "Default_Cover.jpg"
-5. Download the executables for Balcon, Lame, id3, and FFMPEG and add the path to these executables to your Environmental Variables (requires admin rights):
+5. Download the executables for Balcon, Lame, id3, and FFMPEG. Create a folder for each of these programs in your `C:\Program Files (x86)\` folder and place each executable in its respective folder (e.g., `C:\Program Files (x86)\Balcon` etc.)
+6. Add the path to these executables to your Environmental Variables (requires admin rights):
       - Windows Start > Edit System Variables > Environment Variables
       - In the System variables group, select the Path variable and click Edit...
       - In the Edit Environment variable window, click New
