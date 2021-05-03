@@ -360,3 +360,9 @@ If there are multiple languages in your DOCX file, you will need to use the `-l`
 ## Further Resources
 
 [DOCX-MP3 Script Demonstration Video](https://www.dropbox.com/s/q27gtr1atgre0em/DOCX-MP3_opencaptions.mp4?dl=0)
+
+For information about the use of the `-i` option, to inspect the alternative text for math equations, see this video:
+
+[-i Option Demonstation Video](https://www.youtube.com/watch?v=ophpILKTVNI&ab_channel=PointsofAccesswithPhillipWhite)
+
+Note: This last video shows the use of the `-i` option when using the [DOCX-HTML.sh](https://github.com/polizoto/DOCX-HTML) script, but the functionality is the same for both scripts.
