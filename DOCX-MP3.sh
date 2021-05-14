@@ -3,7 +3,7 @@
 # Joseph Polizzotto
 # UC Berkeley
 # 510-642-0329
-# Version 0.2.0
+# Version 0.2.1
 # Instructions: 
 # 1. Create a folder where you will convert DOCX files to MP3s (C:\MP3 Projects)
 # 2. Place DOCX files in the folder
@@ -2559,7 +2559,7 @@ echo -e "\n\033[1;33mATTENTION:\033[0mTasklist.exe not found. Please make sure t
 
 find . -type f -name "~*.docx" -exec rm -f {} \;
 
-read -n1 -s -r -p $'Press space to continue...\r' key
+read -n1 -s -r -p $'Press ANY key to continue...\r' key
 
 if [ ! "$key" = ' ' ]; then
 
@@ -2724,7 +2724,7 @@ perl -0777 -pi -e 's/(\n)(.*)(-   )(.*\n)/$4\n/g' ./"$baseName"/"$baseName".txt
 perl -0777 -pi -e 's/###### //g' ./"$baseName"/"$baseName".txt
 
 # perl -0777 -pi -e 's/(\n)(##### )/$1/g' ./"$baseName"/"$baseName".txt
-perl -0777 -pi -e 's/(\n)(#### )/$1<heading5>/g' ./"$baseName"/"$baseName".txt
+perl -0777 -pi -e 's/(\n)(##### )/$1<heading5>/g' ./"$baseName"/"$baseName".txt
 sed -i 's/\(<heading5>\)\(.*\)/\1\2<\/heading5>/g' ./"$baseName"/"$baseName".txt
 
 # perl -0777 -pi -e 's/(\n)(#### )/$1/g' ./"$baseName"/"$baseName".txt
@@ -2735,6 +2735,13 @@ sed -i 's/\(<heading4>\)\(.*\)/\1\2<\/heading4>/g' ./"$baseName"/"$baseName".txt
 perl -0777 -pi -e 's/(\n)(### )/$1<heading3>/g' ./"$baseName"/"$baseName".txt
 sed -i 's/\(<heading3>\)\(.*\)/\1\2<\/heading3>/g' ./"$baseName"/"$baseName".txt
 
+perl -0777 -pi -e 's/(\n)(## )/$1<heading2>/g' ./"$baseName"/"$baseName".txt
+sed -i 's/\(<heading2>\)\(.*\)/\1\2<\/heading2>/g' ./"$baseName"/"$baseName".txt
+
+sed -i '1!b;s/# /<heading1>/g' ./"$baseName"/"$baseName".txt
+perl -0777 -pi -e 's/(\n)(# )/$1<heading1>/g' ./"$baseName"/"$baseName".txt
+sed -i 's/\(<heading1>\)\(.*\)/\1\2<\/heading1>/g' ./"$baseName"/"$baseName".txt
+
 if [[ "$caption" == "on" ]]; 
 
 # Extract headings
@@ -2744,16 +2751,13 @@ then
 	grep -e 'heading' ./"$baseName"/"$baseName".txt > ./"$baseName"/headings.txt
 
 	sed -i 's/<heading[1-5]>/@@ /g' ./"$baseName"/headings.txt
-
+	
 	sed -i 's/<\/heading[1-5]>//g' ./"$baseName"/headings.txt
 
 	perl -pi -e 's/\^\d+\^//g' ./"$baseName"/headings.txt
 	perl -pi -e 's/(\[\^)(\d+)(\])(:)/$2$4/g' ./"$baseName"/headings.txt
 	perl -pi -e 's/(\[\^)(\d+)(\])//g' ./"$baseName"/headings.txt
 	sed -i -E 's|\^([^\^]?*)\^||g' ./"$baseName"/headings.txt
-	
-	# New
-	
 	sed -i ':a;$!{N;/\n@@/!{s/\n/ /;ba}};P;D' ./"$baseName"/headings.txt
 	
 	#
@@ -2868,7 +2872,6 @@ N | n)
 	*)
 	   echo -e "\n"
        echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ y / n ].\033[0m\n"
-	   break
        ;;
 	   
      
@@ -2916,7 +2919,6 @@ N | n)
 	*)
 	   echo -e "\n"
        echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ y / n ].\033[0m\n"
-	   break
        ;;
 	    
 esac
@@ -2956,7 +2958,6 @@ N | n)
 	*)
 	   echo -e "\n"
        echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ y / n ].\033[0m\n"
-	   break
        ;;
 	   
      
@@ -2995,7 +2996,6 @@ N | n)
 	*)
 	   echo -e "\n"
        echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ y / n ].\033[0m\n"
-	   break
        ;;
 	   
      
@@ -3032,7 +3032,6 @@ N | n)
 	*)
 	   echo -e "\n"
        echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ y / n ].\033[0m\n"
-	   break
        ;;
 	   
      
@@ -3071,7 +3070,6 @@ N | n)
 	*)
 	   echo -e "\n"
        echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ y / n ].\033[0m\n"
-	   break
        ;;
 	   
      
@@ -3112,7 +3110,6 @@ N | n)
 	*)
 	   echo -e "\n"
        echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ y / n ].\033[0m\n"
-	   break
        ;;
 	   
      
@@ -3153,7 +3150,6 @@ N | n)
 	*)
 	   echo -e "\n"
        echo -e "\033[1;31mError: Invalid entry\033[0m "$answer". \033[1;31mYou must enter one of the following values: [ y / n ].\033[0m\n"
-	   break
        ;;
 	   
      
@@ -16545,7 +16541,7 @@ perl -0777 -pi -e 's/(\n)(\n)/$1/g' ./"$baseName"/"$baseName".txt
 	
 	perl -0777 -pi -e 's/<split>\n//g' ./"$baseName"/"$baseName"[1-9]*.txt
 	
-	if [ -f .headings.txt ]; then
+	if [ -f ./headings.txt ]; then
 	
 	rm ./headings.txt
 	
@@ -17242,13 +17238,29 @@ then
 			
 			perl -00 -pi -le 's/.*\n.*\n/$&\n/mg' ./"$baseName"/"$baseName"_$count.txt
 			
-			# Create syncmap
+#
+ffmpeg -i ./"$baseName"/"$baseName"_$count.mp3 2>&1 | sed -n -e 's/^  \(.*\)\(, start:\)\(.*\)$/\1/p' > ./"$baseName"/time_$count.txt
+
+perl -pi -e 's/Duration: \d+://g' ./"$baseName"/time_$count.txt
+
+perl -pi -e 's/:.*\n//g' ./"$baseName"/time_$count.txt
+
+perl -pi -e 's/^0//g' ./"$baseName"/time_$count.txt
+
+read -r firstline<./"$baseName"/time_$count.txt
+
+if [[ "$firstline" -le 32 ]]; then
 		
-		python -m aeneas.tools.execute_task ./"$baseName"/"$baseName"_$count.mp3 ./"$baseName"/"$baseName"_$count.txt "task_language=$lingua|task_adjust_boundary_nonspeech_min=1.000|task_adjust_boundary_nonspeech_string=REMOVE|is_text_file_ignore_regex=\[YzW\]|task_adjust_boundary_algorithm=percent|task_adjust_boundary_percent_value=75|is_text_type=subtitles|os_task_file_format=vtt" ./"$baseName"/"$baseName"_$count.vtt &> /dev/null
+		
+		# Create syncmap
+		
+		python -m aeneas.tools.execute_task ./"$baseName"/"$baseName"_$count.mp3 ./"$baseName"/"$baseName"_$count.txt "task_language=$lingua|task_adjust_boundary_nonspeech_min=1.000|task_adjust_boundary_nonspeech_string=REMOVE|is_text_file_ignore_regex=\[YzW\]|task_adjust_boundary_algorithm=percent|task_adjust_boundary_percent_value=75|is_text_type=subtitles|os_task_file_format=vtt" ./"$baseName"/"$baseName"_$count.vtt >/dev/null 2>&1
 		
 		grep -B 1 -A 3 'YzW' ./"$baseName"/"$baseName"_$count.vtt > ./"$baseName"/"$baseName"_$count.chapters.txt
 		
-		perl -0777 -pi -e 's/YzW(.*\n)//g' ./"$baseName"/"$baseName"_$count.vtt
+		rm ./"$baseName"/time_$count.txt
+		
+		perl -0777 -pi -e 's/YzW(.*\n)//g' ./"$baseName"/"$baseName"_$count.vtt &> /dev/null
 		
 		perl -i -ne 'print if /^[0-9][0-9]:/' ./"$baseName"/"$baseName"_$count.chapters.txt
 		
@@ -17265,10 +17277,22 @@ then
     1                      
     ' ./"$baseName"/"$baseName"_$count.chapters.txt > tmp && mv tmp ./"$baseName"/"$baseName"_$count.chapters.txt
 	
-		perl -0777 -pi -e 's/\n@@//g' ./"$baseName"/"$baseName"_$count.chapters.txt
+	perl -0777 -pi -e 's/\n@@//g' ./"$baseName"/"$baseName"_$count.chapters.txt
+	
+	perl -0777 -pi -e 's/00:00:00.000.*\n.*@@/00:00:00.000 /g' ./"$baseName"/"$baseName"_$count.chapters.txt
+	
+	rm ./headings$count.txt
+			
+	else
+
+	echo -e "\n"$baseName"_"$count".mp3" > ./"$baseName"/time_$count.txt
+
+	sed -i '/^$/d' ./"$baseName"/time_$count.txt
+	
+	rm ./"$baseName"/headings$count.txt
 		
-		rm ./headings$count.txt
- 
+	fi
+		
 		count=$[ $count + 1 ] ; 
 		done
 		
@@ -17290,25 +17314,27 @@ then
 
 		perl -00 -pi -le 's/.*\n.*\n/$&\n/mg' ./"$baseName"/"$baseName".txt
 		
+		ffmpeg -i ./"$baseName"/"$baseName".mp3 2>&1 | sed -n -e 's/^  \(.*\)\(, start:\)\(.*\)$/\1/p' > ./"$baseName"/time_1.txt
+
+		perl -pi -e 's/Duration: \d+://g' ./"$baseName"/time_1.txt
+
+		perl -pi -e 's/:.*\n//g' ./"$baseName"/time_1.txt
+		
+		perl -pi -e 's/^0//g' ./"$baseName"/time_1.txt
+
+		read -r firstline<./"$baseName"/time_1.txt
+
+		if [[ "$firstline" -le 32 ]]; then
+		
 		# Create syncmap
 		
 		python -m aeneas.tools.execute_task ./"$baseName"/"$baseName".mp3 ./"$baseName"/"$baseName".txt "task_language=$lingua|task_adjust_boundary_nonspeech_min=1.000|task_adjust_boundary_nonspeech_string=REMOVE|is_text_file_ignore_regex=\[YzW\]|task_adjust_boundary_algorithm=percent|task_adjust_boundary_percent_value=75|is_text_type=subtitles|os_task_file_format=vtt" ./"$baseName"/"$baseName".vtt &> /dev/null
 		
-		if [ ! -f ./"$baseName"/"$baseName".vtt ];
-		
-		then
-		
-		echo -e "\033[1;33mATTENTION:\033[0m \033[1;35m"$baseName".mp3\033[0m is too long for a caption file to be generated:\n"
-		
-		ffmpeg -i ./"$baseName"/"$baseName".mp3 2>&1 | sed -n -e 's/^  \(.*\)\(, start:\)\(.*\)$/\1/p'
-		
-		echo -e "\nConsider breaking up \033[1;35m"$baseName".docx\033[0m into smaller chunks."
-		
-		else
-		
 		grep -B 1 -A 3 'YzW' ./"$baseName"/"$baseName".vtt > ./"$baseName"/"$baseName".chapters.txt
 		
-		perl -0777 -pi -e 's/YzW(.*\n)//g' ./"$baseName"/"$baseName".vtt
+		rm ./"$baseName"/time_1.txt
+		
+		perl -0777 -pi -e 's/YzW(.*\n)//g' ./"$baseName"/"$baseName".vtt &> /dev/null
 		
 		perl -i -ne 'print if /^[0-9][0-9]:/' ./"$baseName"/"$baseName".chapters.txt
 		
@@ -17324,6 +17350,30 @@ then
     ' ./"$baseName"/"$baseName".chapters.txt > tmp && mv tmp ./"$baseName"/"$baseName".chapters.txt
 	
 		perl -0777 -pi -e 's/\n@@//g' ./"$baseName"/"$baseName".chapters.txt
+		
+		perl -0777 -pi -e 's/00:00:00.000.*\n.*@@/00:00:00.000 /g' ./"$baseName"/"$baseName".chapters.txt
+		
+		else
+
+		echo -e "\n"$baseName".mp3" > ./"$baseName"/time_1.txt
+
+		sed -i '/^$/d' ./"$baseName"/time_1.txt
+	
+		rm ./"$baseName"/headings.txt
+		
+		fi
+		
+		if [ ! -f ./"$baseName"/"$baseName".vtt ];
+		
+		then
+		
+		echo -e "\033[1;33mATTENTION:\033[0m \033[1;35m"$baseName".mp3\033[0m is too long for a caption file to be generated:\n"
+		
+		ffmpeg -i ./"$baseName"/"$baseName".mp3 2>&1 | sed -n -e 's/^  \(.*\)\(, start:\)\(.*\)$/\1/p'
+		
+		echo -e "\nConsider breaking up \033[1;35m"$baseName".docx\033[0m into smaller chunks."
+		
+		else
 
 		echo -ne "Creating caption (.vtt) file and MP3 bookmarks... \033[1;32mDone.\033[0m\r"
 		
@@ -17390,7 +17440,7 @@ count=1
 	
 	mp3chaps -i ./"$baseName"/"$baseName"_$count.mp3 >/dev/null  2>&1
 
-	rm ./"$baseName"/"$baseName"_$count.chapters.txt
+	rm ./"$baseName"/"$baseName"_$count.chapters.txt &> /dev/null
 	
  
 	count=$[ $count + 1 ] ; 
@@ -17436,6 +17486,21 @@ sed -i '1{/^$/d}' ./Converted-DOCX-MP3/log.txt
 
 fi	
 
+#
+
+if [ -f ./"$baseName"/time_*.txt ] ; then
+
+cat ./"$baseName"/time_*.txt > ./"$baseName"/time_total.txt
+
+time_total=`cat ./"$baseName"/time_total.txt`
+
+echo -e "\n\033[1;33mATTENTION:\033[0m One or more files was longer than ~32 minutes:\n \033[1;35m"$time_total"\033[0m\n No bookmarks were added to this file(s)."
+
+rm ./"$baseName"/time_*.txt
+
+fi
+
+#
 	
 if [ -n "$word" ]; then
 
