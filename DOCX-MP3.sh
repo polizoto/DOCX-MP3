@@ -211,7 +211,7 @@ return 0
 }
 
 function version (){
-    printf "\nVersion 0.2.0\n"
+    printf "\nVersion 0.2.1\n"
 
 return 0
 }
