@@ -161,13 +161,13 @@ Some voices (Latin, Lithuanian, Estonian, Farsi, and Afrikaans) must be installe
 
 ### Optional Setup for processing proper nouns
 1. Install NLTK. From the Git Bash terminal:
-      type `python -i` and press Enter
-      then type `pip install --user -U nltk` and press Enter
-1. Install NLTK packages. From the Git Bash terminal, with Python running (use `python -i`) 
-      type `import nltk` and press Enter
-      type `nltk.download('punkt')` and press Enter. 
-      type `import nltk` and press Enter
-      type `nltk.download('averaged_perceptron_tagger')` and press Enter.
+- type `python -i` and press Enter
+- then type `pip install --user -U nltk` and press Enter
+2. Install NLTK packages. From the Git Bash terminal, with Python running (use `python -i`) 
+- type `import nltk` and press Enter
+- type `nltk.download('punkt')` and press Enter
+- type `import nltk` and press Enter
+- type `nltk.download('averaged_perceptron_tagger')` and press Enter
 3. Download `noun_phrases.py` and `lexconvert.py` from this repository and place these in your `\c\scripts\` folder
 ## Features
 
