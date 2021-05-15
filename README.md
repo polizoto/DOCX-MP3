@@ -5,7 +5,7 @@ Create MP3 Files From DOCX
 
 ## Requirements
 - [Git for Windows](https://git-scm.com/download/win) - We recommend these [general installation instructions for Git for Windows](https://phoenixnap.com/kb/how-to-install-git-windows)
-- [Pandoc](https://pandoc.org/installing.html)
+- [Pandoc - version 2.13](https://pandoc.org/installing.html)
 - [Balcon](http://www.cross-plus-a.com/balcon.zip)
 - [Lame - 64 bit](https://www.rarewares.org/files/mp3/lame3.100.1-x64.zip) OR [Lame - 32 bit](https://www.rarewares.org/files/mp3/lame3.100.1-win32.zip)
 - [ID3](https://resource.dopus.com/uploads/default/original/3X/9/5/95a7771be4fdbbfee19729fecc456048bd14efe5.zip)
@@ -125,7 +125,7 @@ Note: To make the DOCX-MP3.sh available systemwide, place it in this folder: `C:
 5. Locate the modified registry file for the voice(s) that you have installed here:
             [Registry Files for Voices Not Available Systemwide](https://www.dropbox.com/s/9op04duwuco6cll/Registry%20Files%20for%20Voices%20Not%20Available%20Systemwide.zip?dl=0)
 
-6. Drag the registry file to your `C:\`  drive and double click on it.
+6. Drag the registry file to your `C:\`  drive and double click on it. (You will Administrator privileges for this step)
 
 7. Click Yes when prompted to modify the registry
 
@@ -160,13 +160,15 @@ Some voices (Latin, Lithuanian, Estonian, Farsi, and Afrikaans) must be installe
 - eSpeak-grc (Ancient Greek)
 
 ### Optional Setup for processing proper nouns
-1. Install NLTK
-      `python -i`
-      `pip install --user -U nltk`
-2. Download `noun_phrases.py` and `lexconvert.py` from this repository and place these in your `\c\scripts\` folder
-
-Note: When installing NLTK, you may also need to download the 'punkt' and 'averaged_perceptron_tagger' packages. If so, type `python -i` in the Git Bash terminal and then enter `nltk.download('punkt')`. Then type `nltk.download('averaged_perceptron_tagger')`.
-
+1. Install NLTK. From the Git Bash terminal:
+      type `python -i` and press Enter
+      then type `pip install --user -U nltk` and press Enter
+1. Install NLTK packages. From the Git Bash terminal, with Python running (use `python -i`) 
+      type `import nltk` and press Enter
+      type `nltk.download('punkt')` and press Enter. 
+      type `import nltk` and press Enter
+      type `nltk.download('averaged_perceptron_tagger')` and press Enter.
+3. Download `noun_phrases.py` and `lexconvert.py` from this repository and place these in your `\c\scripts\` folder
 ## Features
 
 - Microsoft Core Voices: David, Mark, Zira (English - US), Naayf, Hoda (Arabic), Ivan (Bulgarian), Herena (Catalan), Huihui, Tracy, Zhiwei (Chinese), Jakub (Czech), Helle (Danish), Frank, Bart (Dutch), James (English - Australia), Linda (English - Canada), Hazel (English - Great Britain), Ravi (English - India), Sean (English - Ireland), Heidi (Finnish), Hortense, Claude, Guillaume (French), Hedda, Michael, Karsten (German), Stefanos (Greek), AncientGr (Ancient Greek), Asaf (Hebrew), Heman (Hindi), Matej (Croatian), Szabolcs (Hungarian), Andika (Indonesian), Elsa (Italian), Haruka (Japanese), Heami (Korean), Rizwan (Malaysian), Jon (Norwegian), Paulina (Polish), Helia, Maria (Portuguese), Andrei (Romanian), Irina (Russian), Filip (Slovak), Lado (Slovenian), Helena, Sabina (Spanish), Bengt (Swedish), Valluvar (Tamil), Pattara (Thai), Tolga (Turkish), An (Vietnamese).
