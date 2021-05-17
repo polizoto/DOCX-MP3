@@ -3,7 +3,7 @@
 # Joseph Polizzotto
 # UC Berkeley
 # 510-642-0329
-# Version 0.2.1
+# Version 0.2.2
 # Instructions: 
 # 1. Create a folder where you will convert DOCX files to MP3s (C:\MP3 Projects)
 # 2. Place DOCX files in the folder
@@ -31,6 +31,12 @@ function usage (){
 	printf "  %-10s %-6s\n" "" "Off"
 	printf "  %-5s %-3s\n" "" "Default:"
 	printf "  %-10s %-6s\n" "" "On"
+	printf "\n"
+	printf "  %-5s %-3s\n" "-d" "Diagnostics"
+	printf "  %-5s %-3s\n" "" "Parameters:"
+	printf "  %-10s %-6s\n" "" "None"
+	printf "  %-5s %-3s\n" "" "Default:"
+	printf "  %-10s %-6s\n" "" "Off"
 	printf "\n"
 	printf "  %-5s %-3s\n" "-e" "Check for Errors with speech synthesis"
 	printf "  %-5s %-3s\n" "" "Parameters:"
@@ -211,12 +217,12 @@ return 0
 }
 
 function version (){
-    printf "\nVersion 0.2.1\n"
+    printf "\nVersion 0.2.2\n"
 
 return 0
 }
 
-while getopts :n:s:a:p:l:mc:et:hir:w:v flag
+while getopts :n:s:a:p:l:mc:et:hidr:w:v flag
 
 do
     case "${flag}" in
@@ -229,6 +235,7 @@ do
         exit 2
 		fi
 		;;
+		d) diagnostics="${flag}";;
 		e) error="${flag}";;
 		i) inspect="${flag}";;
 		l) language+=("$OPTARG");;
@@ -298,6 +305,1243 @@ do
 
 if  ! command -v git >/dev/null  2>&1; then 
 echo -e "\n\033[1;31mError: Git for Windows was not found, which is required for processing the commands in this script. Install Git for Windows (https://git-scm.com/download/win). Exiting....\033[0m" >&2
+exit 1
+
+fi
+
+# Check Dependencies
+
+if [ -n "$diagnostics" ]; then
+
+USER=$(whoami)
+
+if  command -v git >/dev/null  2>&1; then 
+
+if ! (echo a version 2.31.1; git --version) | sort -Vk3 | tail -1 | grep -q git
+then
+
+basic_dependencies=missing
+
+fi
+
+else
+
+basic_dependencies=missing
+
+fi 
+
+if [ -x "$(command -v pandoc)" ]; then
+
+if ! pandoc -v | (echo a.exe 2.13; pandoc --version | head -1) | sort -Vk2 | tail -1 | grep -q pandoc
+then
+
+basic_dependencies=missing
+
+fi
+
+else
+
+basic_dependencies=missing
+
+fi
+
+
+if [ ! -f  "C:\balcon\balcon.exe" ]; then
+
+basic_dependencies=missing
+
+fi 
+
+if  ! command -v lame >/dev/null  2>&1; then 
+
+basic_dependencies=missing
+
+fi 
+
+if  ! command -v id3 >/dev/null  2>&1; then 
+
+basic_dependencies=missing
+
+fi 
+
+if  ! command -v ffmpeg >/dev/null  2>&1; then 
+
+basic_dependencies=missing
+
+fi
+
+if [ ! -f  "C:\MP3 Cover\UC_Berkeley_Seal.jpg" ]; then
+
+basic_dependencies=missing
+
+fi
+
+if [ ! -f /c/scripts/tasklist.exe ]; then 
+
+basic_dependencies=missing
+
+fi
+
+if [[ "$basic_dependencies" == "" ]]; then
+
+printf "%-15s \e[1;32m%s\e[m\n" "Basic Setup" "OK"
+
+fi
+
+if [[ "$basic_dependencies" == "missing" ]]; then
+
+printf "%-15s \e[1;31m%s\e[m\n" "Basic Setup" ""
+
+if  command -v git >/dev/null  2>&1; then 
+
+if (echo a version 2.31.1; git --version) | sort -Vk3 | tail -1 | grep -q git
+then
+    printf "%-15s \e[1;32m%s\e[m\n" "Git" "OK"
+else
+    printf "%-15s \e[1;33m%s\e[m\n" "Git" "Newer version available." 
+	printf "%-15s \e[1;33m%s\e[m\n" "" "Run 'git update-git-for-windows'"
+fi
+
+else
+
+printf "%-15s \e[1;31m%s\e[m\n" "Git" "Not Found"
+
+fi 
+
+if [ -x "$(command -v pandoc)" ]; then
+
+
+if pandoc -v | (echo a.exe 2.13; pandoc --version | head -1) | sort -Vk2 | tail -1 | grep -q pandoc
+then
+    printf "%-15s \e[1;32m%s\e[m\n" "Pandoc" "OK"
+else
+    printf "%-15s \e[1;33m%s\e[m\n" "Pandoc" "Newer version available." 
+	printf "%-15s \e[1;33m%s\e[m\n" "" "Get the latest: https://pandoc.org/installing.html"
+fi
+
+else
+
+printf "%-15s \e[1;31m%s\e[m\n" "Pandoc" "Not Found"
+
+fi
+
+
+if [ -f  "C:\balcon\balcon.exe" ]; then
+
+printf "%-15s \e[1;32m%s\e[m\n" "Balcon" "OK"
+
+else
+
+printf "%-15s \e[1;31m%s\e[m\n" "Balcon" "Not Found"
+
+fi 
+
+if  command -v lame >/dev/null  2>&1; then 
+
+printf "%-15s \e[1;32m%s\e[m\n" "Lame" "OK"
+
+else
+
+printf "%-15s \e[1;31m%s\e[m\n" "Lame" "Not Found"
+
+fi 
+
+if  command -v id3 >/dev/null  2>&1; then 
+
+printf "%-15s \e[1;32m%s\e[m\n" "id3" "OK"
+
+else
+
+printf "%-15s \e[1;31m%s\e[m\n" "id3" "Not Found"
+
+fi 
+
+if  command -v ffmpeg >/dev/null  2>&1; then 
+
+printf "%-15s \e[1;32m%s\e[m\n" "FFMPEG" "OK"
+
+else
+
+printf "%-15s \e[1;31m%s\e[m\n" "FFMPEG" "Not Found"
+
+fi
+
+if [ -f  "C:\MP3 Cover\Default_Cover.jpg" ]; then
+
+printf "%-15s \e[1;32m%s\e[m\n" "MP3 Cover" "OK"
+
+else
+
+printf "%-15s \e[1;31m%s\e[m\n" "MP# Cover" "Not Found"
+
+fi
+
+if [ -f /c/scripts/tasklist.exe ]; then 
+
+printf "%-15s \e[1;32m%s\e[m\n" "Tasklist" "OK"
+
+else
+
+printf "%-15s  \e[1;31m%s\e[m\n" "Tasklist" "Not Found"
+
+fi
+
+fi
+
+if  ! command -v node >/dev/null  2>&1; then 
+
+math_dependencies=missing
+
+fi
+
+if  ! command -v tex2svg >/dev/null  2>&1; then 
+
+math_dependencies=missing
+
+fi 
+
+if [[ "$math_dependencies" == "" ]]; then
+
+printf "%-15s \e[1;32m%s\e[m\n" "Mathspeak" "OK"
+
+fi
+
+if [[ "$math_dependencies" == "missing" ]]; then
+
+printf "%-15s \e[1;31m%s\e[m\n" "Mathspeak" ""
+
+if  command -v node >/dev/null  2>&1; then 
+
+printf "%-15s \e[1;32m%s\e[m\n" "Node.js" "OK"
+else
+
+printf "%-15s \e[1;31m%s\e[m\n" "Node.js" "Not Found"
+
+
+
+fi
+
+if  command -v tex2svg >/dev/null  2>&1; then 
+
+printf "%-15s \e[1;32m%s\e[m\n" "tex2svg" "OK"
+else
+
+printf "%-15s \e[1;31m%s\e[m\n" "tex2svg" "Not Found"
+
+fi
+
+fi 
+
+if  ! command -v python >/dev/null  2>&1; then 
+
+bookmark_dependencies=missing
+
+fi
+
+if [ ! -f  "C:\Python37-32\Scripts\aeneas_execute_task.py" ]; then
+
+bookmark_dependencies=missing
+
+fi
+
+if [ ! -x "$(command -v mp3chaps)" ]; then
+
+bookmark_dependencies=missing
+fi
+
+if [[ "$bookmark_dependencies" == "" ]]; then
+
+printf "%-15s \e[1;32m%s\e[m\n" "MP3 Bookmarks" "OK"
+
+fi
+
+if [[ "$bookmark_dependencies" == "missing" ]]; then
+
+printf "%-15s \e[1;31m%s\e[m\n" "MP3 Bookmarks" ""
+
+if  command -v python >/dev/null  2>&1; then 
+
+printf "%-15s \e[1;32m%s\e[m\n" "Python" "OK"
+else
+
+printf "%-15s \e[1;31m%s\e[m\n" "Python" "Not Found"
+
+fi
+
+if [ -f  "C:\Python37-32\Scripts\aeneas_execute_task.py" ]; then
+
+printf "%-15s \e[1;32m%s\e[m\n" "Aeneas" "OK"
+else
+
+printf "%-15s \e[1;31m%s\e[m\n" "Aeneas" "Not Found"
+
+fi
+
+if [ -x "$(command -v mp3chaps)" ]; then
+
+printf "%-15s \e[1;32m%s\e[m\n" "mp3chaps" "OK"
+else
+
+printf "%-15s \e[1;31m%s\e[m\n" "mp3chaps" "Not Found"
+
+fi
+
+fi
+
+if  ! command -v python >/dev/null  2>&1; then 
+
+noun_phrase_dependencies=missing
+
+fi
+
+if  ! command -v python import nltk >/dev/null  2>&1; then 
+
+noun_phrase_dependencies=missing
+
+fi
+
+if [ ! -d /c/Users/$USER/AppData/Roaming/nltk_data/tokenizers/punkt ]; then
+
+noun_phrase_dependencies=missing
+
+fi
+
+if [ ! -d /c/Users/$USER/AppData/Roaming/nltk_data/taggers/averaged_perceptron_tagger ]; then
+
+noun_phrase_dependencies=missing
+
+fi
+
+if [[ "$noun_phrase_dependencies" == "" ]]; then
+
+printf "%-15s \e[1;32m%s\e[m\n" "Proper Nouns" "OK"
+
+fi  
+
+if [[ "$noun_phrase_dependencies" == "missing" ]]; then 
+
+printf "%-15s \e[1;31m%s\e[m\n" "Proper Nouns" ""
+
+if  command -v python >/dev/null  2>&1; then 
+
+printf "%-15s \e[1;32m%s\e[m\n" "Python" "OK"
+else
+
+printf "%-15s \e[1;31m%s\e[m\n" "Python" "Not Found"
+
+fi
+
+if  command -v python import nltk >/dev/null  2>&1; then 
+
+printf "%-10s \e[1;32m%s\e[m\n" "NLTK" "OK"
+else
+
+printf "%-10s \e[1;31m%s\e[m\n" "NLTK" "Not Found"
+
+fi
+
+if [ -d /c/Users/$USER/AppData/Roaming/nltk_data/tokenizers/punkt ]; then
+
+printf "%-10s \e[1;32m%s\e[m\n" "Punkt" "OK"
+else
+printf "%-10s \e[1;31m%s\e[m\n" "Punkt" "Not Found"
+
+fi 
+
+if [ -d /c/Users/$USER/AppData/Roaming/nltk_data/taggers/averaged_perceptron_tagger ]; then
+
+printf "%-10s \e[1;32m%s\e[m\n" "Perceptron" "OK"
+else
+printf "%-10s \e[1;31m%s\e[m\n" "Perceptron" "Not Found"
+
+fi
+
+fi
+
+echo -e "Checking Voices...\r"
+
+if ! [ -x "$(command -v espeak)" ]; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Naayf' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Hoda' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Ivan' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Herena' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Jakub' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Helle' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Hedda' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Michael' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Karsten' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Stefanos' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'James' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'David' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Linda' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Hazel' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Ravi' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Sean' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Mark' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Zira' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Helena' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Sabina' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Heidi' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Hortense' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Claude' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Guillaume' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Asaf' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Hemant' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Matej' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'David' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Szabolcs' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Andika' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Elsa' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Haruka' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Heami' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Rizwan' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Frank' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Bart' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Jon' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Paulina' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Helia' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Maria' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Andrei' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Irina' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Filip' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Lado' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Bengt' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Valluvar' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Pattara' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Tolga' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'An' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Huihui' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Tracy' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q  -w 'Zhiwei' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q -w 'mb-lt1' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+
+if ! "C:\balcon\balcon.exe" -l | grep -q -w 'mb-ir1' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q -w 'mb-la1' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q -w 'eSpeak-grc' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+if ! "C:\balcon\balcon.exe" -l | grep -q -w 'mb-ee1' 2> /dev/null ; then
+
+language_dependencies=missing
+
+fi
+
+	
+if [[ "$language_dependencies" == "" ]]; then
+
+printf "%-15s \e[1;32m%s\e[m\n" "Voices" "OK"
+
+fi
+	
+if [[ "$language_dependencies" == "missing" ]]; then
+
+if [ -x "$(command -v espeak)" ]; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "eSpeak" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "eSpeak" "Not Found"
+
+fi
+	
+if "C:\balcon\balcon.exe" -l | grep -q  -w 'Naayf' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Naayf (Arabic - Egypt)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Naayf (Arabic - Egypt)" "Not Found"
+	
+fi
+
+if "C:\balcon\balcon.exe" -l | grep -q  -w 'Hoda' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Hoda (Arabic - Egypt)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Hoda (Arabic - Egypt)" "Not Found"
+	
+fi
+
+if "C:\balcon\balcon.exe" -l | grep -q  -w 'Ivan' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Ivan (Bulgarian)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Ivan (Bulgarian)" "Not Found"
+	
+fi
+
+if "C:\balcon\balcon.exe" -l | grep -q  -w 'Herena' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Herena (Catalan)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Herna (Catalan)" "Not Found"
+	
+fi
+
+if "C:\balcon\balcon.exe" -l | grep -q  -w 'Jakub' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Jakub (Czech)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Jakub (Czech)" "Not Found"
+	
+fi
+
+if "C:\balcon\balcon.exe" -l | grep -q  -w 'Helle' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Helle (Danish)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Helle (Danish)" "Not Found"
+	
+fi
+
+if "C:\balcon\balcon.exe" -l | grep -q  -w 'Hedda' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Hedda (German - Germany)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Hedda (German - Germany)" "Not Found"
+	
+fi
+
+if "C:\balcon\balcon.exe" -l | grep -q  -w 'Michael' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Michael (German - Austria)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Michael (German - Austria)" "Not Found"
+	
+fi
+
+if "C:\balcon\balcon.exe" -l | grep -q  -w 'Karsten' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Karsten (German - Switzerland)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Karsten (German - Switzerland)" "Not Found"
+	
+fi
+
+if "C:\balcon\balcon.exe" -l | grep -q  -w 'Stefanos' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Stefanos (Greek)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Stefanos (Greek)" "Not Found"
+	
+fi
+
+if "C:\balcon\balcon.exe" -l | grep -q  -w 'James' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "James (English - Australian)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "James (English - Australian)" "Not Found"
+	
+fi
+
+if "C:\balcon\balcon.exe" -l | grep -q  -w 'Linda' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Linda (English - Canada)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Linda (English - Canada)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Hazel' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Hazel (English - Great Britain)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Hazel (English - Great Britain)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Ravi' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Ravi (English - India)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Ravi (English - India)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Sean' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Sean (English - Ireland)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Sean (English - Ireland)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Mark' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Mark (English - United States)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Mark (English - United States)" "Not Found"
+	
+fi
+
+if "C:\balcon\balcon.exe" -l | grep -q  -w 'David' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "David (English - United States)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "David (English - United States)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Zira' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Zira (English - United States)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Zira (English - United States)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Helena' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Helena (Spanish - Spain)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Helena (Spanish - Spain)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Sabina' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Sabina (Spanish - Mexico)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Sabina (Spanish - Mexico)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Heidi' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Heidi (Finnish)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Heidi (Finnish)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Hortense' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Hortense (French - France)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Hortense (French - France)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Claude' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Claude (French - Canada)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Claude (French - Canada)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Guillaume' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Guillaume (French - Switzerland)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Guillaume (French - Switzerland)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Asaf' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Asaf (Hebrew)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Asaf (Hebrew)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Hemant' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Hemant (Hindi)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Hemant (Hindi)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Matej' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Matej (Croatian)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Matej (Croatian)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Szabolcs' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Szabolcs (Hungarian)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Szabolcs (Hungarian)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Andika' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Andika (Indonesian)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Andika (Indonesian)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Elsa' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Elsa (Italian)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Elsa (Italian)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Haruka' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Haruka (Japanese)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Haruka (Japanese)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Heami' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Heami (Korean)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Heami (Korean)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Rizwan' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Rizwan (Malaysian)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Rizwan (Malaysian)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Frank' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Frank (Dutch - Netherlands)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Frank (Dutch - Netherlands)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Bart' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Bart (Dutch - Belgium)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Bart (Dutch - Belgium)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Jon' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Jon (Norwegian)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Jon (Norwegian)" "Not Found"
+	
+fi
+	
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Paulina' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Paulina (Polish)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Paulina (Polish)" "Not Found"
+	
+fi
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Helia' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Helia (Portuguese - Portugal)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Helia (Portuguese - Portugal)" "Not Found"
+	
+fi	
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Maria' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Maria (Portuguese - Brazil)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Maria (Portuguese - Brazil)" "Not Found"
+	
+fi	
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Andrei' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Andrei (Romanian)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Andrei (Romanian)" "Not Found"
+	
+fi	
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Irina' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Irina (Russian)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Irina (Russian)" "Not Found"
+	
+fi	
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Filip' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Filip (Slovak)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Filip (Slovak)" "Not Found"
+	
+fi	
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Lado' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Lado (Slovenian)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Lado (Slovenian)" "Not Found"
+	
+fi	
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Bengt' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Bengt (Swedish)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Bengt (Swedish)" "Not Found"
+	
+fi	
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Valluvar' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Valluvar (Tamil)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Valluvar (Tamil)" "Not Found"
+	
+fi	
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Pattara' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Pattara (Thai)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Pattara (Thai)" "Not Found"
+	
+fi	
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Tolga' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Tolga (Turkish)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Tolga (Turkish)" "Not Found"
+	
+fi	
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'An' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "An (Vietnamese)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "An (Vietnamese)" "Not Found"
+	
+fi	
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Huihui' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Huihui (Chinese - China)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Huihui (Chinese - China)" "Not Found"
+	
+fi	
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Tracy' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Tracy (Chinese - Hong Kong)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Tracy (Chinese - Hong Kong)" "Not Found"
+	
+fi	
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'Zhiwei' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Zhiwei (Chinese - Taiwan)" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Zhiwei (Chinese - Taiwan)" "Not Found"
+	
+fi
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'mb-af1' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Afrikaans" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Afrikaans" "Not Found"
+	
+fi
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'mb-la1' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Latin" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Latin" "Not Found"
+	
+fi
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'mb-ir1' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Persian" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Persian" "Not Found"
+	
+fi
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'mb-lt1' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Lithuanian" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Lithuanian" "Not Found"
+	
+fi
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'mb-ee1' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Estonian" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Estonian" "Not Found"
+	
+fi
+
+	if "C:\balcon\balcon.exe" -l | grep -q  -w 'eSpeak-grc' 2> /dev/null ; then
+
+	printf "%-35s \e[1;32m%s\e[m\n" "Ancient Greek" "OK"
+	else
+
+	printf "%-35s \e[1;31m%s\e[m\n" "Ancient Greek" "Not Found"
+	
+fi
+	
+fi
+
 exit 1
 
 fi  
@@ -2367,14 +3611,14 @@ done
          track=1        
         fi			
 		
-# Check if Pandoc is installed; if not, exit the script.
+# Check if the latest version of Pandoc is installed; if not, exit the script.
 
-if ! [ -x "$(command -v pandoc)" ]; then
+if ! pandoc -v | (echo a.exe 2.13; pandoc --version | head -1) | sort -Vk2 | tail -1 | grep -q pandoc
+then
 
-echo -e "\n\033[1;31mError: Pandoc (https://pandoc.org/installing.html)is not installed. This program is used for converting the DOCX to a TXT file before speech synthesis. Exiting...\033[0m" >&2
-
-exit 1
-
+    printf "%-15s \e[1;33m%s\e[m\n" "Pandoc" "Newer version available." 
+	printf "%-15s \e[1;33m%s\e[m\n" "" "Get the latest: https://pandoc.org/installing.html"
+	exit 1
 fi
 
 if [ "$caption" == "" ]; then
@@ -16859,6 +18103,44 @@ perl -0777 -pi -e 's/(\n)(\n)/$1/g' ./"$baseName"/"$baseName".txt
 		fi
 		
 		fi
+		
+			if [[ "$split" == "on" ]]; then
+			
+			count=1
+			
+			if [ -n "$error" ];
+			
+			then
+		
+			cp ./"$baseName"/"$baseName"_$count.txt ./"$baseName"_TEST.txt
+		
+			fi
+		
+			if [ ! -f ./"$baseName"/"$baseName"_$count.mp3  ]; then 
+		
+			echo -e "\n\033[1;31mError: Problem creating MP3. Use -d option to check that all dependencies are met. Exiting....\033[0m" >&2
+			exit 1
+		
+			fi
+			
+			else
+			
+			if [ -n "$error" ];
+			
+			then
+		
+			cp ./"$baseName"/"$baseName".txt ./"$baseName"_TEST.txt
+		
+			fi
+		
+			if [ ! -f ./"$baseName"/"$baseName".mp3 ]; then 
+		
+			echo -e "\n\033[1;31mError: Problem creating MP3. Use -d option to check that all dependencies are met. Exiting....\033[0m" >&2
+			exit 1
+		
+			fi
+			
+			fi
 	  
 		echo -ne "Converting \033[1;35m"$baseName".docx\033[0m to MP3... \033[1;32mDone.\033[0m      \r"
 		
