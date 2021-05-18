@@ -186,6 +186,7 @@ Some voices (Latin, Lithuanian, Estonian, Farsi, and Afrikaans) must be installe
 - Detects secondary text, footnotes, foonote regions, mathematical content areas and allows users the option to delete them before processing
 - Lower pitch for parentheses
 - batch processing
+- Check for correct setup with `-d` option (Diagnostics)
 
 ## Overview
 DOCX-MP3.sh is a bash script that converts DOCX files to MP3 (audio) format. The script optimizes the quality of audio files by inserting a variety of tags that produce natural sounding text to speech (TTS). This document will explain how to run the DOCX-MP3.sh script.
