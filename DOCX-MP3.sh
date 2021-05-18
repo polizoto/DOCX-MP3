@@ -370,7 +370,7 @@ basic_dependencies=missing
 
 fi
 
-if [ ! -f  "C:\MP3 Cover\UC_Berkeley_Seal.jpg" ]; then
+if [ ! -f  "C:\MP3 Cover\Default_Cover.jpg" ]; then
 
 basic_dependencies=missing
 
@@ -498,7 +498,19 @@ if  ! command -v tex2svg >/dev/null  2>&1; then
 
 math_dependencies=missing
 
-fi 
+fi
+
+if [ ! -d /c/Users/$USER/AppData/Roaming/npm/node_modules/mathjax-node-cli/bin ]; then
+
+math_dependencies=missing
+
+fi
+
+if [ ! -f /c/Users/$USER/AppData/Roaming/npm/node_modules/mathjax-node-sre/bin/mjsre.js ]; then
+
+math_dependencies=missing
+
+fi
 
 if [[ "$math_dependencies" == "" ]]; then
 
@@ -527,6 +539,25 @@ printf "%-15s \e[1;32m%s\e[m\n" "tex2svg" "OK"
 else
 
 printf "%-15s \e[1;31m%s\e[m\n" "tex2svg" "Not Found"
+
+fi
+
+
+if [ -d /c/Users/$USER/AppData/Roaming/npm/node_modules/mathjax-node-cli/bin ]; then
+
+printf "%-15s \e[1;32m%s\e[m\n" "MathJaxCLI" "OK"
+else
+
+printf "%-15s \e[1;31m%s\e[m\n" "MathJaxCLI" "Not Found"
+
+fi
+
+if [ -f /c/Users/$USER/AppData/Roaming/npm/node_modules/mathjax-node-sre/bin/mjsre.js ]; then
+
+printf "%-15s \e[1;32m%s\e[m\n" "MathJaxSRE" "OK"
+else
+
+printf "%-15s \e[1;31m%s\e[m\n" "MathJaxSRE" "Not Found"
 
 fi
 
